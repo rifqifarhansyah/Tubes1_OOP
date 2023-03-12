@@ -3,13 +3,14 @@
 #ifndef TABLECARD_HPP
 #define TABLECARD_HPP
 
-#include "Card.hpp"
-#include "InventoryHolder.hpp"
+#include "../ValuedObject/Card.hpp"
+#include "../InventoryHolder/InventoryHolder.hpp"
 
 class TableCard {
     private:
         Card* t_cards;
         int t_count;
+        const int t_max = 5;
     public:
         // constructor, copy constructor, destructor
         TableCard(); // default ctor
@@ -18,15 +19,19 @@ class TableCard {
         ~TableCard(); // dtor
 
         // setter, getter
-        void setTCards(Card*); // set t_cards
-        void setTCount(int); // set t_count
-        Card* getTCards(); // get t_cards
-        int getTCount(); // get t_count
+        void setTCards(int, Card); // mengubah 1 kartu sesuai indeks pada TableCard
+        void setTCards(Card*); // mengubah semua kartu TableCard
+        void setTCount(int); // mengubah jumlah kartu TableCard
+        Card getTCards(int); // mendapat 1 kartu sesuai indeks pada TableCard
+        Card* getTCards(); // mendapat semua kartu TableCard
+        int getTCount(); // mendapat jumlah kartu TableCard
 
         // other
-        void addTCard(); // menambahkan 1 kartu pada TableCard
-        void removeTCard(); // Menghapus 1 kartu pada TableCard
-        void clearTCard(); // Menghapus semua kartu pada TableCard
+        void addTCards(Card); // menambahkan 1 kartu pada TableCard
+        void addTCards(Card*); // menambah semua kartu TableCard
+        void removeTCards(); // menghapus 1 kartu pada TableCard
+        void clearTCards(); // menghapus semua kartu TableCard
+        void showTCards(); // menampilkan semua kartu TableCard
 };
 
 #endif
