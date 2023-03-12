@@ -6,18 +6,33 @@ using namespace std;
 
 int Player::totalPlayer = 0;
 
-Player::Player() : id(totalPlayer+1),InventoryHolder<Card>(2,2)
+Player::Player() : id(totalPlayer+1),InventoryHolder<Card>(0,2)
 {
     this->poin = 0;
     this->playerName = "none";
     totalPlayer++;
 }
-Player::Player(const Player& p) : id(totalPlayer+1)
+Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(0,p.maxSize)
 {
-    cout<<"Player dengan id "<<this->id<<" menyalin Player dengan id "<<p.id<<endl;
+    int banyak = p.getSize();
+    for(int i=0;i<banyak;i++)
+    {
+        setCard(p.inventory[i]);
+    }
     this->poin = p.poin;
     this->playerName = p.playerName;
     totalPlayer++;
+}
+Player::Player(std::vector<Card> kartu,int poin,string nama):id(totalPlayer+1),InventoryHolder(0,2)
+{
+    this->poin = poin;
+    this->playerName = nama;
+    for(int i=0;i<kartu.size();i++)
+    {
+        setCard(kartu[i]);
+    }
+    totalPlayer++;
+
 }
 Player::~Player()
 {
@@ -25,9 +40,13 @@ Player::~Player()
 }
 Player& Player::operator=(const Player& p)
 {
-    cout<<"Player dengan id "<<this->id<<" menyalin Player dengan id "<<p.id<<endl;
+    int banyak = p.getSize();
+    for(int i=0;i<banyak;i++)
+    {
+        setCard(p.inventory[i]);
+    }
     this->poin = p.poin;
-    setPlayerName(p.playerName);
+    this->playerName = p.playerName;
     return *this;
 }
 int Player::getNumberFirstCard()
@@ -52,7 +71,7 @@ string Player::getColorSecondCard()
 }
 int Player::getTotalCard()
 {
-    
+    return getSize();
 }
 int Player::getIDPlayer()
 {
@@ -80,9 +99,6 @@ void Player::addPoinPlayer(int x)
 {
     this->poin+=x;
 }
-
-
-
 
 void Player::printCard()
 {

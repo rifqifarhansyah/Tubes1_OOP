@@ -14,7 +14,7 @@ class Ability{
 
 };
 
-class Player : InventoryHolder<Card>{
+class Player : public InventoryHolder<Card>{
 protected:
     int poin;
     string playerName;
@@ -23,7 +23,7 @@ protected:
 public:
     static int totalPlayer;
     Player();
-
+    Player(std::vector<Card>,int,string);
     Player(const Player&);
     ~Player();
     Player& operator=(const Player&);
