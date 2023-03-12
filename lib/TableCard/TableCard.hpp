@@ -3,8 +3,8 @@
 #ifndef TABLECARD_HPP
 #define TABLECARD_HPP
 
-#include "Card.hpp"
-#include "InventoryHolder.hpp"
+#include "../Card/Card.hpp"
+#include "../AbstractClasses/InventoryHolder.hpp"
 
 class TableCard {
     private:
