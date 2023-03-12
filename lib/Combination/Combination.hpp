@@ -2,17 +2,18 @@
 #define COMBINATION_HPP
 
 #include <string>
-#include "Card.hpp"
+#include <vector>
+#include "PlayerCard.hpp"
+#include "TableCard.hpp"
 using namespace std;
 
-class Combination{
+class Combination : public Player, public TableCard{
     public:
-        Combination(Card c1, Card c2);
-        Combination(const Combination& C);
+        Combination(Player , TableCard );
+        Combination(const Combination&);
         ~Combination();
-        virtual int getValue(Card c1, Card c2) const = 0;
-
+        virtual double getValue(Player, TableCard) const = 0;
     protected:
-        int totalValue;
+        double totalValue;
 };
 #endif

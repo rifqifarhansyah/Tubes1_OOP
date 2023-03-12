@@ -6,13 +6,13 @@
 class StraightFlush : FourOfAKind {
     public :
         // ctor by input
-        StraightFlush(Card c1, Card c2);
+        StraightFlush(PlayerCard c1, PlayerCard c2);
         // cctor
         StraightFlush(const StraightFlush& C);
         //dtor
         ~StraightFlush();
         // get value of a combo
-        virtual int getValue(Card c1, Card c2) const;
+        virtual int getValue(PlayerCard c1, PlayerCard c2) const;
     // protected:
     //     int StraightValue;
 };
