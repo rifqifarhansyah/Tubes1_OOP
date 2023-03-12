@@ -4,7 +4,6 @@ int InputException::numOfInputException = 0;
 
 string InputException::errorMessage[] = {
     "Error: Input tidak valid.",
-    "Error: Input tidak ditemukan.",
 };
 
 InputException::InputException(int ID) : Exception(ID) { // user-defined ctor
