@@ -14,6 +14,11 @@ Card::Card(const Card& other) {
     this->number = other.number ;
     this->color = other.color ; 
 } 
+Card& Card::operator=(const Card& other) { 
+    this->number = other.number ; 
+    this->color = other.color ; 
+    return *this ; 
+}
 int Card::getNumber() { 
     return this->number ; 
 }

@@ -12,9 +12,11 @@ class Card{
         Card();
         Card(int, string);
         Card(const Card&);
+        Card& operator=(const Card& ) ; 
         int getNumber();
         string getColor();
         double getValue();
+        
 };
 
 #endif
