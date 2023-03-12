@@ -8,5 +8,13 @@ class Card{
     private:
         int number;
         string color;
+    public:
+        Card();
+        Card(int, string);
+        Card(const Card&);
+        int getNumber();
+        string getColor();
+        int getValue();
 };
+
 #endif
