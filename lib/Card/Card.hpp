@@ -14,7 +14,7 @@ class Card{
         Card(const Card&);
         int getNumber();
         string getColor();
-        int getValue();
+        double getValue();
 };
 
 #endif

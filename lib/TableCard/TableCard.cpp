@@ -5,83 +5,91 @@
 using namespace std;
 
 // constructor, copy constructor, destructor
-TableCard::TableCard() {
+
+// default ctor
+TableCard::TableCard() : InventoryHolder<Card>(0,5) {
     t_count = 0;
-    t_cards = new Card[t_max];
-    cout << "TableCard dibuat menggunakan default ctor" << endl;
-} // default ctor
-TableCard::TableCard(int n, Card* cards) {
-    t_count = n;
-    t_cards = new Card[t_max];
+    cout << "TableCard default ctor" << endl;
+}
+
+// user-defined ctor
+TableCard::TableCard(std::vector<Card> cards) : InventoryHolder<Card>(cards.size(), 5) {
+    t_count = cards.size();
     for (int i = 0; i < t_count; i++) {
-        t_cards[i] = cards[i];
+        inventory[i] = cards[i];
     }
-    cout << "TableCard dibuat menggunakan user-defined ctor" << endl;
-} // user-defined ctor
-TableCard::TableCard(const TableCard& other) {
-    t_count = other.t_count;
-    t_cards = new Card[t_max];
+    cout << "TableCard user-defined ctor" << endl;
+}
+
+// cctor
+TableCard::TableCard(const TableCard& copy) : InventoryHolder<Card>(copy) {
+    t_count = copy.t_count;
     for (int i = 0; i < t_count; i++) {
-        t_cards[i] = other.t_cards[i];
+        inventory[i] = copy.inventory[i];
     }
-    cout << "TableCard disalin menggunakan cctor" << endl;
-} // cctor
+    cout << "TableCard cctor" << endl;
+}
+
+// dtor
 TableCard::~TableCard() {
-    delete[] t_cards;
-    cout << "TableCard dihapus menggunakan dtor" << endl;
-} // dtor
+    cout << "TableCard dtor" << endl;
+}
 
 // setter, getter
-void TableCard::setTCards(Card* cards) {
-    for (int i = 0; i < t_count; i++) {
-        t_cards[i] = cards[i];
-    }
-} // mengubah semua kartu TableCard
+
+// mengubah 1 kartu sesuai indeks pada TableCard
 void TableCard::setTCards(int idx, Card card) {
-    t_cards[idx] = card;
-} // mengubah 1 kartu sesuai indeks pada TableCard
+    setItem(idx, card);
+}
+// mengubah semua kartu TableCard
+void TableCard::setTCards(std::vector<Card> cards) {
+    for (int idx = 0; idx < cards.size(); idx++) {
+        setItem(idx, cards[idx]);
+    }
+}
+// mengubah jumlah kartu TableCard
 void TableCard::setTCount(int n) {
     t_count = n;
-} // mengubah jumlah kartu TableCard
+}
+// mendapat 1 kartu sesuai indeks pada TableCard
 Card TableCard::getTCards(int idx) {
-    return t_cards[idx];
-} // mendapat 1 kartu sesuai indeks pada TableCard
-Card* TableCard::getTCards() {
-    return t_cards;
-} // mendapat semua kartu TableCard
+    return getItem(idx);
+}
+// mendapat semua kartu TableCard
+std::vector<Card> TableCard::getTCards() {
+    return inventory;
+}
+// mendapat jumlah kartu TableCard
 int TableCard::getTCount() {
     return t_count;
-} // mendapat jumlah kartu TableCard
+}
 
 // other
+
+// menambahkan 1 kartu pada TableCard
 void TableCard::addTCards(Card card) {
-    t_cards[t_count] = card;
+    insertLast(card);
     t_count++;
-} // menambahkan 1 kartu pada TableCard
-void TableCard::addTCards(Card* cards) {
-    for (int i = 0; i < sizeof(cards); i++) {
-        t_cards[i+t_count] = cards[i];
+}
+// menambah semua kartu TableCard
+void TableCard::addTCards(std::vector<Card> cards) {
+    for (int idx = 0; idx < cards.size(); idx++) {
+        setItem(idx, cards[idx]);
     }
-    t_count += sizeof(cards);
-} // menambah semua kartu TableCard
+    t_count += cards.size();
+}
+// menghapus 1 kartu pada TableCard
 void TableCard::removeTCards() {
-    TableCard temp(t_count, t_cards);
-    delete[] t_cards;
     t_count--;
-    t_cards = new Card[t_max];
-    for (int i = 0; i < t_count; i++) {
-        t_cards[i] = temp.t_cards[i];
-    }
-    delete[] temp.t_cards;
-} // menghapus 1 kartu pada TableCard
+}
+// menghapus semua kartu TableCard
 void TableCard::clearTCards() {
-    delete[] t_cards;
     t_count = 0;
-    t_cards = new Card[t_max];
-} // menghapus semua kartu TableCard
-void TableCard::showTCards() {
+}
+// menampilkan semua kartu TableCard
+void TableCard::print() {
     cout << "Isi TableCard:" << endl;
-    for (int i = 0; i < t_count; i++) {
+    for (int i = 0; i < getSize(); i++) {
         cout << i+1 << ". Kartu " << "{PLACEHOLDER}" << endl;
     }
-} // menampilkan semua kartu TableCard
+}
