@@ -27,6 +27,7 @@ public:
     Player(const Player&);
     ~Player();
     Player& operator=(const Player&);
+    Player& operator+(const Card&);
 
     int getNumberFirstCard();
     int getNumberSecondCard();
@@ -40,8 +41,9 @@ public:
     void setPlayerName(string);
     void setPoinPlayer(int x);
     void addPoinPlayer(int x);
-    void setCard(Card x);
-    void printCard();
+    void setCard(Card, int);
+    void addCard(Card x);
+    void print();
 };
 
 
