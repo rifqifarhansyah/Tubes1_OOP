@@ -16,8 +16,8 @@ class TableCard : public InventoryHolder<Card> {
         ~TableCard(); // dtor
 
         // setter, getter
-        void setItem(std::vector<Card>); // mengubah semua kartu TableCard
-        std::vector<Card> getItem(); // mendapat semua kartu TableCard
+        void setCards(std::vector<Card>); // mengubah semua kartu TableCard
+        std::vector<Card> getCards(); // mendapat semua kartu TableCard
         int getSize(); // mendapat ukuran inventory
 
         // operation, output

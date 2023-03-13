@@ -13,13 +13,13 @@ TableCard::TableCard() : InventoryHolder<Card>(0,5) {
 
 // user-defined ctor
 TableCard::TableCard(std::vector<Card> cards) : InventoryHolder<Card>(cards.size(), 5) {
-    setItem(cards);
+    setCards(cards);
     cout << "TableCard user-defined ctor" << endl;
 }
 
 // cctor
 TableCard::TableCard(const TableCard& copy) : InventoryHolder<Card>(copy) {
-    setItem(copy.inventory);
+    setCards(copy.inventory);
     cout << "TableCard cctor" << endl;
 }
 
@@ -30,13 +30,13 @@ TableCard::~TableCard() {
 
 // setter, getter
 // mengubah semua kartu TableCard
-void TableCard::setItem(std::vector<Card> cards) {
+void TableCard::setCards(std::vector<Card> cards) {
     for (int i = 0; i < cards.size(); i++) {
-        InventoryHolder::setItem(i, cards[i]);
+        setItem(i, cards[i]);
     }
 }
 // mendapat semua kartu TableCard
-std::vector<Card> TableCard::getItem() {
+std::vector<Card> TableCard::getCards() {
     return inventory;
 }
 // mendapat ukuran inventory
