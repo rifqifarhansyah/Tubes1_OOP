@@ -13,7 +13,7 @@ class InventoryException : public Exception {
     
     public:
         // tidak memerlukan default ctor (tidak ada list of exception), assignment operator (tidak ada assignment), dan dtor (perlunya perhitungan jumlah object InventoryException setelah dihapus)
-        InventoryException(int, string); // user-defined ctor
+        InventoryException(int); // user-defined ctor
         InventoryException(const InventoryException&); // cctor
 
         static int getNumOfInventoryException(); // numOfInventoryException getter

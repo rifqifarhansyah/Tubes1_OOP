@@ -2,6 +2,7 @@
 #define INVENTORYHOLDER_HPP
 #include <iostream>
 #include <vector>
+#include "../Exception/inventoryExceptionInterface.hpp"
 
 template <class T>
 class InventoryHolder{
@@ -19,7 +20,7 @@ class InventoryHolder{
         InventoryHolder(int n, int maxSize) : inventory(n), maxSize(maxSize) {
             if (maxSize < n) // exception maxSize
             {
-
+                throw InventoryException(0);
             }
         }
 
@@ -30,7 +31,7 @@ class InventoryHolder{
         void setItem(int i, T a){
             if (i < 0 || i >= inventory.size()) // exception out of bounds
             {
-                
+                throw InventoryException(1);
             }
             inventory[i] = a;
         }
@@ -39,7 +40,7 @@ class InventoryHolder{
         T getItem(int i) const {
             if (i < 0 || i >= inventory.size()) // exception out of bounds
             {
-
+                throw InventoryException(1);
             }
             return inventory[i];
         }
@@ -76,7 +77,7 @@ class InventoryHolder{
         void insertFirst(T a){
             if (isFull()) //exception sudah penuh
             {
-
+                throw InventoryException(2);
             }
             else
                 inventory.insert(inventory.begin(),a);
@@ -86,11 +87,11 @@ class InventoryHolder{
         void insertAt(int i, T a){
             if (isFull()) //exception sudah penuh 
             {
-
+                throw InventoryException(2);
             }
             else if (i < 0 || i >= inventory.size()) // exeption out of bounds
             {
-
+                throw InventoryException(1);
             }
             else
                 inventory.insert(inventory.begin()+i,a);
@@ -99,7 +100,7 @@ class InventoryHolder{
         void insertLast(T a){
             if (isFull()) //exception sudah penuh
             {
-
+                throw InventoryException(2);
             }
             else
                 inventory.push_back(a);
@@ -107,7 +108,7 @@ class InventoryHolder{
         void deleteFirst(){
             if (isEmpty()) //exception kosong
             {
-
+                throw InventoryException(3);
             }
             else
                 inventory.erase(inventory.begin());
@@ -115,11 +116,11 @@ class InventoryHolder{
         void deleteAt(int i){
             if (isEmpty()) //exception kosong
             {
-
+                throw InventoryException(3);
             }
             else if (i < 0 || i >= inventory.size()) //exception out of bounds
             {
-
+                throw InventoryException(1);
             }
             else
                 inventory.erase(inventory.begin()+i);
@@ -127,7 +128,7 @@ class InventoryHolder{
         void deleteLast(){
             if (isEmpty()) //exception kosong
             {
-
+                throw InventoryException(3);
             }
             else
                 inventory.pop_back();
