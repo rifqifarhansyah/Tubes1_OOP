@@ -1,10 +1,14 @@
-#include "PlayerExceptionInterface.hpp"
+#include "PlayerCardExceptionInterface.hpp"
 
 int PlayerException::numOfPlayerException = 0;
 
 string PlayerException::errorMessage[] = {
-    "Error: Kartu tidak ditemukan.",
-    "Error: Kartu sudah ada.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability QUADRUPLE.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability QUARTER.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability REVERSE.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability ABILITYLESS.",
+    "Eits, ternyata semua pemain sudah memakai kartu kemampuan. Yah kamu kena sendiri deh, kemampuanmu menjadi abilityless. Yah, penggunaan kartu ini sia-sia.",
+    "Oops, kartu ability switchmu telah dimatikan sebelumnya :(",
 };
 
 PlayerException::PlayerException(int ID) : CardException(ID) { // user-defined ctor

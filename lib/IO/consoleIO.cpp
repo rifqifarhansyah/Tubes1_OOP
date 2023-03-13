@@ -114,10 +114,10 @@ void ConsoleIO::start(){
             Err.displayMessage();
         }
         /* catch for any invalid argument */
-        // catch(invalid_argument& Err)
-        // {
-        //     cout << "Can't be parsed to a number." << endl;
-        // }
+        catch(invalid_argument& Err)
+        {
+            cout << "Can't be parsed to a number." << endl;
+        }
 
         /* Read command from user */
         setCommand();
