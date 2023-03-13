@@ -6,13 +6,13 @@
 class TwoPair : Pair {
     public :
         // ctor by input
-        TwoPair(Card c1, Card c2);
+        TwoPair(PlayerCard c1, PlayerCard c2);
         // cctor
         TwoPair(const TwoPair& C);
         //dtor
         ~TwoPair();
         // get value of a combo
-        virtual int getValue(Card c1, Card c2) const;
+        virtual int getValue(PlayerCard c1, PlayerCard c2) const;
     // protected:
     //     int TwoPairValue;
 };

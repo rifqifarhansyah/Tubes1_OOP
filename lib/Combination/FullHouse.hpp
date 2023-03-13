@@ -6,13 +6,13 @@
 class FullHouse : Flush {
     public :
         // ctor by input
-        FullHouse(Card c1, Card c2);
+        FullHouse(PlayerCard c1, PlayerCard c2);
         // cctor
         FullHouse(const FullHouse& C);
         //dtor
         ~FullHouse();
         // get value of a combo
-        virtual int getValue(Card c1, Card c2) const;
+        virtual int getValue(PlayerCard c1, PlayerCard c2) const;
     // protected:
     //     int StraightValue;
 };

@@ -6,13 +6,13 @@
 class ThreeOfAKind : TwoPair {
     public :
         // ctor by input
-        ThreeOfAKind(Card c1, Card c2);
+        ThreeOfAKind(PlayerCard c1, PlayerCard c2);
         // cctor
         ThreeOfAKind(const ThreeOfAKind& C);
         //dtor
         ~ThreeOfAKind();
         // get value of a combo
-        virtual int getValue(Card c1, Card c2) const;
+        virtual int getValue(PlayerCard c1, PlayerCard c2) const;
     // protected:
     //     int ThreeOfAKindValue;
 };

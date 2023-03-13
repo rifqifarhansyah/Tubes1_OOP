@@ -3,16 +3,22 @@
 
 #include "Combination.hpp"
 
-class HighCard : Combination {
-    public :
+class HighCard : public Combination {
+    public:
         // ctor by input
-        HighCard(Card c1, Card c2);
+        HighCard(Player c1, TableCard c2);
         // cctor
-        HighCard(const Combination& C);
+        HighCard(const HighCard& C);
         //dtor
         ~HighCard();
         // get value of a combo
-        virtual int getValue(Card c1, Card c2) const;
+        double getValue(Player, TableCard) const;
+        void setValue(double);
+        virtual vector<vector<double,string>> findMaxCombination(Player, TableCard);
+        virtual void calculateMaxCombination(Player, TableCard);
+        virtual string getHighestColor(string, string) const;
+        virtual void setHighestColor(string);
+        virtual double getValueFromColor(string) const;
     protected:
         string highestColor;
 };
