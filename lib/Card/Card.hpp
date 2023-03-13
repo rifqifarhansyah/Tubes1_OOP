@@ -2,6 +2,8 @@
 #define CARD_HPP
 
 #include <string>
+#include <iostream>
+#include <map>
 using namespace std;
 
 class Card{
@@ -16,6 +18,8 @@ class Card{
         int getNumber();
         string getColor();
         double getValue();
+        void print();
+        friend ostream& operator<<(ostream& out, const Card&);
         
 };
 

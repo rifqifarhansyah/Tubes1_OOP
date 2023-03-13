@@ -1,7 +1,6 @@
 #include "Card.hpp"
 #include <iostream> 
 
-
 Card::Card() {
     this->number = 0 ;
     this->color = "" ;
@@ -30,15 +29,18 @@ double Card::getValue() {
     if (this->color == "Hijau") {
         return value  ;
     }
-    if (this->color == "Biru") {
+    else if (this->color == "Biru") {
         return value + 0.03 ;
     }
-    if (this->color == "Kuning") {
+    else if (this->color == "Kuning") {
         return value + 0.06 ;
     }
-    if (this->color == "Merah") {
+    else { // Merah
         return value + 0.09 ;
     }
+}
 
-
+ostream& operator<<(ostream& out, const Card& card){
+    out << card.number << " (" << card.color << ")";
+    return out;
 }
