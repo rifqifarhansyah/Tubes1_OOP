@@ -8,7 +8,6 @@
 
 class TableCard : public InventoryHolder<Card> {
     private:
-        int t_count;
     public:
         // constructor, copy constructor, destructor
         TableCard(); // default ctor
@@ -17,18 +16,13 @@ class TableCard : public InventoryHolder<Card> {
         ~TableCard(); // dtor
 
         // setter, getter
-        void setTCards(int, Card); // mengubah 1 kartu sesuai indeks pada TableCard
-        void setTCards(std::vector<Card>); // mengubah semua kartu TableCard
-        void setTCount(int); // mengubah jumlah kartu TableCard
-        Card getTCards(int); // mendapat 1 kartu sesuai indeks pada TableCard
-        std::vector<Card> getTCards(); // mendapat semua kartu TableCard
-        int getTCount(); // mendapat jumlah kartu TableCard
+        void setItem(std::vector<Card>); // mengubah semua kartu TableCard
+        std::vector<Card> getItem(); // mendapat semua kartu TableCard
+        int getSize(); // mendapat ukuran inventory
 
-        // other
-        void addTCards(Card); // menambahkan 1 kartu pada TableCard
-        void addTCards(std::vector<Card>); // menambah semua kartu TableCard
-        void removeTCards(); // menghapus 1 kartu pada TableCard
-        void clearTCards(); // menghapus semua kartu TableCard
+        // operation, output
+        void draw(Card); // menambah 1 kartu pada indeks terakhir
+        void remove(); // menghapus 1 kartu pada indeks terakhir
         void print(); // menampilkan semua kartu TableCard
 };
 
