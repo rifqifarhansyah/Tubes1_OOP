@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "PlayerCard.hpp"
+#include "Player.hpp"
 #include "TableCard.hpp"
 using namespace std;
 

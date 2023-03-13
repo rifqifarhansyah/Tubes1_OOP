@@ -1,27 +1,27 @@
-#include "playerCardExceptionInterface.hpp"
+#include "PlayerExceptionInterface.hpp"
 
-int PlayerCardException::numOfPlayerCardException = 0;
+int PlayerException::numOfPlayerException = 0;
 
-string PlayerCardException::errorMessage[] = {
+string PlayerException::errorMessage[] = {
     "Error: Kartu tidak ditemukan.",
     "Error: Kartu sudah ada.",
 };
 
-PlayerCardException::PlayerCardException(int ID) : CardException(ID) { // user-defined ctor
-    numOfPlayerCardException++;
+PlayerException::PlayerException(int ID) : CardException(ID) { // user-defined ctor
+    numOfPlayerException++;
 }
 
-PlayerCardException::PlayerCardException(const PlayerCardException& PCE) : CardException(PCE) { // cctor
-    numOfPlayerCardException++;
+PlayerException::PlayerException(const PlayerException& PCE) : CardException(PCE) { // cctor
+    numOfPlayerException++;
 }
 
-int PlayerCardException::getNumOfPlayerCardException() { // numOfPlayerCardException getter
-    return numOfPlayerCardException;
+int PlayerException::getNumOfPlayerException() { // numOfPlayerException getter
+    return numOfPlayerException;
 }
 
-void PlayerCardException::displayMessage() const { // message display
+void PlayerException::displayMessage() const { // message display
     cout << errorMessage[this->Exception::ID] << endl;
 }
 
-// Path: Tubes1_OOP\lib\Exception\playerCard.cpp
+// Path: Tubes1_OOP\lib\Exception\Player.cpp
 // Compare this snippet from Tubes1_OOP\lib\Exception\cardException.cpp:

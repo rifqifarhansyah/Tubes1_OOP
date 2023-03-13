@@ -6,13 +6,13 @@
 class Straight : ThreeOfAKind {
     public :
         // ctor by input
-        Straight(PlayerCard c1, PlayerCard c2);
+        Straight(Player c1, Player c2);
         // cctor
         Straight(const Straight& C);
         //dtor
         ~Straight();
         // get value of a combo
-        virtual int getValue(PlayerCard c1, PlayerCard c2) const;
+        virtual int getValue(Player c1, Player c2) const;
     // protected:
     //     int StraightValue;
 };

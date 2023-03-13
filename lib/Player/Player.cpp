@@ -1,4 +1,4 @@
-#include "PlayerCard.hpp"
+#include "Player.hpp"
 #include"../Card/Card.cpp"
 #include<iostream>
 #include<cstring>

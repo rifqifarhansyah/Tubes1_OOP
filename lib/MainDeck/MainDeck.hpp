@@ -3,7 +3,7 @@
 
 #include "../AbstractClasses/InventoryHolder.hpp"
 #include "../Card/Card.hpp"
-#include "../PlayerCard/PlayerCard.hpp"
+#include "../Player/Player.hpp"
 
 
 class MainDeck : public InventoryHolder<Card>{

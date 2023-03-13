@@ -5,17 +5,17 @@
 
 using namespace std;
 
-class PlayerCardException : public CardException {
+class PlayerException : public CardException {
     private:
-        static int numOfPlayerCardException; // jumlah object PlayerCardException yang ada
+        static int numOfPlayerException; // jumlah object PlayerException yang ada
         static string errorMessage[]; // list of error message
     
     public:
-        // tidak memerlukan default ctor (tidak ada list of exception), assignment operator (tidak ada assignment), dan dtor (perlunya perhitungan jumlah object PlayerCardException setelah dihapus)
-        PlayerCardException(int); // user-defined ctor
-        PlayerCardException(const PlayerCardException&); // cctor
+        // tidak memerlukan default ctor (tidak ada list of exception), assignment operator (tidak ada assignment), dan dtor (perlunya perhitungan jumlah object PlayerException setelah dihapus)
+        PlayerException(int); // user-defined ctor
+        PlayerException(const PlayerException&); // cctor
 
-        static int getNumOfPlayerCardException(); // numOfPlayerCardException getter
+        static int getNumOfPlayerException(); // numOfPlayerException getter
 
         void displayMessage() const; // message display
 };

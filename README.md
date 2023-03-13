@@ -92,11 +92,11 @@ Permainan kartu ala kerajaan merupakan permainan yang terdiri atas 7 pemain. Pem
 │   │           InventoryHolderTest.cpp
 │   │           MainDeckTest.cpp
 │   │
-│   ├───PlayerCard
-│   │   │   PlayerCard.hpp
+│   ├───Player
+│   │   │   Player.hpp
 │   │   │
 │   │   └───test
-│   │           PlayerCardTest.cpp
+│   │           PlayerTest.cpp
 │   │
 │   ├───TableCard
 │   │   │   TableCard.hpp
