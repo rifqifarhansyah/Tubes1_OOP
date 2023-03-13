@@ -24,14 +24,10 @@ Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(0,p.maxSize)
     this->playerName = p.playerName;
     totalPlayer++;
 }
-Player::Player(std::vector<Card> kartu,int poin,string nama):id(totalPlayer+1),InventoryHolder(0,2)
+Player::Player(string nama):id(totalPlayer+1),InventoryHolder(0,2)
 {
-    this->poin = poin;
+    this->poin = 0;
     this->playerName = nama;
-    for(int i=0;i<kartu.size();i++)
-    {
-        addCard(kartu[i]);
-    }
     totalPlayer++;
 
 }

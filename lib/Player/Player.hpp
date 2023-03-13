@@ -3,27 +3,22 @@
 
 #include<iostream>
 #include "../AbstractClasses/InventoryHolder.hpp"
+#include "../AbstractClasses/Ability.hpp"
 #include "../Card/Card.hpp"
 using namespace std;
 #define Max 2
-// class Card{
-
-// };
-
-class Ability{
-
-};
 
 class Player : public InventoryHolder<Card>{
 protected:
     int poin;
     string playerName;
-    // string abilityCard;//Nanti kalau udah ada diganti
     const int id;
+    bool isUsedAbility; // new
+    Ability* ability; //new
 public:
     static int totalPlayer;
     Player();
-    Player(std::vector<Card>,int,string);
+    Player(string, Ability*);
     Player(const Player&);
     ~Player();
     Player& operator=(const Player&);
