@@ -3,11 +3,13 @@
 int InventoryException::numOfInventoryException = 0;
 
 string InventoryException::errorMessage[] = {
-    "Error: Inventory tidak ditemukan.",
-    "Error: Inventory sudah ada.",
+    "Error: Ukuran maksimum inventory telah terlampaui.",
+    "Error: Index yang dimasukkan diluar batas.",
+    "Error: Inventory Telah penuh.",
+    "Error: Inventory masih kosong.",
 };
 
-InventoryException::InventoryException(int ID, string message) : Exception(ID) { // user-defined ctor
+InventoryException::InventoryException(int ID) : Exception(ID) { // user-defined ctor
     numOfInventoryException++;
 }
 
