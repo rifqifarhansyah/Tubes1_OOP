@@ -1,6 +1,8 @@
 #include "../TableCard.hpp"
 
 int main() {
+    cout << endl << "TableCard Test" << endl;
+
     TableCard tc1;
     Card c1(1, "Merah");
     Card c2(2, "Jingga");
