@@ -12,14 +12,14 @@ class InventoryHolder{
         // Default ctor
         InventoryHolder() : inventory(0), maxSize(){}
 
-        // Ctor tanpa batas maksimal
+        // Ctor inventory ukuran n dengan isi default ctor T, tanpa batas maksimal
         InventoryHolder(int n) : inventory(n), maxSize(-1){}
 
-        // Ctor dengan batas maksimal
+        // Ctor inventory ukuran n dengan isi default ctor T, dengan batas maksimal
         InventoryHolder(int n, int maxSize) : inventory(n), maxSize(maxSize) {
             if (maxSize < n) // exception maxSize
-            for (int i = 0;i < n;i++){
-                inventory[i] = NULL;
+            {
+
             }
         }
 
@@ -27,7 +27,7 @@ class InventoryHolder{
         InventoryHolder(const InventoryHolder& I) : inventory(I.inventory), maxSize(I.maxSize){}
 
         // Ubah item ke i dengan a
-        void setItem(int i, T& a){
+        void setItem(int i, T a){
             if (i < 0 || i >= inventory.size()) // exception out of bounds
             {
                 
@@ -36,7 +36,7 @@ class InventoryHolder{
         }
 
         // Mendapatkan item ke-i
-        T getItem(int i){
+        T getItem(int i) const {
             if (i < 0 || i >= inventory.size()) // exception out of bounds
             {
 
@@ -44,23 +44,31 @@ class InventoryHolder{
             return inventory[i];
         }
         
+        T getItemFirst() const {
+            return *inventory.begin();
+        }
+
+        T getItemLast() const {
+            return *inventory.rbegin();
+        }
+
         // Mendapatkan size inventory saat ini
-        int getSize(){
+        int getSize() const {
             return inventory.size();
         }
 
         // Mendapatkan size maksimal
-        int getMaxSize(){
+        int getMaxSize() const {
             return maxSize;
         }
 
         // Cek kosong
-        bool isEmpty(){
+        bool isEmpty() const {
             return inventory.empty();
         }
 
         // Cek penuh
-        bool isFull(){
+        bool isFull() const {
             return inventory.size() == maxSize;
         }
 
@@ -116,7 +124,7 @@ class InventoryHolder{
             else
                 inventory.erase(inventory.begin()+i);
         }
-        void deleteLast(int i){
+        void deleteLast(){
             if (isEmpty()) //exception kosong
             {
 
@@ -124,6 +132,11 @@ class InventoryHolder{
             else
                 inventory.pop_back();
         }
+
+        void clear(){
+            inventory.clear();
+        }
+
         virtual void print() = 0;
 };
 
