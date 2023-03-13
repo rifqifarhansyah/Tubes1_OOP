@@ -7,7 +7,7 @@ class Quarter : public Ability
 {
     public:
         Quarter() : Ability("Quarter"){}
-        void action(Player p,Game& g)
+        void action(Player& p,Game& g)
         {
             
         }

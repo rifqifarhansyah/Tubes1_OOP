@@ -7,7 +7,7 @@ class SwapCard : public Ability
 {
     public:
         
-        void action(Player p,Game& g)
+        void action(Player& p,Game& g)
         {
             
         }

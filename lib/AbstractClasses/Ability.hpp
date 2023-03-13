@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include"../Player/Player.hpp"
+#include "../Game/Game.hpp"
 using namespace std;
 
 class Ability{
@@ -17,7 +18,7 @@ class Ability{
         {
             this->abilityName = nama;
         }
-        virtual void action(Player p, Game& g) = 0;
+        virtual void action(Player& p, Game& g) = 0;
 };
 
 

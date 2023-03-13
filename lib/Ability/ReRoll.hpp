@@ -7,7 +7,7 @@ class ReRoll : public Ability
 {
     public:
         ReRoll() : Ability("Re-Roll"){}
-        void action(Player p,Game& g)
+        void action(Player& p,Game& g)
         {
             
         }

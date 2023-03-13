@@ -7,7 +7,7 @@ class Quadruple : public Ability
 {
     public:
         Quadruple() : Ability("Quadruple"){}
-        void action(Player p,Game& g)
+        void action(Player& p,Game& g)
         {
             
         }

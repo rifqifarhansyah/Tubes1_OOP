@@ -7,7 +7,7 @@ class Abilityless : public Ability
 {
     public:
         Abilityless() : Ability("Abilityless"){}
-        void action(Player p,Game& g)
+        void action(Player& p,Game& g)
         {
             
         }
