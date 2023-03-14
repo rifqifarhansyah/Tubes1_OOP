@@ -23,6 +23,8 @@ public:
     Player(const Player&);
     ~Player();
     Player& operator=(const Player&);
+    bool operator>(const Player&);
+    bool operator<(const Player&);
     Player& operator+(const Card&);
 
     int getNumberFirstCard();
@@ -34,6 +36,7 @@ public:
     void setAbility(Ability&);
     void removeAbility();
     bool hasAbility();
+    bool isAbilityBlocked();
     int getTotalCard();
     int getIDPlayer();
     int getPointPlayer();

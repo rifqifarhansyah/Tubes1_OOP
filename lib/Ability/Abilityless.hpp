@@ -6,10 +6,13 @@
 class Abilityless : public Ability
 {
     public:
-        Abilityless() : Ability("Abilityless"){}
+        Abilityless() : Ability("Abilityless",1){}
         void action(Player& p,Game& g)
         {
-            
+            string namaplayer;
+            Player *diganti = &g.getPlayer(namaplayer);
+            diganti->removeAbility();
+            p.removeAbility();
         }
 };
 

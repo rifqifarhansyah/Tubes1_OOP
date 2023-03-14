@@ -61,6 +61,14 @@ Player& Player::operator+(const Card& x)
 {
     addCard(x);
 }
+bool Player::operator>(const Player& p)
+{
+    return(this->poin > p.poin);
+}
+bool Player::operator<(const Player& p)
+{
+    return(this->poin < p.poin);
+}
 int Player::getNumberFirstCard()
 {
     return getItem(0).getNumber();//angka kartu 1
