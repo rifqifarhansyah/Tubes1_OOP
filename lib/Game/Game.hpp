@@ -7,12 +7,15 @@
 #include "../Combination/Combination.hpp"
 #include "../Card/Card.hpp"
 #include "../AbstractClasses/ValuedObject.hpp"
+#include "../Exception/exceptionInterface.hpp"
 #include <vector>
+#include <math.h>
 
 class Game{
-    private:
+    protected:
         Player* playerList;
-        vector<Player*> playOrder;
+        Player* winner;
+        vector<pair<int,bool>> playOrder;
         MainDeck deck;
         TableCard table;
         int point;
@@ -21,21 +24,27 @@ class Game{
         bool isReversed;
         const int maxPlayer;
         const int maxRound;
+        void startGame();
+        void startRound();
+        void resetGame();
     public:
         Game();
-        void StartGame();
-        Player& getPlayer(int);
-        Player& getPlayer(string);
+        void play();
+        Player& getPlayerByIDX(int);
+        Player& getPlayerByID(int);
         TableCard& getTable();
         MainDeck& getDeck();
         int getPoint();
 
-        void setPlayer(const Player&);
+        void setPlayer(int,const Player&);
         void setTable(const TableCard&);
         void setDeck(const MainDeck&);
         void setPoint(int);
 
         void reversePlayOrder();
+
+        void giveAbilityToAll();
+
 };
 
 #endif
