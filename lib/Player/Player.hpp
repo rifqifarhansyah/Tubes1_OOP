@@ -40,8 +40,8 @@ public:
     bool hasAbility();
     bool isAbilityUsed();
     bool isAbilityBlocked();
-    bool blockAbility();
-    bool unblockAbility();
+    void blockAbility();
+    void unblockAbility();
 
     int getTotalCard();
     int getIDPlayer();

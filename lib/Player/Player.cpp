@@ -178,11 +178,11 @@ bool Player::isAbilityBlocked(){
     return abilityIsBlocked;
 }
 
-bool Player::blockAbility(){
+void Player::blockAbility(){
     abilityIsBlocked = true;
 }
 
-bool Player::unblockAbility(){
+void Player::unblockAbility(){
     abilityIsBlocked = false;
 }
 
