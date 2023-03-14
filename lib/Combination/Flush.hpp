@@ -3,17 +3,34 @@
 
 #include "Straight.hpp"
 
-class Flush : Straight {
+class Flush : public Straight {
     public :
         // ctor by input
-        Flush(Player c1, Player c2);
+        Flush(Player c1, TableCard c2);
         // cctor
         Flush(const Flush& C);
         //dtor
         ~Flush();
-        // get value of a combo
-        virtual int getValue(Player c1, Player c2) const;
-    // protected:
-    //     int StraightValue;
+        // Find and calculate combination
+        virtual void calculateMaxCombination(Player, TableCard);
+        virtual vector<Card> findMaxCombination(Player, TableCard);
+        // set and get totalValue
+        void setValue(double);
+        double getValue(Player, TableCard) const;
+        // set and get highestNumber
+        virtual void setHighestNumber(double);
+        virtual double getHighestNumber() const;
+        // set and get highestColor
+        virtual void setHighestColor(string);
+        virtual string getHighestColor() const;
+        double findHighestColor(vector<Card>);
+        virtual double getValueFromColor(string) const;
+        string getColorFromValue(double result) const;
+        
+        // check combo
+        // bool isTwoPair(Player, TableCard);
+
+    protected:
+        double maxFlush;
 };
 #endif

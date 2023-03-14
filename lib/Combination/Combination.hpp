@@ -3,8 +3,9 @@
 
 #include <string>
 #include <vector>
-#include "Player.hpp"
-#include "TableCard.hpp"
+#include <algorithm>
+#include "Player/Player.hpp"
+#include "TableCard/TableCard.hpp"
 using namespace std;
 
 class Combination : public Player, public TableCard{
