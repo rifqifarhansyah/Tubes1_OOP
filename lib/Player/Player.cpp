@@ -180,6 +180,7 @@ void Player::useAbility(int idAbility,Game& game)
     else 
     {
         (this->ability)->action(*this,game);
+        abilityIsUsed = true;
     }
 }
 

@@ -1,4 +1,5 @@
 #include "MainDeck.hpp"
+#include "../TemplateFunction/TemplateFunction.hpp"
 #include <iostream>
 #include <random>
 using namespace std;
@@ -28,12 +29,14 @@ MainDeck::MainDeck(vector<Card> cards) : InventoryHolder(cards.size(),52){
     }
 }
 MainDeck::MainDeck(const MainDeck& otherDeck) : InventoryHolder(otherDeck.getSize(),52){
+    inventory.resize(otherDeck.getSize());
     for (int i = 0;i < otherDeck.getSize();i++){
         setItem(i,otherDeck.getItem(i));
     }
 }
 
 MainDeck& MainDeck::operator=(const MainDeck& otherDeck){
+    inventory.resize(otherDeck.getSize());
     for (int i = 0;i < otherDeck.getSize();i++){
         setItem(i,otherDeck.getItem(i));
     }
@@ -56,10 +59,7 @@ void MainDeck::addCard(const Card& card){
 }
 
 void MainDeck::shuffle(){
-    for (int i = 0;i < getSize();i++){
-        int randIdx = rand()%(getSize()-i)+i;
-        swap(inventory[i],inventory[randIdx]);
-    }
+    ShuffleVec(inventory);
 }
 void MainDeck::print(){
     cout << "Dek saat ini : " << endl;
