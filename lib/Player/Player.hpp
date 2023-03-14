@@ -14,7 +14,8 @@ protected:
     int poin;
     string playerName;
     const int id;
-    bool isUsedAbility; // new
+    bool abilityIsUsed; // new
+    bool abilityIsBlocked;
     Ability* ability; //new
 public:
     static int totalPlayer;
@@ -36,7 +37,11 @@ public:
     void setAbility(Ability&);
     void removeAbility();
     bool hasAbility();
+    bool isAbilityUsed();
     bool isAbilityBlocked();
+    bool blockAbility();
+    bool unblockAbility();
+
     int getTotalCard();
     int getIDPlayer();
     int getPointPlayer();

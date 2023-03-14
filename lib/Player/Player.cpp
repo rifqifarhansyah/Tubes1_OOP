@@ -14,7 +14,8 @@ Player::Player() : id(totalPlayer+1),InventoryHolder<Card>(0,2)
     this->poin = 0;
     this->playerName = "none";
     this->ability = NULL;
-    this->isUsedAbility = false;
+    this->abilityIsUsed = false;
+    this->abilityIsBlocked = false;
     totalPlayer++;
 }
 Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(0,p.maxSize)
@@ -27,7 +28,8 @@ Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(0,p.maxSize)
     this->poin = p.poin;
     this->playerName = p.playerName;
     this->ability = p.ability;
-    this->isUsedAbility = p.isUsedAbility;
+    this->abilityIsUsed = p.abilityIsUsed;
+    this->abilityIsBlocked = p.abilityIsBlocked;
     totalPlayer++;
 }
 Player::Player(string nama,Ability & ab):id(totalPlayer+1),InventoryHolder(0,2)
@@ -35,7 +37,8 @@ Player::Player(string nama,Ability & ab):id(totalPlayer+1),InventoryHolder(0,2)
     this->poin = 0;
     this->playerName = nama;
     this->ability = &ab;
-    this->isUsedAbility = false;
+    this->abilityIsUsed = false;
+    this->abilityIsBlocked = false;
     totalPlayer++;
 
 }
@@ -53,7 +56,8 @@ Player& Player::operator=(const Player& p)
     this->poin = p.poin;
     this->playerName = p.playerName;
     this->ability = p.ability;
-    this->isUsedAbility = p.isUsedAbility;
+    this->abilityIsUsed = p.abilityIsUsed;
+    this->abilityIsBlocked = false;
     return *this;
 }
 
@@ -135,13 +139,15 @@ void Player::setCard(Card x,int index)
 void Player::setAbility(Ability& ab)
 {
    this->ability = &ab;
-   this->isUsedAbility = false;
+   this->abilityIsUsed = false;
+   this->abilityIsBlocked = false;
 }
 
 void Player::removeAbility()
 {
     this->ability = NULL;
-    this->isUsedAbility = false;
+    this->abilityIsUsed = false;
+    this->abilityIsBlocked = false;
 }
 bool Player::hasAbility()
 {
@@ -159,11 +165,27 @@ void Player::useAbility(int idAbility,Game& game)
     {
         //exception tidak ada ability yang dimaksud
     }
-    else
+     else if (isAbilityBlocked()){
+        //exception ability dimatikan
+    } 
+    else 
     {
         (this->ability)->action(*this,game);
     }
 }
+
+bool Player::isAbilityBlocked(){
+    return abilityIsBlocked;
+}
+
+bool Player::blockAbility(){
+    abilityIsBlocked = true;
+}
+
+bool Player::unblockAbility(){
+    abilityIsBlocked = false;
+}
+
 void Player::print()
 {
     cout<<"Player dengan nama "<<getNamePlayer();
