@@ -5,7 +5,8 @@
 #include "../Card/Card.hpp"
 #include "../Player/Player.hpp"
 #include "../TableCard/TableCard.hpp"
-
+#include <vector>
+using namespace std;
 
 class MainDeck : public InventoryHolder<Card>{
     public:

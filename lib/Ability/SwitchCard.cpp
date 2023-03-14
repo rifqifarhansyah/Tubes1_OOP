@@ -1,4 +1,6 @@
 #include "SwitchCard.hpp"
+#include "../Player/Player.hpp"
+
 
 void SwitchCard::action(Player& p,Game& g) {
         {

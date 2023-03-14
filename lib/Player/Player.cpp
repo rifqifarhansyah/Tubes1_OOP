@@ -1,5 +1,4 @@
 #include "Player.hpp"
-#include"../Card/Card.cpp"
 #include<iostream>
 #include<cstring>
 #include<ctime>
@@ -64,43 +63,54 @@ Player& Player::operator=(const Player& p)
 Player& Player::operator+(const Card& x)
 {
     addCard(x);
+    return *this;
 }
+
 bool Player::operator>(const Player& p)
 {
     return(this->poin > p.poin);
 }
+
 bool Player::operator<(const Player& p)
 {
     return(this->poin < p.poin);
 }
+
 int Player::getNumberFirstCard()
 {
     return getItem(0).getNumber();//angka kartu 1
 }
+
 string Player::getColorFirstCard()
 {
     return getItem(0).getColor();
 }
+
 string Player::getNamePlayer()
 {
     return this->playerName;
 }
+
 int Player::getNumberSecondCard()
 {
     return getItem(1).getNumber();//angka kartu 2
 }
+
 string Player::getColorSecondCard()
 {
     return getItem(1).getColor();
 }
+
 int Player::getTotalCard()
 {
     return getSize();
 }
+
 int Player::getIDPlayer()
 {
     return this->id;
 }
+
 int Player::getPointPlayer()
 {
     return this->poin;
@@ -110,6 +120,7 @@ void Player::setPlayerName(string n)
 {
     this->playerName = n;
 }
+
 void Player::addCard(Card x)
 {
     insertFirst(x);
@@ -119,10 +130,12 @@ void Player::setPoinPlayer(int x)
 {
     this->poin = x;
 }
+
 void Player::addPoinPlayer(int x)
 {
     this->poin+=x;
 }
+
 void Player::setCard(Card x,int index)
 {
     int banyakkartu = getSize();

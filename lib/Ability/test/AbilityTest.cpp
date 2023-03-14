@@ -5,7 +5,8 @@
 #include "../ReverseDirection.hpp"
 #include "../SwapCard.hpp"
 #include "../SwitchCard.hpp"
-
+#include "../../Player/Player.hpp"
+#include <vector>
 int main() {
     // ctor ability
     ReRoll ab1;

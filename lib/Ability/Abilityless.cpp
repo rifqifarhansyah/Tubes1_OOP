@@ -1,4 +1,5 @@
 #include "Abilityless.hpp"
+#include "../Player/Player.hpp"
 
 void Abilityless::action(Player& p,Game& g)
 {

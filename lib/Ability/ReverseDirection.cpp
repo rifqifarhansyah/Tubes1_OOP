@@ -1,4 +1,6 @@
 #include "ReverseDirection.hpp"
+#include "../Player/Player.hpp"
+#include "../Game/Game.hpp"
 
 void ReverseDirection::action(Player& p,Game& g)
 {

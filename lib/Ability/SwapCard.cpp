@@ -1,4 +1,5 @@
 #include "SwapCard.hpp"
+#include "../Player/Player.hpp"
 
 void SwapCard::action(Player& p,Game& g)
 {

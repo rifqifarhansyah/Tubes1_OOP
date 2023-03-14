@@ -1,4 +1,6 @@
 #include "ReRoll.hpp"
+#include "../Player/Player.hpp"
+#include "../Game/Game.hpp"
 
 void ReRoll::action(Player& p,Game& g)
 {

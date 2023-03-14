@@ -1,4 +1,7 @@
 #include "Quarter.hpp"
+#include "../Player/Player.hpp"
+#include "../Game/Game.hpp"
+#include "../Card/Card.hpp"
 
 void Quarter::action(Player& p,Game& g)
 {

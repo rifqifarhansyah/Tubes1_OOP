@@ -1,4 +1,6 @@
 #include "Quadruple.hpp"
+#include "../Player/Player.hpp"
+#include "../Game/Game.hpp"
 
 void Quadruple::action(Player& p,Game& g)
 {

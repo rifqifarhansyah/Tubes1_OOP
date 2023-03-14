@@ -3,10 +3,9 @@
 
 #include<iostream>
 #include "../AbstractClasses/InventoryHolder.hpp"
-#include "../MainDeck/MainDeck.hpp"
 #include "../Ability/Ability.hpp"
 #include "../Card/Card.hpp"
-#include "../Game/Game.hpp"
+class Game;
 using namespace std;
 #define Max 2
 
@@ -18,6 +17,7 @@ protected:
     bool abilityIsUsed; // new
     bool abilityIsBlocked;
     Ability* ability; //new
+    
 public:
     static int totalPlayer;
     Player();
