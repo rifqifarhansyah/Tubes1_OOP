@@ -6,7 +6,7 @@
 class ReverseDirection : public Ability
 {
     public:
-        ReverseDirection() : Ability("Reverse Direction", 4){}
+        ReverseDirection() : Ability("Reverse Direction", 6){}
         void action(Player&,Game&);
 };
 

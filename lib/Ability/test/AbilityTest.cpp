@@ -45,7 +45,7 @@ int main() {
         arr[i]+second;
         arr[i].addPoinPlayer(c);
         arr[i].setPlayerName(nama);
-        arr[i].setAbility(abilities[i]);
+        arr[i].setAbility(&abilities[i]);
     }
     
     return 0;

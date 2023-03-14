@@ -8,5 +8,4 @@ void ReverseDirection::action(Player& p,Game& g)
     cout << p.getNamePlayer() << " melakukan reverse!" << endl;
     cout << "(sisa) urutan eksekusi giliran ini : " << "g.getPlayOrder" << endl; // hanya SISA urutan giliran pada ronde ketika kartu digunakan
     cout << "urutan eksekusi giliran selanjutnya : " << "g.getPlayOrder" << endl; // semua urutan giliran pada ronde berikutnya
-    p.removeAbility();
 }

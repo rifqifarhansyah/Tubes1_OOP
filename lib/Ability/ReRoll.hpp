@@ -6,7 +6,7 @@
 class ReRoll : public Ability
 {
     public:
-        ReRoll() : Ability("Re-Roll", 1){}
+        ReRoll() : Ability("Re-Roll", 3){}
         void action(Player&,Game&);
 };
 

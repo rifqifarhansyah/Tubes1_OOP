@@ -12,5 +12,4 @@ void ReRoll::action(Player& p,Game& g)
     cout << "2. " << c2 << endl;
     p.setCard(c1, 0);
     p.setCard(c2, 1);
-    p.removeAbility();
 }

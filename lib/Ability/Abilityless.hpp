@@ -6,7 +6,7 @@
 class Abilityless : public Ability
 {
     public:
-        Abilityless() : Ability("Abilityless",7){}
+        Abilityless() : Ability("Abilityless",9){}
         void action(Player&,Game&);
 };
 

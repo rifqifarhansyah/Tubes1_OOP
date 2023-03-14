@@ -6,7 +6,7 @@
 class SwapCard : public Ability
 {
     public:
-        SwapCard() : Ability("Swap", 5){}
+        SwapCard() : Ability("Swap", 7){}
         void action(Player&,Game&);
 };
 

@@ -6,7 +6,7 @@
 class SwitchCard : public Ability
 {
     public:
-        SwitchCard() : Ability("Switch", 6){}
+        SwitchCard() : Ability("Switch", 8){}
         void action(Player&,Game&);
 };
 

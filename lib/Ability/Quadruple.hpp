@@ -6,7 +6,7 @@
 class Quadruple : public Ability
 {
     public:
-        Quadruple() : Ability("Quadruple", 2){}
+        Quadruple() : Ability("Quadruple", 4){}
         void action(Player&,Game&);
 };
 
