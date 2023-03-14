@@ -10,15 +10,10 @@ class Ability{
     protected:
         string abilityName;
     public:
-        Ability()
-        {
-            this->abilityName = "none";
-        }
-        Ability(string nama)
-        {
-            this->abilityName = nama;
-        }
-        virtual void action(Player& p, Game& g) = 0;
+        Ability();
+        Ability(string nama);
+        string getName();
+        virtual void action(Player& p, Game& g);
 };
 
 

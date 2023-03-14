@@ -3,7 +3,8 @@
 
 #include<iostream>
 #include "../AbstractClasses/InventoryHolder.hpp"
-#include "../AbstractClasses/Ability.hpp"
+#include "../MainDeck/MainDeck.hpp"
+#include "../Ability/Ability.hpp"
 #include "../Card/Card.hpp"
 using namespace std;
 #define Max 2
@@ -18,7 +19,7 @@ protected:
 public:
     static int totalPlayer;
     Player();
-    Player(string, Ability*);
+    Player(string, Ability&);
     Player(const Player&);
     ~Player();
     Player& operator=(const Player&);
@@ -29,6 +30,10 @@ public:
     string getColorFirstCard();
     string getColorSecondCard();
 
+    void useAbility(string,Game&);
+    void setAbility(Ability&);
+    void removeAbility();
+    bool hasAbility();
     int getTotalCard();
     int getIDPlayer();
     int getPointPlayer();

@@ -13,6 +13,8 @@ Player::Player() : id(totalPlayer+1),InventoryHolder<Card>(0,2)
 {
     this->poin = 0;
     this->playerName = "none";
+    this->ability = NULL;
+    this->isUsedAbility = false;
     totalPlayer++;
 }
 Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(0,p.maxSize)
@@ -24,18 +26,22 @@ Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(0,p.maxSize)
     }
     this->poin = p.poin;
     this->playerName = p.playerName;
+    this->ability = p.ability;
+    this->isUsedAbility = p.isUsedAbility;
     totalPlayer++;
 }
-Player::Player(string nama):id(totalPlayer+1),InventoryHolder(0,2)
+Player::Player(string nama,Ability & ab):id(totalPlayer+1),InventoryHolder(0,2)
 {
     this->poin = 0;
     this->playerName = nama;
+    this->ability = &ab;
+    this->isUsedAbility = false;
     totalPlayer++;
 
 }
 Player::~Player()
 {
-
+    removeAbility();
 }
 Player& Player::operator=(const Player& p)
 {
@@ -46,6 +52,8 @@ Player& Player::operator=(const Player& p)
     }
     this->poin = p.poin;
     this->playerName = p.playerName;
+    this->ability = p.ability;
+    this->isUsedAbility = p.isUsedAbility;
     return *this;
 }
 
@@ -115,6 +123,39 @@ void Player::setCard(Card x,int index)
         this->inventory[index] = x;
     }
 }
+
+void Player::setAbility(Ability& ab)
+{
+   this->ability = &ab;
+   this->isUsedAbility = false;
+}
+
+void Player::removeAbility()
+{
+    this->ability = NULL;
+    this->isUsedAbility = false;
+}
+bool Player::hasAbility()
+{
+    return (this->ability!=NULL);
+}
+
+void Player::useAbility(string namaAbility,Game& game)
+{
+    
+    if(hasAbility()==false)
+    {
+        //exception tidak ada ability
+    }
+    else if(namaAbility!=(this->ability)->getName())
+    {
+        //exception tidak ada ability yang dimaksud
+    }
+    else
+    {
+        (this->ability)->action(*this,game);
+    }
+}
 void Player::print()
 {
     cout<<"Player dengan nama "<<getNamePlayer();
@@ -140,37 +181,3 @@ void Player::print()
 
 
 
-int main()
-{
-    srand(time(0));
-    string warna[4] = {"Biru","Merah","Hijau","Kuning"};
-    Player arr[6];
-    for(int i=0;i<5;i++)
-    {
-        string nama;
-        cout<<"Masukkan nama = "<<endl;
-        cin>>nama;
-        int a = rand()%13+1;
-        int b = rand()%13+1;
-        int randwar = rand()%4;
-        int randwar2 = rand()%4;
-        Card first(a,warna[randwar]);
-        Card second(b,warna[randwar2]);
-        int c = rand();
-        arr[i]+first;
-        arr[i]+second;
-        arr[i].addPoinPlayer(c);
-        arr[i].setPlayerName(nama);
-    }
-    
-    for(int i=0;i<6;i++)
-    {
-        cout<<"ID:"<<arr[i].getIDPlayer()<<endl;
-        arr[i].print();
-        
-    }
-
-
-
-
-}
