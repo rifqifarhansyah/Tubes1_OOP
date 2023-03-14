@@ -1,9 +1,10 @@
 #ifndef ABILITY_HPP
 #define ABILITY_HPP
 
-#include<iostream>
-#include"../Player/Player.hpp"
+#include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
+#include "../MainDeck/MainDeck.hpp"
+#include <iostream>
 using namespace std;
 
 class Ability{
