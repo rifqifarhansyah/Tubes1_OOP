@@ -4,6 +4,7 @@
 #include "../AbstractClasses/InventoryHolder.hpp"
 #include "../Card/Card.hpp"
 #include "../Player/Player.hpp"
+#include "../TableCard/TableCard.hpp"
 
 
 class MainDeck : public InventoryHolder<Card>{

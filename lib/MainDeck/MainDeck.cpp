@@ -64,9 +64,7 @@ void MainDeck::shuffle(){
 void MainDeck::print(){
     cout << "Dek saat ini : " << endl;
     for (int i = getSize()-1;i >= 0;i--){
-        cout << getSize()-i << ". ";
-        getItem(i).print();
-        cout << endl;
+        cout << getSize()-i << ". " << getItem(i) << endl;
     }
 }
 MainDeck& MainDeck::operator+(const Card& card){
