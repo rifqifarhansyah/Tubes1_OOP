@@ -4,22 +4,25 @@
 #include "../Player/Player.hpp"
 #include "../TableCard/TableCard.hpp"
 #include "../MainDeck/MainDeck.hpp"
-#include "../Combination/Combination.hpp"
+// #include "../Combination/Combination.hpp"
 #include "../Card/Card.hpp"
 #include "../AbstractClasses/ValuedObject.hpp"
 #include "../Exception/exceptionInterface.hpp"
 #include <vector>
 #include <math.h>
+#include <algorithm>
+using namespace std;
 
 class Game{
     protected:
         Player* playerList;
         Player* winner;
-        vector<pair<int,bool>> playOrder;
+        vector<int> playOrder;
         MainDeck deck;
         TableCard table;
         int point;
         int round;
+        int turn;
         int gameCount;
         bool isReversed;
         const int maxPlayer;
@@ -44,6 +47,9 @@ class Game{
         void reversePlayOrder();
 
         void giveAbilityToAll();
+
+        void printRestOrder();
+        void printNextRoundOrder();
 
 };
 
