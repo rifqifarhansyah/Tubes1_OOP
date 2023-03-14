@@ -11,7 +11,8 @@ class SwapCard : public Ability
         {
             cout << p.getNamePlayer() << " melakukan SWAPCARD" << endl;
             cout << "Silakan pilih pemain yang kartunya ingin anda tukar:" << endl;
-            
+
+            p.removeAbility();
         }
 };
 

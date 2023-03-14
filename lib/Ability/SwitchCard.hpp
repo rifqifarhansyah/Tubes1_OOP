@@ -15,6 +15,7 @@ class SwitchCard : public Ability
             cout << p.getNumberSecondCard() << "(" << p.getColorSecondCard() << ")" << endl;
             cout << "Silakan pilih pemain yang kartunya ingin anda tukar:" << endl;
 
+            p.removeAbility();
         }
 };
 

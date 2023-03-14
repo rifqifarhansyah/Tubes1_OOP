@@ -10,8 +10,8 @@ class Abilityless : public Ability
         void action(Player& p,Game& g)
         {
             string namaplayer;
-            Player *diganti = &g.getPlayer(namaplayer);
-            diganti->removeAbility();
+        //     Player *diganti = &g.getPlayer(namaplayer);
+        //     diganti->removeAbility();
             p.removeAbility();
         }
 };

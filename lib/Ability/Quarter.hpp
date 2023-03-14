@@ -17,7 +17,10 @@ class Quarter : public Ability
                     g.setPoint(g.getPoint()/4);
                 }
                 cout << g.getPoint() << "!" << endl;
+            } else {
+                cout << p.getNamePlayer() << " melakukan QUARTER! Sayangnya poin hadiah sudah bernilai 1. Poin hadiah tidak berubah.. Giliran dilanjut!" << endl;
             }
+            p.removeAbility();
         }
 };
 
