@@ -1,21 +1,22 @@
 #include "Game.hpp"
+#include "../Ability/Abilityless.hpp"
+#include "../Ability/Quadruple.hpp"
+#include "../Ability/Quarter.hpp"
+#include "../Ability/ReRoll.hpp"
+#include "../Ability/ReverseDirection.hpp"
+#include "../Ability/SwapCard.hpp"
+#include "../Ability/SwitchCard.hpp"
+#include "../TemplateFunction/TemplateFunction.hpp"
+#include <bits/stdc++.h>
 #include <iostream>
 
-template <class T>
-T& getMaxArr(T arr[], int n){
-    T& min = arr[0];
-    for (int i = 1;i < n;i++){
-        if (arr[i] > min){
-            min = arr[i];
-        }
-    }
-    return min;
-}
 
 
-Game::Game() : maxPlayer(7), maxRound(6), deck(), table(), winner(NULL), playOrder(maxPlayer){
+Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winner(NULL){
     point = 64;
     round = 1;
+    turn = 0;
+    playOrder.resize(maxPlayer);
     playerList = new Player[maxPlayer];
     for (int i = 0;i < maxPlayer;i++){
         string name;
@@ -26,16 +27,35 @@ Game::Game() : maxPlayer(7), maxRound(6), deck(), table(), winner(NULL), playOrd
     for (int i = 0;i < maxPlayer;i++){
         playOrder[i] = i ;
     }
+    abilityList.push_back(new Abilityless());
+    abilityList.push_back(new Quadruple());
+    abilityList.push_back(new Quarter());
+    abilityList.push_back(new ReRoll());
+    abilityList.push_back(new ReverseDirection());
+    abilityList.push_back(new SwapCard());
+    abilityList.push_back(new SwitchCard());
+}
+
+Game::~Game(){
+    delete[] playerList;
+    for (int i = 0;i < maxPlayer;i++){
+        delete abilityList[i];
+    }
 }
 
 void Game::play(){
     while(winner == NULL){
+        
         startGame();
         Player* maxPlayer = &getMaxArr(playerList,7);
         if (maxPlayer->getPointPlayer() > pow(2,32)){
             winner = maxPlayer;
         }
+        try {
         resetGame();
+        } catch (Exception& e){
+            e.displayMessage();
+        }
     }
     cout << "Permainan selesai." << endl;
     cout << "Pemenangnya adalah : " << endl;
@@ -46,34 +66,42 @@ void Game::play(){
 void Game::startGame(){
     deck.shuffle();
     for (int i = 0;i < maxPlayer;i++){
-        deck - playerList[i] - playerList[i];
+        deck - playerList[i];
+        deck - playerList[i];
     }
-    for (int round = 1;round <= maxRound;round++){
+    for (round = 1;round <= maxRound;round++){
+        cout << endl;
         startRound();
         playOrder.push_back(*playOrder.begin());
         playOrder.erase(playOrder.begin());
+
     }
 
 }
 
 void Game::startRound(){
+    cout << "Ronde ke-" << round << endl << endl;;
     if (round == 2)
         giveAbilityToAll();
     int i = 0;
     for (turn = 0;turn < maxPlayer;turn++){ 
         if (round >= 2){
-            cout << "Kartu pada table :" << endl;
             table.print();
+            cout << endl;
         }
-        cout << "Kartu anda :" << endl;
-        cout << playerList[i].getColorFirstCard() << endl;
+        int curPlayer = playOrder[turn];
+        cout << "Kartu Anda(" << playerList[curPlayer].getNamePlayer() << ") :" << endl;
+        cout << playerList[curPlayer].getFirstCard() << " && " <<  playerList[curPlayer].getSecondCard() << endl;
+        if (round >= 2) {
+            cout << "Ability Anda :" << endl;
+            cout << playerList[curPlayer].getAbility()->getName() << " (" << playerList[curPlayer].getAbility()->getID() << ")" << endl;
+        }
         while (true){
             try {
-                // tanya aksi
                 int kode;
-                cin >> kode;
+                cin >> kode; // ganti dengan consoleIO
                 if (kode >= 3){
-                    playerList[turn].useAbility(kode,*this);
+                    playerList[curPlayer].useAbility(kode,*this);
                 } else {
                     
                 }
@@ -82,16 +110,20 @@ void Game::startRound(){
                 e.displayMessage();
             }
         }
+        cout << endl;
     }
     if (round <= 5)
         deck - table;
+    cout << endl;
 }
 
 void Game::resetGame(){
-    for (int i = 0;i < 7;i++){
+    for (int i = 0;i < maxPlayer;i++){
         playerList[i].clear();
     }
     table.clear();
+    MainDeck newDeck;
+    deck = newDeck;
 }
 
 Player& Game::getPlayerByIDX(int i){
@@ -131,26 +163,41 @@ void Game::setPoint(int point){
 
 void Game::reversePlayOrder()
 {
+    printOrder();
+    cout << endl;
     reverse(playOrder.begin()+turn+1,playOrder.end());
     reverse(playOrder.begin(),playOrder.begin()+turn+1);
+    printOrder();
+    cout << endl;
+}
+
+void Game::printOrder(){
+    for (int i = 0;i < maxPlayer;i++){
+        if (i != 0) cout << " ";
+        cout << playerList[playOrder[i]].getNamePlayer();
+    }
 }
 
 void Game::printRestOrder(){
-    for (int i = turn;i < maxPlayer;i++){
-        if (i != turn) cout << " ";
-        cout << playerList[i].getNamePlayer();
+    for (int i = turn+1;i < maxPlayer;i++){
+        if (i != turn+1) cout << " ";
+        cout << playerList[playOrder[i]].getNamePlayer();
     }
 }
 
 void Game::printNextRoundOrder(){
     for (int i = 1;i < maxPlayer;i++){
         if (i != turn) cout << " ";
-        cout << playerList[i].getNamePlayer();
+        cout << playerList[playOrder[i]].getNamePlayer();
     }
-    cout << " " << playerList[0].getNamePlayer();
+    cout << " " << playerList[playOrder[0]].getNamePlayer();
 }
 
 void Game::giveAbilityToAll(){
-    cout << "test\n";
+    ShuffleVec(abilityList);
+    for (int i = 0;i < maxPlayer;i++){
+        playerList[i].removeAbility();
+        playerList[i].setAbility(abilityList[i]);
+    }
 }
 

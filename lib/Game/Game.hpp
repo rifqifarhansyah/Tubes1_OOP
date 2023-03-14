@@ -6,6 +6,7 @@
 #include "../MainDeck/MainDeck.hpp"
 // #include "../Combination/Combination.hpp"
 #include "../Card/Card.hpp"
+#include "../Ability/Ability.hpp"
 #include "../AbstractClasses/ValuedObject.hpp"
 #include "../Exception/exceptionInterface.hpp"
 #include <vector>
@@ -18,6 +19,7 @@ class Game{
         Player* playerList;
         Player* winner;
         vector<int> playOrder;
+        vector<Ability*> abilityList;
         MainDeck deck;
         TableCard table;
         int point;
@@ -27,11 +29,13 @@ class Game{
         bool isReversed;
         const int maxPlayer;
         const int maxRound;
+        const int abilityCount;
         void startGame();
         void startRound();
         void resetGame();
     public:
         Game();
+        ~Game();
         void play();
         Player& getPlayerByIDX(int);
         Player& getPlayerByID(int);
@@ -48,6 +52,7 @@ class Game{
 
         void giveAbilityToAll();
 
+        void printOrder();
         void printRestOrder();
         void printNextRoundOrder();
 
