@@ -2,16 +2,18 @@
 CPP           = g++
 
 # Directory
+ABILITY		  = lib/Ability/*.cpp
 CARD		  = lib/Card/*.cpp
 COMBINATION	  = lib/Combination/*.cpp
 EXCEPTION	  = lib/Exception/*.cpp
+GAME		  = lib/Game/*.cpp
 IO			  = lib/IO/*.cpp
 MAINDECK	  = lib/MainDeck/*.cpp
 PLAYER		  = lib/Player/*.cpp
 TABLECARD	  = lib/TableCard/*.cpp
 
 # Flags
-CFLAGS		  = $(CARD) $(COMBINATION) $(EXCEPTION) $(IO) $(MAINDECK) $(PLAYER) $(TABLECARD)
+CFLAGS		  = $(ABILITY) $(CARD) $(COMBINATION) $(EXCEPTION) $(GAME) $(IO) $(MAINDECK) $(PLAYER) $(TABLECARD)
 TEMPFLAGS	  = $(CARD) $(TABLECARD) $(EXCEPTION)
 
 .ONESHELL:
@@ -19,7 +21,7 @@ test:
 	@clear
 	@read -p "Enter Folder: " folder;
 	@echo Compiling $$folder\Test...
-	@$(CPP) -o lib/$$folder/test/$$folder\Test lib/$$folder/test/$$folder\Test.cpp $(TEMPFLAGS)
+	@$(CPP) -o lib/$$folder/test/$$folder\Test lib/$$folder/test/$$folder\Test.cpp $(CFLAGS)
 	./lib/$$folder/test/$$folder\Test
 	rm -rf lib/$$folder/test/$$folder\Test
 tablecard:
