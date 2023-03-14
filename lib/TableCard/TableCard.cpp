@@ -32,31 +32,57 @@ TableCard::~TableCard() {
 // mengubah semua kartu TableCard
 void TableCard::setCards(std::vector<Card> cards) {
     for (int i = 0; i < cards.size(); i++) {
-        setItem(i, cards[i]);
+        try {
+            setItem(i, cards[i]);
+        } catch (InventoryException(error)) {
+            error.displayMessage();
+        }
     }
 }
 // mendapat semua kartu TableCard
 std::vector<Card> TableCard::getCards() {
     return inventory;
 }
-// mendapat ukuran inventory
-int TableCard::getSize() {
-    return InventoryHolder::getSize();
-}
 
 // operation, output
 // menambah 1 kartu pada indeks terakhir
 void TableCard::draw(Card card) {
-    InventoryHolder::insertLast(card);
+    try {
+        insertLast(card);
+    } catch (InventoryException(error)) {
+        error.displayMessage();
+    }
 }
 // menghapus 1 kartu sesuai indeks
 void TableCard::remove() {
-    InventoryHolder::deleteLast();
+    try {
+        deleteLast();
+    } catch (InventoryException(error)) {
+        error.displayMessage();
+    }
+}
+// menghapus semua kartu TableCard
+void TableCard::clear() {
+    InventoryHolder::clear();
 }
 // menampilkan semua kartu TableCard
 void TableCard::print() {
-    cout << "Kartu TableCard:" << endl;
-    for (int i = 0; i < getSize(); i++) {
-        cout << i+1 << ". Kartu " << inventory[i] << endl;
+    try {
+        if (!isEmpty()) {
+            cout << "Kartu TableCard:" << endl;
+            for (int i = 0; i < getSize(); i++) {
+                cout << i+1 << ". Kartu " << inventory[i] << endl;
+            }
+        } else {
+            throw InventoryException(3);
+        }
+    } catch (InventoryException(error)) {
+        error.displayMessage();
     }
 }
+
+/*
+TableCard Exception 
+"Error: Kartu tidak ditemukan."
+"Error: Kartu sudah ada."
+*/

@@ -12,12 +12,15 @@ TABLECARD	  = lib/TableCard/*.cpp
 
 # Flags
 CFLAGS		  = $(CARD) $(COMBINATION) $(EXCEPTION) $(IO) $(MAINDECK) $(PLAYER) $(TABLECARD)
-TEMPFLAGS	  = $(CARD) $(TABLECARD)
+TEMPFLAGS	  = $(CARD) $(TABLECARD) $(EXCEPTION)
 
 .ONESHELL:
 test:
+	@clear
 	@read -p "Enter Folder: " folder;
-	@$(CPP) -o lib/$$folder/test/$$folder\Test lib/$$folder/test/$$folder\Test.cpp $(CFLAGS)
+	@echo Compiling $$folder\Test...
+	@$(CPP) -o lib/$$folder/test/$$folder\Test lib/$$folder/test/$$folder\Test.cpp $(TEMPFLAGS)
+	@clear
 	./lib/$$folder/test/$$folder\Test
 	rm -rf lib/$$folder/test/$$folder\Test
 tablecard:
