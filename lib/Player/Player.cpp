@@ -78,12 +78,12 @@ bool Player::operator<(const Player& p)
 
 Card Player::getFirstCard()
 {
-    return getItem(0);//angka kartu 1
+    return getItem(0);
 }
 
 Card Player::getSecondCard()
 {
-    return getItem(0);//angka kartu 1
+    return getItem(1);
 }
 
 
@@ -145,6 +145,11 @@ void Player::setAbility(Ability* ab)
    this->ability = ab;
    this->abilityIsUsed = false;
    this->abilityIsBlocked = false;
+}
+
+Ability* Player::getAbility()
+{
+    return this->ability;
 }
 
 void Player::removeAbility()

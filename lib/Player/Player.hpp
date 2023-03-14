@@ -34,6 +34,7 @@ public:
 
     void useAbility(int,Game&);
     void setAbility(Ability*);
+    Ability* getAbility();
     void removeAbility();
     bool hasAbility();
     bool isAbilityUsed();
