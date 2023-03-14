@@ -2,7 +2,7 @@
 
 // ctor by input
 FullHouse::FullHouse(Player c1, TableCard c2) : Flush(c1,c2){
-    this->maxFullHouse = 6.95;
+    this->maxFullHouse = 1.39 * 7;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -42,21 +42,37 @@ vector<Card> FullHouse::findMaxCombination(Player c1, TableCard c2){
     allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
     allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(allCards.begin(), allCards.end(), [](const Card& card1, const Card& card2) 
+    {card1.getNumber() > card2.getNumber();});
 
     vector<Card> fullHouse;
-    int count = 0;
-    for (int i = allCards.size() - 1; i >= 2; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber() && allCards[i-1].getNumber() == allCards[i-2].getNumber()) {
-            fullHouse.push_back(allCards[i]);
-            fullHouse.push_back(allCards[i-1]);
-            fullHouse.push_back(allCards[i-2]);
-            break;
+    bool foundThreeOfAKind = false;
+    bool foundPair = false;
+
+    for (int i = 0; i < allCards.size() - 1; i++) {
+        if (allCards[i].getNumber() == allCards[i + 1].getNumber()) {
+            if (!foundThreeOfAKind) {
+                foundThreeOfAKind = true;
+                fullHouse.clear();
+                fullHouse.push_back(allCards[i]);
+                fullHouse.push_back(allCards[i + 1]);
+            } else if (foundPair && allCards[i].getNumber() != fullHouse[0].getNumber()) {
+                fullHouse.push_back(allCards[i]);
+                return fullHouse;
+            } else if (!foundPair && allCards[i].getNumber() != fullHouse[0].getNumber()) {
+                foundPair = true;
+                fullHouse.push_back(allCards[i]);
+                fullHouse.push_back(allCards[i + 1]);
+            }
+        } else if (foundThreeOfAKind && foundPair) {
+            return fullHouse;
+        } else {
+            foundThreeOfAKind = false;
+            foundPair = false;
         }
     }
-    if (fullHouse.size() < 3) {
-        fullHouse.clear();
-    }
+
+    fullHouse.clear();
     return fullHouse;
 }
 // set value of a combo

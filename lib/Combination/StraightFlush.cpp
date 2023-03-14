@@ -2,7 +2,7 @@
 
 // ctor by input
 StraightFlush::StraightFlush(Player c1, TableCard c2) : FourOfAKind(c1,c2){
-    this->maxStraightFlush = 6.95;
+    this->maxStraightFlush = 1.39 * 9;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -42,20 +42,34 @@ vector<Card> StraightFlush::findMaxCombination(Player c1, TableCard c2){
     allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
     allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(allCards.begin(), allCards.end(), [](const Card& card1, const Card& card2) 
+    {card1.getNumber() < card2.getNumber();});
 
     vector<Card> straightFlush;
-    int count = 0;
-    for (int i = allCards.size() - 1; i >= 2; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber() && allCards[i-1].getNumber() == allCards[i-2].getNumber()) {
-            straightFlush.push_back(allCards[i]);
-            straightFlush.push_back(allCards[i-1]);
-            straightFlush.push_back(allCards[i-2]);
-            break;
+    for (int i = allCards.size() - 1; i >= 4; i--) {
+        if (allCards[i].getColor() == allCards[i - 1].getColor() &&
+            allCards[i - 1].getColor() == allCards[i - 2].getColor() &&
+            allCards[i - 2].getColor() == allCards[i - 3].getColor() &&
+            allCards[i - 3].getColor() == allCards[i - 4].getColor()) {
+            // Found a possible straight flush starting with card i
+            bool isStraightFlush = true;
+            int currentNumber = allCards[i].getNumber();
+            for (int j = i - 1; j >= i - 4; j--) {
+                if (allCards[j].getNumber() != currentNumber - 1) {
+                    isStraightFlush = false;
+                    break;
+                }
+                currentNumber--;
+            }
+            if (isStraightFlush) {
+                straightFlush.push_back(allCards[i]);
+                straightFlush.push_back(allCards[i - 1]);
+                straightFlush.push_back(allCards[i - 2]);
+                straightFlush.push_back(allCards[i - 3]);
+                straightFlush.push_back(allCards[i - 4]);
+                break;
+            }
         }
-    }
-    if (straightFlush.size() < 3) {
-        straightFlush.clear();
     }
     return straightFlush;
 }

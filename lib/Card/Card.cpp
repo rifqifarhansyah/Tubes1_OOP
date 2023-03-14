@@ -18,10 +18,10 @@ Card& Card::operator=(const Card& other) {
     this->color = other.color ; 
     return *this ; 
 }
-int Card::getNumber() { 
+int Card::getNumber() const{ 
     return this->number ; 
 }
-string Card::getColor() {
+string Card::getColor() const {
     return this->color ; 
 }
 double Card::getValue() { 

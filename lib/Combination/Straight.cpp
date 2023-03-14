@@ -45,20 +45,25 @@ vector<Card> Straight::findMaxCombination(Player c1, TableCard c2){
     sort(allCards.begin(), allCards.end());
 
     vector<Card> straight;
-    int count = 0;
-    for (int i = allCards.size() - 1; i >= 2; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber() && allCards[i-1].getNumber() == allCards[i-2].getNumber()) {
-            straight.push_back(allCards[i]);
-            straight.push_back(allCards[i-1]);
-            straight.push_back(allCards[i-2]);
-            break;
+    int count = 1;
+    for (int i = allCards.size() - 1; i > 0; i--) {
+        if (allCards[i].getNumber() - allCards[i - 1].getNumber() == 1) {
+            count++;
+            if (count == 5) {
+                straight.push_back(allCards[i - 3]);
+                straight.push_back(allCards[i - 2]);
+                straight.push_back(allCards[i - 1]);
+                straight.push_back(allCards[i]);
+                straight.push_back(allCards[i - count]);
+                break;
+            }
+        } else if (allCards[i].getNumber() != allCards[i - 1].getNumber()) {
+            count = 1;
         }
-    }
-    if (straight.size() < 3) {
-        straight.clear();
     }
     return straight;
 }
+
 // set value of a combo
 void Straight::setValue(double val){
     this->totalValue = val;

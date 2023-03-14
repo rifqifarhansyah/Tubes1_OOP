@@ -16,16 +16,9 @@ HighCard::~HighCard(){}
 
 // calculate max value of a combo
 void HighCard::calculateMaxCombination(Player c1, TableCard c2){
-    // double max = 0;
-    // string highColor;
     vector<Card> vec;
     vec = findMaxCombination(c1, c2);
-    // for(auto it1 = c1.begin(); it1 != c1.end(); it1++){
-    //     if(it1->first >= max){
-    //         max = it1->first;
-    //         highColor = it1->second;
-    //     }
-    // }
+    
     double num = vec[0].getNumber() * 0.1;
     double color = this->getValueFromColor(vec[0].getColor()) * 0.03;
     this->setHighestNumber(vec[0].getNumber());

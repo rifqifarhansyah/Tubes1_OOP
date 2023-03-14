@@ -15,8 +15,8 @@ class Card{
         Card(int, string);
         Card(const Card&);
         Card& operator=(const Card& ) ; 
-        int getNumber();
-        string getColor();
+        int getNumber() const;
+        string getColor() const;
         double getValue();
         void print();
         friend ostream& operator<<(ostream& out, const Card&);

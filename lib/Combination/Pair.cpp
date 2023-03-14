@@ -24,7 +24,7 @@ void Pair::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxPair);
+        this->setValue(num + color + this->maxHighCard);
     }
 }
 vector<Card> Pair::findMaxCombination(Player c1, TableCard c2){

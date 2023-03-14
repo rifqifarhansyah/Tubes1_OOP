@@ -2,7 +2,7 @@
 
 // ctor by input
 FourOfAKind::FourOfAKind(Player c1, TableCard c2) : FullHouse(c1,c2){
-    this->maxFourOfAKind = 6.95;
+    this->maxFourOfAKind = 1.39 * 8;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -46,15 +46,17 @@ vector<Card> FourOfAKind::findMaxCombination(Player c1, TableCard c2){
 
     vector<Card> fourOfAKind;
     int count = 0;
-    for (int i = allCards.size() - 1; i >= 2; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber() && allCards[i-1].getNumber() == allCards[i-2].getNumber()) {
+    for (int i = allCards.size() - 1; i >= 3; i--) {
+        if (allCards[i].getNumber() == allCards[i - 1].getNumber() && allCards[i-1].getNumber() == allCards[i-2].getNumber()
+        && allCards[i-2].getNumber() == allCards[i-3].getNumber()) {
             fourOfAKind.push_back(allCards[i]);
             fourOfAKind.push_back(allCards[i-1]);
             fourOfAKind.push_back(allCards[i-2]);
+            fourOfAKind.push_back(allCards[i-3]);
             break;
         }
     }
-    if (fourOfAKind.size() < 3) {
+    if (fourOfAKind.size() < 4) {
         fourOfAKind.clear();
     }
     return fourOfAKind;
