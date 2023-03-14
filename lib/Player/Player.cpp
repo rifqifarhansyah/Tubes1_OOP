@@ -140,14 +140,14 @@ bool Player::hasAbility()
     return (this->ability!=NULL);
 }
 
-void Player::useAbility(string namaAbility,Game& game)
+void Player::useAbility(int idAbility,Game& game)
 {
     
     if(hasAbility()==false)
     {
         //exception tidak ada ability
     }
-    else if(namaAbility!=(this->ability)->getName())
+    else if(idAbility!=(this->ability)->getID())
     {
         //exception tidak ada ability yang dimaksud
     }

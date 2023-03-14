@@ -30,7 +30,7 @@ public:
     string getColorFirstCard();
     string getColorSecondCard();
 
-    void useAbility(string,Game&);
+    void useAbility(int,Game&);
     void setAbility(Ability&);
     void removeAbility();
     bool hasAbility();
