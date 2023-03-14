@@ -78,3 +78,9 @@ MainDeck& MainDeck::operator-(Player& player){
     deleteLast();
     return *this;
 }
+
+MainDeck& MainDeck::operator-(TableCard& table){
+    table.draw(getItemLast());
+    deleteLast();
+    return *this;
+}

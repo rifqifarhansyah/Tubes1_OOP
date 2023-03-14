@@ -19,6 +19,7 @@ class MainDeck : public InventoryHolder<Card>{
         void print();
         MainDeck& operator+(const Card&);
         MainDeck& operator-(Player&);
+        MainDeck& operator-(TableCard&);
 };
 
 
