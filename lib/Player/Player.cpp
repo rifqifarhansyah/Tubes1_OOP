@@ -76,29 +76,20 @@ bool Player::operator<(const Player& p)
     return(this->poin < p.poin);
 }
 
-int Player::getNumberFirstCard()
+Card Player::getFirstCard()
 {
-    return getItem(0).getNumber();//angka kartu 1
+    return getItem(0);//angka kartu 1
 }
 
-string Player::getColorFirstCard()
+Card Player::getSecondCard()
 {
-    return getItem(0).getColor();
+    return getItem(0);//angka kartu 1
 }
+
 
 string Player::getNamePlayer()
 {
     return this->playerName;
-}
-
-int Player::getNumberSecondCard()
-{
-    return getItem(1).getNumber();//angka kartu 2
-}
-
-string Player::getColorSecondCard()
-{
-    return getItem(1).getColor();
 }
 
 int Player::getTotalCard()
@@ -149,9 +140,9 @@ void Player::setCard(Card x,int index)
     }
 }
 
-void Player::setAbility(Ability& ab)
+void Player::setAbility(Ability* ab)
 {
-   this->ability = &ab;
+   this->ability = ab;
    this->abilityIsUsed = false;
    this->abilityIsBlocked = false;
 }
@@ -211,12 +202,12 @@ void Player::print()
         cout<<" memiliki kartu:"<<endl;
         if(getTotalCard()==1)
         {
-            cout<<"Kartu pertama : "<<getNumberFirstCard()<<" "<<getColorFirstCard()<<endl;
+            cout<<"Kartu pertama : "<< getFirstCard() <<endl;
         }
         if(getTotalCard()==2)
         {
-            cout<<"Kartu pertama : "<<getNumberFirstCard()<<" "<<getColorFirstCard()<<endl;
-            cout<<"Kartu kedua : "<<getNumberSecondCard()<<" "<<getColorSecondCard()<<endl;
+            cout<<"Kartu pertama : "<<getFirstCard()<<endl;
+            cout<<"Kartu kedua : "<<getSecondCard()<<endl;
         }
     }
     cout<<"Memiliki poin : "<<getPointPlayer()<<endl;

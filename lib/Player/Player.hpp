@@ -29,13 +29,11 @@ public:
     bool operator<(const Player&);
     Player& operator+(const Card&);
 
-    int getNumberFirstCard();
-    int getNumberSecondCard();
-    string getColorFirstCard();
-    string getColorSecondCard();
+    Card getFirstCard();
+    Card getSecondCard();
 
     void useAbility(int,Game&);
-    void setAbility(Ability&);
+    void setAbility(Ability*);
     void removeAbility();
     bool hasAbility();
     bool isAbilityUsed();
