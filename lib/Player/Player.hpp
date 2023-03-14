@@ -6,6 +6,7 @@
 #include "../MainDeck/MainDeck.hpp"
 #include "../Ability/Ability.hpp"
 #include "../Card/Card.hpp"
+#include "../Game/Game.hpp"
 using namespace std;
 #define Max 2
 

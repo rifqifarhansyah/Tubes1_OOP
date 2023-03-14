@@ -80,9 +80,3 @@ void TableCard::print() {
         error.displayMessage();
     }
 }
-
-/*
-TableCard Exception 
-"Error: Kartu tidak ditemukan."
-"Error: Kartu sudah ada."
-*/

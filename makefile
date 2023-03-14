@@ -20,7 +20,6 @@ test:
 	@read -p "Enter Folder: " folder;
 	@echo Compiling $$folder\Test...
 	@$(CPP) -o lib/$$folder/test/$$folder\Test lib/$$folder/test/$$folder\Test.cpp $(TEMPFLAGS)
-	@clear
 	./lib/$$folder/test/$$folder\Test
 	rm -rf lib/$$folder/test/$$folder\Test
 tablecard:

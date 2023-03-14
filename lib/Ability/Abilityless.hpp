@@ -7,13 +7,7 @@ class Abilityless : public Ability
 {
     public:
         Abilityless() : Ability("Abilityless",7){}
-        void action(Player& p,Game& g)
-        {
-            string namaplayer;
-        //     Player *diganti = &g.getPlayer(namaplayer);
-        //     diganti->removeAbility();
-            p.removeAbility();
-        }
+        void action(Player&,Game&);
 };
 
 
