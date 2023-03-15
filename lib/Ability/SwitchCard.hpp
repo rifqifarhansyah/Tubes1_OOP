@@ -2,6 +2,7 @@
 #define SWITCHCARD_HPP
 
 #include "Ability.hpp"
+#include "../IO/consoleIOInterface.hpp"
 
 class SwitchCard : public Ability
 {

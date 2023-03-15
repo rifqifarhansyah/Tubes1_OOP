@@ -18,5 +18,4 @@ void Quarter::action(Player& p,Game& g) const
     } else {
         cout << p.getNamePlayer() << " melakukan QUARTER! Sayangnya poin hadiah sudah bernilai 1. Poin hadiah tidak berubah.. Giliran dilanjut!" << endl;
     }
-    p.removeAbility();
 }

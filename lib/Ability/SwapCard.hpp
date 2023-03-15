@@ -2,6 +2,7 @@
 #define SWAPCARD_HPP
 
 #include "Ability.hpp"
+#include "../IO/consoleIOInterface.hpp"
 
 class SwapCard : public Ability
 {
