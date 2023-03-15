@@ -134,6 +134,7 @@ void Player::setCard(Card x,int index)
     if(index>=banyakkartu)
     {
         //exception
+        throw PlayerException(6);
     }
     else
     {
@@ -169,14 +170,45 @@ void Player::useAbility(const Ability& abilityToUse,Game& game)
     
     if(hasAbility()==false)
     {
-        //exception tidak ada ability
+        //exception tidak ada ability;
+        if(abilityToUse.getID()==9)
+        {
+            //exception tidak ada ability yang dimaksud
+            throw PlayerException(3);
+        }
+        else if(abilityToUse.getID()==4)
+        {
+            throw PlayerException(0);
+        }
+        else if(abilityToUse.getID()==5)
+        {
+            throw PlayerException(1);
+        }
+        else if(abilityToUse.getID()==3)
+        {
+            throw PlayerException(7);
+        }
+        else if(abilityToUse.getID()==6)
+        {
+            throw PlayerException(2);
+        }
+        else if(abilityToUse.getID()==7)
+        {
+            throw PlayerException(8);
+        }
+        else if(abilityToUse.getID()==8)
+        {
+            throw PlayerException(9);
+        }
     }
     else if(abilityToUse.getID()!=(this->ability)->getID())
     {
         //exception tidak ada ability yang dimaksud
+        throw PlayerException(10);
     }
      else if (isAbilityBlocked()){
         //exception ability dimatikan
+        throw PlayerException(5);
     } 
     else 
     {

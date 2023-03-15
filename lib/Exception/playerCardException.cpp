@@ -8,7 +8,12 @@ string PlayerException::errorMessage[] = {
     "Eits, tidak bisa. Kamu tidak punya kartu Ability REVERSE.",
     "Eits, tidak bisa. Kamu tidak punya kartu Ability ABILITYLESS.",
     "Eits, ternyata semua pemain sudah memakai kartu kemampuan. Yah kamu kena sendiri deh, kemampuanmu menjadi abilityless. Yah, penggunaan kartu ini sia-sia.",
-    "Oops, kartu ability switchmu telah dimatikan sebelumnya :(",
+    "Oops, kartu ABILITY-mu telah dimatikan sebelumnya :(",
+    "Indeks kartu yang kamu masukkan tidak valid.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability REROLL.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability SWAP.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability SWITCH.",
+    "Tidak ada kartu ABILITY yang dimaksud."
 };
 
 PlayerException::PlayerException(int ID) : CardException(ID) { // user-defined ctor
