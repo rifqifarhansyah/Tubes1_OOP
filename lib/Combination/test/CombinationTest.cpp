@@ -10,7 +10,8 @@ using namespace std;
 int main(){
     int inp;
     cout << "1. random card\n";
-    cout << "2. input manual";
+    cout << "2. input manual\n";
+    cout << "pilihan : ";
     cin >> inp;
     Player P;
     TableCard T;
@@ -33,6 +34,7 @@ int main(){
             cout << "Masukkan 2 kartu player :" << endl;
             for (int i = 0;i < 2;i++){
                 int a; string w;
+                cout << i+1 << ". ";
                 cin >> a >> w;
                 Card tmp(a,w);
                 P.addCard(tmp);
@@ -40,6 +42,7 @@ int main(){
             cout << "Masukkan 5 kartu table : " << endl;
             for (int i = 0;i < 5;i++){
                 int a; string w;
+                cout << i+1 << ". ";
                 cin >> a >> w;
                 Card tmp(a,w);
                 T.draw(tmp);
