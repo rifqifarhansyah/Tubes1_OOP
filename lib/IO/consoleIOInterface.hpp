@@ -22,6 +22,7 @@ class ConsoleIO : public Command {
         void askForCommand(Player& _player, Game& _game); // main logic
         int getIntInput(); // input number
         int getNumberInRange(int _lower, int _upper); // input range number
+        void startPage();
 };
 
 #endif

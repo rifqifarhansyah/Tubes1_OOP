@@ -7,17 +7,17 @@
 #include "../Ability/SwapCard.hpp"
 #include "../Ability/SwitchCard.hpp"
 #include "../TemplateFunction/TemplateFunction.hpp"
-#include <bits/stdc++.h>
 #include <iostream>
 
 
 
-Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winner(NULL){
+Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winner(NULL), consoleIO(){
     point = 64;
     round = 1;
     turn = 0;
     playOrder.resize(maxPlayer);
     playerList = new Player[maxPlayer];
+    consoleIO.startPage();
     for (int i = 0;i < maxPlayer;i++){
         string name;
         cout << "Masukkan nama pemain ke-" << i+1 << " : ";
@@ -45,17 +45,12 @@ Game::~Game(){
 
 void Game::play(){
     while(winner == NULL){
-        
         startGame();
         Player* maxPlayer = &getMaxArr(playerList,7);
         if (maxPlayer->getPointPlayer() > pow(2,32)){
             winner = maxPlayer;
         }
-        try {
         resetGame();
-        } catch (Exception& e){
-            e.displayMessage();
-        }
     }
     cout << "Permainan selesai." << endl;
     cout << "Pemenangnya adalah : " << endl;
@@ -80,7 +75,7 @@ void Game::startGame(){
 }
 
 void Game::startRound(){
-    cout << "Ronde ke-" << round << endl << endl;;
+    cout << "Ronde ke - " << round << endl << endl;;
     if (round == 2)
         giveAbilityToAll();
     int i = 0;
@@ -96,20 +91,7 @@ void Game::startRound(){
             cout << "Ability Anda :" << endl;
             cout << playerList[curPlayer].getAbility()->getName() << " (" << playerList[curPlayer].getAbility()->getID() << ")" << endl;
         }
-        while (true){
-            try {
-                int kode;
-                cin >> kode; // ganti dengan consoleIO
-                if (kode >= 3){
-                    playerList[curPlayer].useAbility(kode,*this);
-                } else {
-                    
-                }
-                break;
-            } catch (Exception& e){
-                e.displayMessage();
-            }
-        }
+        consoleIO.askForCommand(playerList[curPlayer],*this);
         cout << endl;
     }
     if (round <= 5)

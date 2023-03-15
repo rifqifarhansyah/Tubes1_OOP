@@ -9,6 +9,7 @@
 #include "../Ability/Ability.hpp"
 #include "../AbstractClasses/ValuedObject.hpp"
 #include "../Exception/exceptionInterface.hpp"
+#include "../IO/consoleIOInterface.hpp"
 #include <vector>
 #include <math.h>
 #include <algorithm>
@@ -22,6 +23,7 @@ class Game{
         vector<Ability*> abilityList;
         MainDeck deck;
         TableCard table;
+        ConsoleIO consoleIO;
         int point;
         int round;
         int turn;
