@@ -19,9 +19,9 @@ void StraightFlush::calculateMaxCombination(Player c1, TableCard c2){
     if(vec.empty()){
         this->FourOfAKind::calculateMaxCombination(c1,c2);
     }else{
-        double num = vec[0].getNumber() * 0.1;
+        double num = findHighestNumber(vec);
         double color = findHighestColor(vec);
-        this->setHighestNumber(vec[0].getNumber());
+        this->setHighestNumber(num);
         this->setHighestColor(getColorFromValue(color));
         this->setValue(num + color + FOUR_OF_A_KIND);
     }
