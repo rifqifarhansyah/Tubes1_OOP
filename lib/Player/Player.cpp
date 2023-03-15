@@ -236,7 +236,14 @@ void Player::blockAbility(){
 void Player::unblockAbility(){
     abilityIsBlocked = false;
 }
-
+void Player::setAbilityhasUsed()
+{
+    this->abilityIsUsed = true;
+}
+string Player::getNameAbility()
+{
+    return this->ability->getName();
+}
 void Player::print()
 {
     cout<<"Player dengan nama "<<getNamePlayer();

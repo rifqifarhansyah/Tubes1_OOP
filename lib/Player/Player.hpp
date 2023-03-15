@@ -42,6 +42,8 @@ public:
     void blockAbility();
     void unblockAbility();
 
+    void setAbilityhasUsed();
+    string getNameAbility();
     int getTotalCard();
     int getIDPlayer();
     int getPointPlayer();
