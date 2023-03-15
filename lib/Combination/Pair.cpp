@@ -98,46 +98,26 @@ double Pair::findHighestColor(vector<Card> c1){
     return max;
 }
 double Pair::getValueFromColor(string color) const{
-    if(color == "merah"){
+    if(color == "Merah"){
         return 3;
-    } else if(color == "kuning"){
+    } else if(color == "Kuning"){
         return 2;
-    } else if(color == "biru"){
+    } else if(color == "Biru"){
         return 1;
-    } else if(color == "hijau"){
+    } else if(color == "Hijau"){
         return 0;
     }
 }
 string Pair::getColorFromValue(double result) const{
     string color;
     if(result == 3){
-        color == "merah";
+        color == "Merah";
     } else if(result == 2){
-        color == "kuning";
+        color == "Kuning";
     } else if(result == 1){
-        color == "biru";
+        color == "Biru";
     } else if(result == 0){
-        color == "hijau";
+        color == "Hijau";
     }
     return color;
 }
-// bool Pair::isPair(Player c1, TableCard c2){
-//     double max = 0;
-//     string highColor;
-//     bool check = false;
-//     int maxcardplayer = c1.getSize();
-//     int maxcardtable = c2.getSize();
-//     for(int i=0;i<maxcardplayer;i++)
-//     {
-//         for(int j=0;j<maxcardtable;j++)
-//         {
-//             if((c1.getItem(i)).getNumber()==(c2.getItem(i)).getNumber())
-//             {
-//                 check = true;
-//                 break;
-//             }
-//         }
-//     }
-
-//     return check;
-// }
