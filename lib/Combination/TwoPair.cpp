@@ -2,7 +2,7 @@
 
 // ctor by input
 TwoPair::TwoPair(Player c1, TableCard c2) : Pair(c1,c2){
-    this->maxTwoPair = 4.17;
+    // this->maxTwoPair = 4.17;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -23,7 +23,7 @@ void TwoPair::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxPair);
+        this->setValue(num + color + PAIR);
     }
 }
 vector<Card> TwoPair::findMaxCombination(Player c1, TableCard c2){

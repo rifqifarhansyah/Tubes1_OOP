@@ -29,7 +29,7 @@ class Pair : public HighCard {
         // check combo
         // bool isPair(Player, TableCard);
 
-    protected:
-        double maxPair;
+    // protected:
+    //     double maxPair;
 };
 #endif
