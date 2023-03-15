@@ -103,7 +103,7 @@ void ConsoleIO::askForCommand(Player& _player, Game& _game){
             }
             else if(this->command == "DOUBLE")
             {
-                this->DOUBLE();
+                this->DOUBLE(_player,_game);
             }
             else if(this->command == "QUADRUPLE")
             {
@@ -112,7 +112,7 @@ void ConsoleIO::askForCommand(Player& _player, Game& _game){
             }
             else if(this->command == "HALF")
             {
-                this->HALF();
+                this->HALF(_player,_game);
             }
             else if(this->command == "QUARTER")
             {
@@ -123,6 +123,7 @@ void ConsoleIO::askForCommand(Player& _player, Game& _game){
             {
                 ReverseDirection ability;
                 _player.useAbility(ability,_game);
+                continue;
             }
             else if(this->command == "SWAP")
             {

@@ -38,6 +38,19 @@ double Card::getValueFromColor(string s){
     }
     return val * constant;
 }
+string Card::getColorFromValue(double result){
+    string color;
+    if(result == 0.09){
+        color == "Merah";
+    } else if(result == 0.06){
+        color == "Kuning";
+    } else if(result == 0.03){
+        color == "Biru";
+    } else if(result == 0){
+        color == "Hijau";
+    }
+    return color;
+}
 double Card::getValue() { 
     double value = this->number / 10 ;   
     if (this->color == "Hijau") {

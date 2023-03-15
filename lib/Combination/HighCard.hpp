@@ -20,10 +20,13 @@ class HighCard : public Combination {
         // set and get highestNumber
         virtual void setHighestNumber(double);
         virtual double getHighestNumber() const;
+        virtual double findHighestNumber(vector<Card>);
         // set and get highestColor
         virtual void setHighestColor(string);
         virtual string getHighestColor() const;
-        virtual double getValueFromColor(string) const;
+        double findHighestColor(vector<Card>);
+        // virtual double getValueFromColor(string) const;
+        // virtual string Card::getColorFromValue(double result) const;
     protected:
         double highestNumber;
         string highestColor;

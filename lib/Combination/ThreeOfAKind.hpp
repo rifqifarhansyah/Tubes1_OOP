@@ -8,7 +8,7 @@ class ThreeOfAKind : public TwoPair {
         // ctor by input
         ThreeOfAKind(Player c1, TableCard c2);
         // cctor
-        ThreeOfAKind(const Pair& C);
+        ThreeOfAKind(const ThreeOfAKind& C);
         //dtor
         ~ThreeOfAKind();
         // Find and calculate combination
@@ -25,7 +25,7 @@ class ThreeOfAKind : public TwoPair {
     //     virtual string getHighestColor() const;
     //     double findHighestColor(vector<Card>);
     //     virtual double getValueFromColor(string) const;
-    //     string getColorFromValue(double result) const;
+    //     string Card::getColorFromValue(double result) const;
         
     //     // check combo
     //     // bool isTwoPair(Player, TableCard);

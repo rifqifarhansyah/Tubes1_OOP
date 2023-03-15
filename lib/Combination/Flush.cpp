@@ -19,10 +19,10 @@ void Flush::calculateMaxCombination(Player c1, TableCard c2){
     if(vec.empty()){
         this->Straight::calculateMaxCombination(c1,c2);
     }else{
-        double num = vec[0].getNumber() * 0.1;
+        double num = findHighestNumber(vec);
         double color = findHighestColor(vec);
-        this->setHighestNumber(vec[0].getNumber());
-        this->setHighestColor(getColorFromValue(color));
+        this->setHighestNumber(num);
+        this->setHighestColor(Card::getColorFromValue(color));
         this->setValue(num + color + STRAIGHT);
     }
 }
@@ -113,7 +113,7 @@ vector<Card> Flush::findMaxCombination(Player c1, TableCard c2){
 //         return 0;
 //     }
 // }
-// string Flush::getColorFromValue(double result) const{
+// string Flush::Card::getColorFromValue(double result) const{
 //     string color;
 //     if(result == 3){
 //         color == "merah";

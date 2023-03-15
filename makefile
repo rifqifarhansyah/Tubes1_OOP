@@ -13,7 +13,7 @@ PLAYER		  = ./lib/Player/*.cpp
 TABLECARD	  = ./lib/TableCard/*.cpp
 
 # Flags
-CFLAGS		  = $(ABILITY) $(CARD) $(EXCEPTION) $(GAME) $(IO) $(MAINDECK) $(PLAYER) $(TABLECARD)
+CFLAGS		  = $(ABILITY) $(CARD) $(EXCEPTION) $(GAME) $(IO) $(COMBINATION) $(MAINDECK) $(PLAYER) $(TABLECARD)
 
 .ONESHELL:
 test:

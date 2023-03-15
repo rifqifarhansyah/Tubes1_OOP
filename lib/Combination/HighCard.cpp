@@ -18,10 +18,10 @@ void HighCard::calculateMaxCombination(Player c1, TableCard c2){
     vector<Card> vec;
     vec = findMaxCombination(c1, c2);
     
-    double num = vec[0].getNumber() * 0.1;
-    double color = this->getValueFromColor(vec[0].getColor()) * 0.03;
-    this->setHighestNumber(vec[0].getNumber());
-    this->setHighestColor(vec[0].getColor());
+    double num = findHighestNumber(vec);
+    double color = findHighestColor(vec);
+    this->setHighestNumber(num);
+    this->setHighestColor(Card::getColorFromValue(color));
     this->setValue(num + color);
     
 }
@@ -50,12 +50,22 @@ void HighCard::setValue(double val){
 double HighCard::getValue(Player c1, TableCard c2) const{
     return this->totalValue;
 }
-
 void HighCard::setHighestNumber(double val){
     this->highestNumber = val;
 }
 double HighCard::getHighestNumber() const{
     return this->highestNumber;
+}
+double HighCard::findHighestNumber(vector<Card> c1){
+    double max = c1[0].getNumber();
+    for (int i = 0; i < c1.size(); i++)
+    {
+        if (c1[i].getNumber() > max){
+            max = c1[i].getNumber();
+        }
+    }
+
+    return max;
 }
 void HighCard::setHighestColor(string s){
     this->highestColor = s;
@@ -64,14 +74,20 @@ string HighCard::getHighestColor() const{
     return this->highestColor;
 }
 
-double HighCard::getValueFromColor(string color) const{
-    if(color == "merah"){
-        return 3;
-    } else if(color == "kuning"){
-        return 2;
-    } else if(color == "biru"){
-        return 1;
-    } else if(color == "hijau"){
-        return 0;
+double HighCard::findHighestColor(vector<Card> c1){
+    double max = 0;
+    for (int i = 0; i < c1.size(); i++)
+    {
+        if (c1[i].getColor() == "merah" && max <= 0.09){
+            max = Card::getValueFromColor(c1[i].getColor());
+        } else if (c1[i].getColor() == "kuning" && max <= 0.06){
+            max = Card::getValueFromColor(c1[i].getColor());
+        } else if (c1[i].getColor() == "biru" && max <= 0.03){
+            max = Card::getValueFromColor(c1[i].getColor());
+        } else if (c1[i].getColor() == "hijau" && max == 0){
+            max = Card::getValueFromColor(c1[i].getColor());
+        }
     }
+
+    return max;
 }

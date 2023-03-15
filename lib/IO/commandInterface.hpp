@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 #include "../Exception/commandExceptionInterface.hpp"
-
-
+class Game;
+class Player;
 // #include "../Exception/commandException.cpp"
 
 using namespace std;
@@ -18,8 +18,8 @@ class Command{
         Command(); // Default Constructor
         int getNumofCommands(); // Returns the number of commands
         void NEXT(); // Next Command
-        void DOUBLE(); // Double Command
-        void HALF(); // Half Command
+        void DOUBLE(Player&,Game&); // Double Command
+        void HALF(Player&,Game&); // Half Command
         void INVALIDCOMMAND(string command); // Invalid Command
 };
 

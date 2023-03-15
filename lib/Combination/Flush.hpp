@@ -25,7 +25,7 @@ class Flush : public Straight {
     //     virtual string getHighestColor() const;
     //     double findHighestColor(vector<Card>);
     //     virtual double getValueFromColor(string) const;
-    //     string getColorFromValue(double result) const;
+    //     string Card::getColorFromValue(double result) const;
         
     //     // check combo
     //     // bool isTwoPair(Player, TableCard);
