@@ -2,6 +2,7 @@
 #include<iostream>
 #include<cstring>
 #include<ctime>
+#include "../Exception/playerCardExceptionInterface.hpp"
 
 using namespace std;
 
@@ -163,14 +164,14 @@ bool Player::hasAbility()
     return (this->ability!=NULL);
 }
 
-void Player::useAbility(int idAbility,Game& game)
+void Player::useAbility(const Ability& abilityToUse,Game& game)
 {
     
     if(hasAbility()==false)
     {
         //exception tidak ada ability
     }
-    else if(idAbility!=(this->ability)->getID())
+    else if(abilityToUse.getID()!=(this->ability)->getID())
     {
         //exception tidak ada ability yang dimaksud
     }

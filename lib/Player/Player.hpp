@@ -32,7 +32,7 @@ public:
     Card getFirstCard();
     Card getSecondCard();
 
-    void useAbility(int,Game&);
+    void useAbility(const Ability&,Game&);
     void setAbility(Ability*);
     Ability* getAbility();
     void removeAbility();
