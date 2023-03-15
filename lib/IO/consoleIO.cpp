@@ -55,6 +55,12 @@ int ConsoleIO::getIntInput(){
     return input;
 }
 
+void ConsoleIO::waitEnterInput(){
+    cin.ignore(1,'\n');
+    cout << "press ENTER to continue...";
+    cin.get();
+}
+
 // input range number
 int ConsoleIO::getNumberInRange(int _lower, int _upper){
     int input;

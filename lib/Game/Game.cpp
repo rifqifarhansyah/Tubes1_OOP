@@ -14,6 +14,7 @@
 Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winner(NULL), consoleIO(){
     point = 64;
     round = 1;
+    gameCount = 0;
     turn = 0;
     playOrder.resize(maxPlayer);
     playerList = new Player[maxPlayer];
@@ -49,7 +50,10 @@ void Game::play(){
         Player* maxPlayer = &getMaxArr(playerList,7);
         if (maxPlayer->getPointPlayer() > pow(2,32)){
             winner = maxPlayer;
+        } else {
+            cout << "Permainan akan dilanjutkan." << endl;
         }
+        consoleIO.waitEnterInput();
         resetGame();
     }
     cout << "Permainan selesai." << endl;
@@ -59,39 +63,58 @@ void Game::play(){
 }
 
 void Game::startGame(){
+    gameCount++;
+    cout << "Permainan ke-" << gameCount << endl << endl;
     deck.shuffle();
     for (int i = 0;i < maxPlayer;i++){
         deck - playerList[i];
         deck - playerList[i];
     }
     for (round = 1;round <= maxRound;round++){
-        cout << endl;
         startRound();
         playOrder.push_back(*playOrder.begin());
         playOrder.erase(playOrder.begin());
 
     }
 
+    Player& roundWinner = playerList[0]; // nanti diganti dengan pemenag
+    cout << "Pemenang di permainan ini adalah : \n";
+    cout << roundWinner.getNamePlayer() << endl;
+    cout << "Poin hadiah sebesar " << point << " poin diberikan ke " << roundWinner.getNamePlayer() << endl;
+    int oldPoin = roundWinner.getPointPlayer();
+    int newPoin = oldPoin+point;
+    roundWinner.setPoinPlayer(newPoin);
+    cout << "Poin " << roundWinner.getNamePlayer() << " bertambah dari " << oldPoin << " menjadi " << newPoin << endl;
 }
 
 void Game::startRound(){
-    cout << "Ronde ke - " << round << endl << endl;;
-    if (round == 2)
+    cout << "Ronde ke-" << round << endl << endl;;
+    if (round == 2){
         giveAbilityToAll();
+        cout << "Kartu ability sudah dibagikan!" << endl;
+    }
     int i = 0;
     for (turn = 0;turn < maxPlayer;turn++){ 
+        Player& curPlayer = playerList[playOrder[turn]];
+        cout << "Giliran " << curPlayer.getNamePlayer() << "! " << endl;
         if (round >= 2){
             table.print();
             cout << endl;
         }
-        int curPlayer = playOrder[turn];
-        cout << "Kartu Anda(" << playerList[curPlayer].getNamePlayer() << ") :" << endl;
-        cout << playerList[curPlayer].getFirstCard() << " && " <<  playerList[curPlayer].getSecondCard() << endl;
+        cout << "Poin hadiah saat ini : " << point << endl;
+        cout << "Kartu Anda : " << endl;
+        cout << curPlayer.getFirstCard() << " && " <<  curPlayer.getSecondCard() << endl;
         if (round >= 2) {
-            cout << "Ability Anda :" << endl;
-            cout << playerList[curPlayer].getAbility()->getName() << " (" << playerList[curPlayer].getAbility()->getID() << ")" << endl;
+            cout << "Ability yang Anda punya :" << endl;
+            cout << curPlayer.getAbility()->getName();
+            if (curPlayer.isAbilityBlocked()){
+                cout << " (dimatikan)";
+            } else if (curPlayer.isAbilityUsed()){
+                cout << " (sudah digunakan)";
+            }
+            cout << endl;
         }
-        consoleIO.askForCommand(playerList[curPlayer],*this);
+        consoleIO.askForCommand(curPlayer,*this);
         cout << endl;
     }
     if (round <= 5)
@@ -106,6 +129,7 @@ void Game::resetGame(){
     table.clear();
     MainDeck newDeck;
     deck = newDeck;
+    point = 0;
 }
 
 Player& Game::getPlayerByIDX(int i) {
@@ -178,12 +202,8 @@ void Game::setPoint(int point){
 
 void Game::reversePlayOrder()
 {
-    printOrder();
-    cout << endl;
     reverse(playOrder.begin()+turn+1,playOrder.end());
     reverse(playOrder.begin(),playOrder.begin()+turn+1);
-    printOrder();
-    cout << endl;
 }
 
 void Game::switchCard(int IDXp1, int IDXp2) {
