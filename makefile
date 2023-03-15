@@ -14,7 +14,6 @@ TABLECARD	  = ./lib/TableCard/*.cpp
 
 # Flags
 CFLAGS		  = $(ABILITY) $(CARD) $(EXCEPTION) $(GAME) $(IO) $(MAINDECK) $(PLAYER) $(TABLECARD)
-TEMPFLAGS	  = $(CARD) $(EXCEPTION) $(TABLECARD)
 
 .ONESHELL:
 test:
@@ -25,7 +24,12 @@ test:
 	./lib/$$folder/test/$$folder\Test
 	rm -rf lib/$$folder/test/$$folder\Test
 tablecard:
-	$(CPP) -o lib/TableCard/test/TableCardTest lib/TableCard/test/TableCardTest.cpp $(TEMPFLAGS)
+	$(CPP) -o lib/TableCard/test/TableCardTest lib/TableCard/test/TableCardTest.cpp $(CFLAGS)
 	cd lib/TableCard/test/
 	TableCardTest.exe
 	del TableCardTest.exe
+game:
+	$(CPP) -o lib/Game/test/GameTest lib/Game/test/GameTest.cpp $(CFLAGS)
+	cd lib/Game/test/
+	GameTest.exe
+	del GameTest.exe

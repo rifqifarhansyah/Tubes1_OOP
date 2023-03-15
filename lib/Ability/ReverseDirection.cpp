@@ -14,4 +14,5 @@ void ReverseDirection::action(Player& p,Game& g) const
     cout << "urutan eksekusi giliran selanjutnya : ";
     g.printNextRoundOrder();
     cout << endl; // semua urutan giliran pada ronde berikutnya
+    p.removeAbility();
 }

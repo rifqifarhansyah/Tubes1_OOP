@@ -11,5 +11,7 @@ void SwitchCard::action(Player& p,Game& g) const {
             cout << p.getFirstCard() << endl;
             cout << p.getSecondCard() << endl;
             cout << "Silakan pilih pemain yang kartunya ingin anda tukar:" << endl;
+
+            p.removeAbility();
         }
 }
