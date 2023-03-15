@@ -2,7 +2,7 @@
 
 // ctor by input
 StraightFlush::StraightFlush(Player c1, TableCard c2) : FourOfAKind(c1,c2){
-    this->maxStraightFlush = 1.39 * 9;
+    // this->maxStraightFlush = 1.39 * 9;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -23,7 +23,7 @@ void StraightFlush::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxFourOfAKind);
+        this->setValue(num + color + FOUR_OF_A_KIND);
     }
 }
 vector<Card> StraightFlush::findMaxCombination(Player c1, TableCard c2){
@@ -42,8 +42,7 @@ vector<Card> StraightFlush::findMaxCombination(Player c1, TableCard c2){
     allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
     allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
 
-    sort(allCards.begin(), allCards.end(), [](const Card& card1, const Card& card2) 
-    {card1.getNumber() < card2.getNumber();});
+    sort(allCards.begin(), allCards.end());
 
     vector<Card> straightFlush;
     for (int i = allCards.size() - 1; i >= 4; i--) {

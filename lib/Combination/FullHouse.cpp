@@ -2,7 +2,7 @@
 
 // ctor by input
 FullHouse::FullHouse(Player c1, TableCard c2) : Flush(c1,c2){
-    this->maxFullHouse = 1.39 * 7;
+    // this->maxFullHouse = 1.39 * 7;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -23,7 +23,7 @@ void FullHouse::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxFlush);
+        this->setValue(num + color + FLUSH);
     }
 }
 vector<Card> FullHouse::findMaxCombination(Player c1, TableCard c2){
@@ -42,8 +42,7 @@ vector<Card> FullHouse::findMaxCombination(Player c1, TableCard c2){
     allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
     allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
 
-    sort(allCards.begin(), allCards.end(), [](const Card& card1, const Card& card2) 
-    {card1.getNumber() > card2.getNumber();});
+    sort(allCards.rbegin(), allCards.rend());
 
     vector<Card> fullHouse;
     bool foundThreeOfAKind = false;

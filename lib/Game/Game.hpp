@@ -10,6 +10,7 @@
 #include "../AbstractClasses/ValuedObject.hpp"
 #include "../Exception/exceptionInterface.hpp"
 #include "../IO/consoleIOInterface.hpp"
+#include "../Exception/InputExceptionInterface.hpp"
 #include <vector>
 #include <math.h>
 #include <algorithm>

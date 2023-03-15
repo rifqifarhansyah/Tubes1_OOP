@@ -8,24 +8,24 @@ using namespace std;
 
 // default ctor
 TableCard::TableCard() : InventoryHolder<Card>(0,5) {
-    cout << "TableCard default ctor" << endl;
+    // cout << "TableCard default ctor" << endl;
 }
 
 // user-defined ctor
 TableCard::TableCard(std::vector<Card> cards) : InventoryHolder<Card>(cards.size(), 5) {
     setCards(cards);
-    cout << "TableCard user-defined ctor" << endl;
+    // cout << "TableCard user-defined ctor" << endl;
 }
 
 // cctor
 TableCard::TableCard(const TableCard& copy) : InventoryHolder<Card>(copy) {
     setCards(copy.inventory);
-    cout << "TableCard cctor" << endl;
+    // cout << "TableCard cctor" << endl;
 }
 
 // dtor
 TableCard::~TableCard() {
-    cout << "TableCard dtor" << endl;
+    // cout << "TableCard dtor" << endl;
 }
 
 // setter, getter

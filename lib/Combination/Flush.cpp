@@ -2,7 +2,7 @@
 
 // ctor by input
 Flush::Flush(Player c1, TableCard c2) : Straight(c1,c2){
-    this->maxFlush = 1.39 * 6;
+    // this->maxFlush = 1.39 * 6;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -23,7 +23,7 @@ void Flush::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxStraight);
+        this->setValue(num + color + STRAIGHT);
     }
 }
 vector<Card> Flush::findMaxCombination(Player c1, TableCard c2){
@@ -51,7 +51,7 @@ vector<Card> Flush::findMaxCombination(Player c1, TableCard c2){
             }
         }
         if (suitCards.size() >= 5) {
-            sort(suitCards.begin(), suitCards.end(), [](const Card& c1, const Card& c2) { return c1.getNumber() > c2.getNumber();});
+            sort(suitCards.begin(), suitCards.end());
             for (int i = 0; i <= suitCards.size() - 5; i++) {
                 if (suitCards[i].getNumber() - suitCards[i + 4].getNumber() == 4) {
                     flush.insert(flush.end(), suitCards.begin() + i, suitCards.begin() + i + 5);

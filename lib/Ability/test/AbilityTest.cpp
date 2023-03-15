@@ -47,6 +47,10 @@ int main() {
         arr[i].setPlayerName(nama);
         arr[i].setAbility(&abilities[i]);
     }
+
+    for (int i = 0; i < 5; i++) {
+        cout << i+1 << ". Ability = " << arr[i].getAbility()->getName() << endl;
+    }
     
     return 0;
 }
