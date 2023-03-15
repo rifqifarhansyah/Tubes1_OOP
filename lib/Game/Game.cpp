@@ -112,6 +112,7 @@ Player& Game::getPlayerByIDX(int i){
     if (i < 0 || i >= maxPlayer)
     {
         // throw out of bound
+        throw InventoryException(3);
     }
     return playerList[i];
 }

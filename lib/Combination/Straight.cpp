@@ -2,7 +2,7 @@
 
 // ctor by input
 Straight::Straight(Player c1, TableCard c2) : ThreeOfAKind(c1,c2){
-    this->maxStraight = 6.95;
+    // this->maxStraight = 6.95;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -23,7 +23,7 @@ void Straight::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxThreeOfAKind);
+        this->setValue(num + color + THREE_OF_A_KIND);
     }
 }
 vector<Card> Straight::findMaxCombination(Player c1, TableCard c2){

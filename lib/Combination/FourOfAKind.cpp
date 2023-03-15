@@ -2,7 +2,7 @@
 
 // ctor by input
 FourOfAKind::FourOfAKind(Player c1, TableCard c2) : FullHouse(c1,c2){
-    this->maxFourOfAKind = 1.39 * 8;
+    // this->maxFourOfAKind = 1.39 * 8;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -23,7 +23,7 @@ void FourOfAKind::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxFullHouse);
+        this->setValue(num + color + FULLHOUSE);
     }
 }
 vector<Card> FourOfAKind::findMaxCombination(Player c1, TableCard c2){
