@@ -5,15 +5,15 @@ int PlayerException::numOfPlayerException = 0;
 string PlayerException::errorMessage[] = {
     "Eits, tidak bisa. Kamu tidak punya kartu Ability QUADRUPLE.",
     "Eits, tidak bisa. Kamu tidak punya kartu Ability QUARTER.",
-    "Eits, tidak bisa. Kamu tidak punya kartu Ability REVERSE.\nSilahkan lakukan perintah lain.",
+    "Eits, tidak bisa. Kamu tidak punya kartu Ability REVERSE.\n",
     "Eits, tidak bisa. Kamu tidak punya kartu Ability ABILITYLESS.",
     "Eits, ternyata semua pemain sudah memakai kartu kemampuan. Yah kamu kena sendiri deh, kemampuanmu menjadi abilityless. Yah, penggunaan kartu ini sia-sia.",
-    "Oops, kartu ABILITY-mu telah dimatikan sebelumnya :(.\nSIlahkan lakukan perintah lain.",
+    "Oops, kartu ABILITY-mu telah dimatikan sebelumnya :(.",
     "Indeks kartu yang kamu masukkan tidak valid.",
     "Eits, tidak bisa. Kamu tidak punya kartu Ability REROLL.",
     "Eits, tidak bisa. Kamu tidak punya kartu Ability SWAP.",
     "Eits, tidak bisa. Kamu tidak punya kartu Ability SWITCH.",
-    "Eits, kamu tidak punya kartunya :)."
+    "Eits, kamu tidak punya kartunya :).",
     "Kartu ABILITY yang kamu pilih telah digunakan sebelumnya.",
 };
 
