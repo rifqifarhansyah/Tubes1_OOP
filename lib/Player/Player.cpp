@@ -209,6 +209,10 @@ void Player::useAbility(const Ability& abilityToUse,Game& game)
      else if (isAbilityBlocked()){
         //exception ability dimatikan
         throw PlayerException(5);
+    }
+    else if (isAbilityUsed()){
+        //exception ability sudah digunakan
+        throw PlayerException(11);
     } 
     else 
     {
@@ -219,6 +223,10 @@ void Player::useAbility(const Ability& abilityToUse,Game& game)
 
 bool Player::isAbilityBlocked(){
     return abilityIsBlocked;
+}
+
+bool Player::isAbilityUsed(){
+    return abilityIsUsed;
 }
 
 void Player::blockAbility(){

@@ -14,6 +14,7 @@ string PlayerException::errorMessage[] = {
     "Eits, tidak bisa. Kamu tidak punya kartu Ability SWAP.",
     "Eits, tidak bisa. Kamu tidak punya kartu Ability SWITCH.",
     "Tidak ada kartu ABILITY yang dimaksud."
+    "Kartu ABILITY yang kamu pilih telah digunakan sebelumnya.",
 };
 
 PlayerException::PlayerException(int ID) : CardException(ID) { // user-defined ctor
