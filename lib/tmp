@@ -1,1 +1,0 @@
-g++ ./Card/Card.cpp ./MainDeck/MainDeck.cpp ./TableCard/TableCard.cpp ./Game/Game.cpp ./Player/Player.cpp ./Ability/Ability.cpp ./Game/test/GameTest.cpp ./Exception/*.cpp -o test
