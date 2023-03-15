@@ -22,7 +22,7 @@ void FullHouse::calculateMaxCombination(Player c1, TableCard c2){
         double num = findHighestNumber(vec);
         double color = findHighestColor(vec);
         this->setHighestNumber(num);
-        this->setHighestColor(getColorFromValue(color));
+        this->setHighestColor(Card::getColorFromValue(color));
         this->setValue(num + color + FLUSH);
     }
 }
@@ -123,7 +123,7 @@ vector<Card> FullHouse::findMaxCombination(Player c1, TableCard c2){
 //         return 0;
 //     }
 // }
-// string FullHouse::getColorFromValue(double result) const{
+// string FullHouse::Card::getColorFromValue(double result) const{
 //     string color;
 //     if(result == 3){
 //         color == "merah";

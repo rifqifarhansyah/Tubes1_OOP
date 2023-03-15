@@ -8,7 +8,7 @@ class TwoPair : public Pair {
         // ctor by input
         TwoPair(Player c1, TableCard c2);
         // cctor
-        TwoPair(const Pair& C);
+        TwoPair(const TwoPair& C);
         //dtor
         ~TwoPair();
         // Find and calculate combination
@@ -25,7 +25,7 @@ class TwoPair : public Pair {
     //     virtual string getHighestColor() const;
     //     double findHighestColor(vector<Card>);
     //     virtual double getValueFromColor(string) const;
-    //     string getColorFromValue(double result) const;
+    //     string Card::getColorFromValue(double result) const;
         
     //     // check combo
     //     // bool isTwoPair(Player, TableCard);

@@ -21,7 +21,7 @@ void HighCard::calculateMaxCombination(Player c1, TableCard c2){
     double num = findHighestNumber(vec);
     double color = findHighestColor(vec);
     this->setHighestNumber(num);
-    this->setHighestColor(getColorFromValue(color));
+    this->setHighestColor(Card::getColorFromValue(color));
     this->setValue(num + color);
     
 }
@@ -79,13 +79,13 @@ double HighCard::findHighestColor(vector<Card> c1){
     for (int i = 0; i < c1.size(); i++)
     {
         if (c1[i].getColor() == "merah" && max <= 0.09){
-            max = this->getValueFromColor(c1[i].getColor());
+            max = Card::getValueFromColor(c1[i].getColor());
         } else if (c1[i].getColor() == "kuning" && max <= 0.06){
-            max == this->getValueFromColor(c1[i].getColor());
+            max = Card::getValueFromColor(c1[i].getColor());
         } else if (c1[i].getColor() == "biru" && max <= 0.03){
-            max = this->getValueFromColor(c1[i].getColor());
+            max = Card::getValueFromColor(c1[i].getColor());
         } else if (c1[i].getColor() == "hijau" && max == 0){
-            max = this->getValueFromColor(c1[i].getColor());
+            max = Card::getValueFromColor(c1[i].getColor());
         }
     }
 

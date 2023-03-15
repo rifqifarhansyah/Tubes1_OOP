@@ -22,7 +22,7 @@ void Straight::calculateMaxCombination(Player c1, TableCard c2){
         double num = findHighestNumber(vec);
         double color = findHighestColor(vec);
         this->setHighestNumber(num);
-        this->setHighestColor(getColorFromValue(color));
+        this->setHighestColor(Card::getColorFromValue(color));
         this->setValue(num + color + THREE_OF_A_KIND);
     }
 }
@@ -113,7 +113,7 @@ vector<Card> Straight::findMaxCombination(Player c1, TableCard c2){
 //         return 0;
 //     }
 // }
-// string Straight::getColorFromValue(double result) const{
+// string Straight::Card::getColorFromValue(double result) const{
 //     string color;
 //     if(result == 3){
 //         color == "merah";

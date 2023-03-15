@@ -24,7 +24,7 @@ int Card::getNumber() const{
 string Card::getColor() const {
     return this->color ; 
 }
-double Card::getValueFromColor(string s) const{
+double Card::getValueFromColor(string s){
     double constant = 0.03;
     double val;
     if(s == "Merah"){
@@ -38,7 +38,7 @@ double Card::getValueFromColor(string s) const{
     }
     return val * constant;
 }
-string Card::getColorFromValue(double result) const{
+string Card::getColorFromValue(double result){
     string color;
     if(result == 0.09){
         color == "Merah";

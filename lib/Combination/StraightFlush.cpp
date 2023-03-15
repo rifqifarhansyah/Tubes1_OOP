@@ -22,7 +22,7 @@ void StraightFlush::calculateMaxCombination(Player c1, TableCard c2){
         double num = findHighestNumber(vec);
         double color = findHighestColor(vec);
         this->setHighestNumber(num);
-        this->setHighestColor(getColorFromValue(color));
+        this->setHighestColor(Card::getColorFromValue(color));
         this->setValue(num + color + FOUR_OF_A_KIND);
     }
 }
@@ -121,7 +121,7 @@ vector<Card> StraightFlush::findMaxCombination(Player c1, TableCard c2){
 //         return 0;
 //     }
 // }
-// string StraightFlush::getColorFromValue(double result) const{
+// string StraightFlush::Card::getColorFromValue(double result) const{
 //     string color;
 //     if(result == 3){
 //         color == "merah";

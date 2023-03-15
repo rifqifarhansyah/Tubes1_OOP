@@ -9,7 +9,7 @@ using namespace std;
 
 int main(){
     int inp;
-    cout << "1. random card";
+    cout << "1. random card\n";
     cout << "2. input manual";
     cin >> inp;
     Player P;

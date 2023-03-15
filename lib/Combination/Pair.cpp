@@ -23,7 +23,7 @@ void Pair::calculateMaxCombination(Player c1, TableCard c2){
         double num = findHighestNumber(vec);
         double color = findHighestColor(vec);
         this->setHighestNumber(num);
-        this->setHighestColor(getColorFromValue(color));
+        this->setHighestColor(Card::getColorFromValue(color));
         this->setValue(num + color + HIGH_CARD);
     }
 }
