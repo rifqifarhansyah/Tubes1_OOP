@@ -3,7 +3,9 @@
 #include "../Game/Game.hpp"
 #include "../Card/Card.hpp"
 
-void Quarter::action(Player& p,Game& g)
+Quarter::Quarter() : Ability("Quarter", 5){}
+
+void Quarter::action(Player& p,Game& g) const
 {
     if (g.getPoint() != 1) {
         cout << p.getNamePlayer() << " melakukan QUARTER! Poin hadiah naik dari " << g.getPoint() << " menjadi ";

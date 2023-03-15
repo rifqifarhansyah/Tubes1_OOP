@@ -2,7 +2,9 @@
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
 
-void ReverseDirection::action(Player& p,Game& g)
+ReverseDirection::ReverseDirection() : Ability("Reverse Direction", 6){}
+
+void ReverseDirection::action(Player& p,Game& g) const
 {
     g.reversePlayOrder();
     cout << p.getNamePlayer() << " melakukan reverse!" << endl;

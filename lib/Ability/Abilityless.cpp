@@ -1,7 +1,10 @@
 #include "Abilityless.hpp"
 #include "../Player/Player.hpp"
 
-void Abilityless::action(Player& p,Game& g)
+
+Abilityless::Abilityless() : Ability("Abilityless",9){}
+
+void Abilityless::action(Player& p,Game& g) const
 {
     string namaplayer;
 //     Player *diganti = &g.getPlayer(namaplayer);

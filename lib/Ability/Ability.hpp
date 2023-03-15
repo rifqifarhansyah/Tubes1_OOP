@@ -15,9 +15,9 @@ class Ability{
     public:
         Ability();
         Ability(string nama,int);
-        string getName();
-        int getID();
-        virtual void action(Player& p, Game& g);
+        string getName() const;
+        int getID() const;
+        virtual void action(Player& p, Game& g) const;
 };
 
 

@@ -11,15 +11,15 @@ Ability::Ability(string name, int id)
     this->abilityID = id;
 }
 
-void Ability::action(Player& p, Game& g)
+void Ability::action(Player& p, Game& g) const
 {
 
 }
-string Ability::getName()
+string Ability::getName() const
 {
     return this->abilityName;
 }
-int Ability::getID()
+int Ability::getID() const
 {
     return this->abilityID;
 }

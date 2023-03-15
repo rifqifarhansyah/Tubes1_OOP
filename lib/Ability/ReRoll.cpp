@@ -2,7 +2,9 @@
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
 
-void ReRoll::action(Player& p,Game& g)
+ReRoll::ReRoll() : Ability("Re-Roll", 3){}
+
+void ReRoll::action(Player& p,Game& g) const
 {
     cout << "Melakukan pembuangan pembuangan kartu yang sedang dimiliki" << endl;
     cout << "Kamu mendapatkan 2 kartu baru, yaitu: " << endl;

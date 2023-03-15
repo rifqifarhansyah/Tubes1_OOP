@@ -2,7 +2,9 @@
 #include "../Player/Player.hpp"
 
 
-void SwitchCard::action(Player& p,Game& g) {
+SwitchCard::SwitchCard() : Ability("Switch", 8){};
+
+void SwitchCard::action(Player& p,Game& g) const {
         {
             cout << p.getNamePlayer() << " melakukan switch!" << endl;
             cout << "Kartumu sekarang adalah:" << endl;
