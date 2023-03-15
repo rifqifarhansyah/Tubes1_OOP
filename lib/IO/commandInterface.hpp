@@ -4,16 +4,6 @@
 #include <iostream>
 #include <string>
 #include "../Exception/commandExceptionInterface.hpp"
-#include "../Ability/Ability.hpp"
-#include "../Ability/Abilityless.hpp"
-#include "../Ability/Quadruple.hpp"
-#include "../Ability/Quarter.hpp"
-#include "../Ability/ReRoll.hpp"
-#include "../Ability/ReverseDirection.hpp"
-#include "../Ability/SwapCard.hpp"
-#include "../Ability/SwitchCard.hpp"
-#include "../Player/Player.hpp"
-#include "../Game/Game.hpp"
 
 
 // #include "../Exception/commandException.cpp"

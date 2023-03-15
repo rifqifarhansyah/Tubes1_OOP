@@ -1,4 +1,14 @@
 #include "consoleIOInterface.hpp"
+#include "../Player/Player.hpp"
+#include "../Ability/Ability.hpp"
+#include "../Ability/Abilityless.hpp"
+#include "../Ability/Quadruple.hpp"
+#include "../Ability/Quarter.hpp"
+#include "../Ability/ReRoll.hpp"
+#include "../Ability/ReverseDirection.hpp"
+#include "../Ability/SwapCard.hpp"
+#include "../Ability/SwitchCard.hpp"
+#include "../Player/Player.hpp"
 
 ConsoleIO::ConsoleIO() : Command(){
     command = "";
@@ -40,6 +50,7 @@ int ConsoleIO::getIntInput(){
             cout << "Input tidak valid. Silahkan masukkan input bertipe integer" << endl;
         }
     }
+    return input;
 }
 
 // input range number
@@ -57,7 +68,7 @@ int ConsoleIO::getNumberInRange(int _lower, int _upper){
     return input;
 }
 
-void ConsoleIO::start(Player& _player, Game& _game){
+void ConsoleIO::askForCommand(Player& _player, Game& _game){
 
     // cout << endl;
     // cout << "\t\t\t\t  .----------------.  .----------------.  .----------------.  .----------------.  .----------------." << endl;
@@ -73,10 +84,10 @@ void ConsoleIO::start(Player& _player, Game& _game){
     // cout << "\t\t\t\t '----------------'  '----------------'  '----------------'  '----------------'  '----------------' " << endl;
     // cout << endl;
 
-    /* loop until the round reach 6 */
-    // i adalah variabel checking
+    
     while(true)
     {
+        cout << "Masukkan perintah yang ingin anda lakukan : " << endl;
         setCommand();
         try
         {
@@ -87,7 +98,8 @@ void ConsoleIO::start(Player& _player, Game& _game){
             }
             else if(this->command == "REROLL")
             {
-                ReRoll::doAction(_player, _game);
+                ReRoll ability;
+                _player.useAbility(ability,_game);
             }
             else if(this->command == "DOUBLE")
             {
@@ -95,7 +107,8 @@ void ConsoleIO::start(Player& _player, Game& _game){
             }
             else if(this->command == "QUADRUPLE")
             {
-                Quadruple::doAction(_player, _game);
+                Quadruple ability;
+                _player.useAbility(ability,_game);
             }
             else if(this->command == "HALF")
             {
@@ -103,23 +116,28 @@ void ConsoleIO::start(Player& _player, Game& _game){
             }
             else if(this->command == "QUARTER")
             {
-                Quarter::doAction(_player, _game);
+                Quarter ability;
+                _player.useAbility(ability,_game);
             }
             else if(this->command == "REVERSE")
             {
-                ReverseDirection::doAction(_player, _game);
+                ReverseDirection ability;
+                _player.useAbility(ability,_game);
             }
             else if(this->command == "SWAP")
             {
-                SwapCard::doAction(_player, _game);
+                SwapCard ability;
+                _player.useAbility(ability,_game);
             }
             else if(this->command == "SWITCH")
             {
-                SwitchCard::doAction(_player, _game);
+                SwitchCard ability;
+                _player.useAbility(ability,_game);
             }
             else if(this->command == "ABILITYLESS")
             {
-                Abilityless::doAction(_player, _game);
+                Abilityless ability;
+                _player.useAbility(ability,_game);
             }
             else
             {
