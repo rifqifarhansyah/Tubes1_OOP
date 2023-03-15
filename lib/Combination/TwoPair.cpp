@@ -74,65 +74,65 @@ vector<Card> TwoPair::findMaxCombination(Player c1, TableCard c2){
 
     return twoPair;
 }
-// set value of a combo
-void TwoPair::setValue(double val){
-    this->totalValue = val;
-}
-// get value of a combo
-double TwoPair::getValue(Player c1, TableCard c2) const{
-    return this->totalValue;
-}
-void TwoPair::setHighestNumber(double val){
-    this->highestNumber = val;
-}
-double TwoPair::getHighestNumber() const{
-    return this->highestNumber;
-}
-void TwoPair::setHighestColor(string s){
-    this->highestColor = s;
-}
-string TwoPair::getHighestColor() const{
-    return this->highestColor;
-}
+// // set value of a combo
+// void TwoPair::setValue(double val){
+//     this->totalValue = val;
+// }
+// // get value of a combo
+// double TwoPair::getValue(Player c1, TableCard c2) const{
+//     return this->totalValue;
+// }
+// void TwoPair::setHighestNumber(double val){
+//     this->highestNumber = val;
+// }
+// double TwoPair::getHighestNumber() const{
+//     return this->highestNumber;
+// }
+// void TwoPair::setHighestColor(string s){
+//     this->highestColor = s;
+// }
+// string TwoPair::getHighestColor() const{
+//     return this->highestColor;
+// }
 
-double TwoPair::findHighestColor(vector<Card> c1){
-    double max = 0;
-    for (int i = 0; i < c1.size(); i++)
-    {
-        if (c1[i].getColor() == "merah" && max < 3){
-            max = this->getValueFromColor(c1[i].getColor());
-        } else if (c1[i].getColor() == "kuning" && max <= 2){
-            max == this->getValueFromColor(c1[i].getColor());
-        } else if (c1[i].getColor() == "biru" && max <= 1){
-            max = this->getValueFromColor(c1[i].getColor());
-        } else if (c1[i].getColor() == "hijau" && max == 0){
-            max = this->getValueFromColor(c1[i].getColor());
-        }
-    }
+// double TwoPair::findHighestColor(vector<Card> c1){
+//     double max = 0;
+//     for (int i = 0; i < c1.size(); i++)
+//     {
+//         if (c1[i].getColor() == "merah" && max < 3){
+//             max = this->getValueFromColor(c1[i].getColor());
+//         } else if (c1[i].getColor() == "kuning" && max <= 2){
+//             max == this->getValueFromColor(c1[i].getColor());
+//         } else if (c1[i].getColor() == "biru" && max <= 1){
+//             max = this->getValueFromColor(c1[i].getColor());
+//         } else if (c1[i].getColor() == "hijau" && max == 0){
+//             max = this->getValueFromColor(c1[i].getColor());
+//         }
+//     }
 
-    return max;
-}
-double TwoPair::getValueFromColor(string color) const{
-    if(color == "merah"){
-        return 3;
-    } else if(color == "kuning"){
-        return 2;
-    } else if(color == "biru"){
-        return 1;
-    } else if(color == "hijau"){
-        return 0;
-    }
-}
-string TwoPair::getColorFromValue(double result) const{
-    string color;
-    if(result == 3){
-        color == "merah";
-    } else if(result == 2){
-        color == "kuning";
-    } else if(result == 1){
-        color == "biru";
-    } else if(result == 0){
-        color == "hijau";
-    }
-    return color;
-}
+//     return max;
+// }
+// double TwoPair::getValueFromColor(string color) const{
+//     if(color == "merah"){
+//         return 3;
+//     } else if(color == "kuning"){
+//         return 2;
+//     } else if(color == "biru"){
+//         return 1;
+//     } else if(color == "hijau"){
+//         return 0;
+//     }
+// }
+// string TwoPair::getColorFromValue(double result) const{
+//     string color;
+//     if(result == 3){
+//         color == "merah";
+//     } else if(result == 2){
+//         color == "kuning";
+//     } else if(result == 1){
+//         color == "biru";
+//     } else if(result == 0){
+//         color == "hijau";
+//     }
+//     return color;
+// }
