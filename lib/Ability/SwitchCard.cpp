@@ -1,13 +1,13 @@
 #include "SwitchCard.hpp"
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
-
+#include "../IO/consoleIOInterface.hpp"
 
 SwitchCard::SwitchCard() : Ability("Switch", 8){};
 
 void SwitchCard::action(Player& p,Game& g) const {
+    ConsoleIO input;
     cout << p.getNamePlayer() << " melakukan switch!" << endl;
-    std::vector<Player> playerList = g.makePlayerList(p, g);
 
     // kodisi awal
     cout << "Kartumu sekarang adalah:" << endl;
@@ -16,11 +16,17 @@ void SwitchCard::action(Player& p,Game& g) const {
 
     // memilih target yang ingin ditukar
     cout << "Silakan pilih pemain yang kartunya ingin anda tukar:" << endl;
-    g.printPlayerList(playerList);
-    Player target = g.getChosenPlayer(playerList);
-
+    vector<int> choosenPlayer;
+    for (int i = 0;i < g.getMaxPlayer();i++){
+        if (g.getPlayerByIDX(i).getIDPlayer() != p.getIDPlayer()){
+            choosenPlayer.push_back(i);
+        }
+    }
+    g.printPlayerList(choosenPlayer);
+    int targetIdx = choosenPlayer[input.getNumberInRange(1,choosenPlayer.size())-1];
+    Player& target = g.getPlayerByIDX(targetIdx);
     // menukar kartu pemain dengan target
-    g.switchCard(p, target);
+    g.switchCard(g.getPlayerIDX(p), targetIdx);
 
     // kondisi akhir
     cout << "Kedua kartu " << p.getNamePlayer() << " telah ditukar dengan " << target.getNamePlayer() << endl;

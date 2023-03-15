@@ -8,7 +8,8 @@
 using namespace std;
 
 int main(){
-    // ConsoleIO CIO;
-    // CIO.start();
+    ConsoleIO CIO;
+    int test = CIO.getIntInput();
+    cout << test << endl;
     return 0;
 }

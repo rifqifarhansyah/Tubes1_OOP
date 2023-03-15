@@ -108,7 +108,7 @@ void Game::resetGame(){
     deck = newDeck;
 }
 
-Player& Game::getPlayerByIDX(int i){
+Player& Game::getPlayerByIDX(int i) {
     if (i < 0 || i >= maxPlayer)
     {
         // throw out of bound
@@ -117,10 +117,19 @@ Player& Game::getPlayerByIDX(int i){
     return playerList[i];
 }
 
-TableCard& Game::getTable(){
+int Game::getPlayerIDX(Player& p) {
+    for (int i = 0;i < maxPlayer;i++){
+        if (playerList[i].getIDPlayer() == p.getIDPlayer()){
+            return i;
+        }
+    }
+    return -1;
+}
+
+TableCard& Game::getTable()  {
     return table;
 }
-MainDeck& Game::getDeck(){
+MainDeck& Game::getDeck() {
     return deck;
 }
 
@@ -136,35 +145,18 @@ ConsoleIO Game::getConsoleIO() {
     return consoleIO;
 }
 
-std::vector<Player> Game::makePlayerList(Player& p,Game& g) const {
-    std::vector<Player> newPlayerList;
-    for (int i = 0; i < g.getMaxPlayer(); i++) {
-        if (g.getPlayerByIDX(i).getIDPlayer() != p.getIDPlayer()) {
-            newPlayerList.push_back(g.getPlayerByIDX(i));
-        }
-    }
-    return newPlayerList;
-}
-
-Player Game::getChosenPlayer(std::vector<Player> playerList) {
-    int idx = consoleIO.getNumberInRange(1, 6) - 1;
-    Player player = playerList[idx];
-    playerList.erase(playerList.begin()+idx);
-    return player;
-}
-
-int Game::getChosenCardID() {
+int Game::getChosenCardIDInput() {
     cout << "1. Kanan" << endl;
     cout << "2. Kiri" << endl;
     int idx = consoleIO.getNumberInRange(1, 2) - 1;
     return idx;
 }
 
-Card Game::getChosenCard(Player player, int idx) {
-    if (idx == 0) {
-        return player.getFirstCard();
+Card Game::getChosenCard(int playerIDX, int cardIdx) {
+    if (cardIdx == 0) {
+        return playerList[playerIDX].getFirstCard();
     } else {
-        return player.getSecondCard();
+        return playerList[playerIDX].getSecondCard();
     }
 }
 
@@ -194,15 +186,35 @@ void Game::reversePlayOrder()
     cout << endl;
 }
 
-void Game::switchCard(Player p1, Player p2) {
+void Game::switchCard(int IDXp1, int IDXp2) {
+    Player& p1 = playerList[IDXp1];
+    Player& p2 = playerList[IDXp2];
     Card firstCardP1 = p1.getFirstCard();
-    Card secondCardP1 = p1.getFirstCard();
+    Card secondCardP1 = p1.getSecondCard();
     Card firstCardP2 = p2.getFirstCard();
-    Card secondCardP2 = p2.getFirstCard();
+    Card secondCardP2 = p2.getSecondCard();
     p1.setCard(firstCardP2, 0);
     p1.setCard(secondCardP2, 1);
     p2.setCard(firstCardP1, 0);
     p2.setCard(secondCardP1, 1);    
+}
+
+void Game::swapCard(int IDXp1,int IDXp2,int idCardp1,int idCardp2){
+    Player& p1 = playerList[IDXp1];
+    Player& p2 = playerList[IDXp2];
+    Card cardP1,cardP2;
+    if (idCardp1 == 0){
+        cardP1 = p1.getFirstCard();
+    } else {
+        cardP1 = p1.getSecondCard();
+    }
+    if (idCardp2 == 0){
+        cardP1 = p1.getFirstCard();
+    } else {
+        cardP1 = p1.getSecondCard();
+    }
+    p1.setCard(cardP2, idCardp1);
+    p2.setCard(cardP1, idCardp2); 
 }
 
 void Game::printOrder(){
@@ -235,8 +247,10 @@ void Game::giveAbilityToAll(){
     }
 }
 
-void Game::printPlayerList(std::vector<Player> playerList) {
-    for (int i = 0; i < playerList.size(); i++) {
-        cout << i+1 << ". " << playerList[i].getNamePlayer() << endl;
+void Game::printPlayerList(vector<int> playerIDX){
+    int counter = 1;
+    for (auto it = playerIDX.begin();it != playerIDX.end();it++){
+        cout << counter << ". " << playerList[*it].getNamePlayer() << endl;
+        counter++;
     }
 }

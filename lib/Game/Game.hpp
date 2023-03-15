@@ -41,16 +41,15 @@ class Game{
         ~Game();
         void play();
         Player& getPlayerByIDX(int);
-        Player& getPlayerByID(int);
+        int getPlayerIDX(Player&);
         TableCard& getTable();
         MainDeck& getDeck();
         int getPoint();
         int getMaxPlayer(); // new
         ConsoleIO getConsoleIO(); // new
-        std::vector<Player> makePlayerList(Player&,Game&) const; // new
-        Player getChosenPlayer(std::vector<Player>); // new
-        int getChosenCardID(); // new
-        Card getChosenCard(Player, int); // new
+
+        int getChosenCardIDInput(); // new
+        Card getChosenCard(int playerIDX, int cardIdx); // new
 
         void setPlayer(int,const Player&);
         void setTable(const TableCard&);
@@ -58,14 +57,14 @@ class Game{
         void setPoint(int);
 
         void reversePlayOrder();
-        void switchCard(Player,Player); // new
-
+        void switchCard(int IDXp1 ,int IDXp2); // new
+        void swapCard(int IDXp1,int IDXp2,int idCardp1,int idCardp2);
         void giveAbilityToAll();
 
         void printOrder();
         void printRestOrder();
         void printNextRoundOrder();
-        void printPlayerList(std::vector<Player>); // new
+        void printPlayerList(std::vector<int>); // new
 
 };
 
