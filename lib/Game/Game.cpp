@@ -146,6 +146,28 @@ std::vector<Player> Game::makePlayerList(Player& p,Game& g) const {
     return newPlayerList;
 }
 
+Player Game::getChosenPlayer(std::vector<Player> playerList) {
+    int idx = consoleIO.getNumberInRange(1, 6) - 1;
+    Player player = playerList[idx];
+    playerList.erase(playerList.begin()+idx);
+    return player;
+}
+
+int Game::getChosenCardID() {
+    cout << "1. Kanan" << endl;
+    cout << "2. Kiri" << endl;
+    int idx = consoleIO.getNumberInRange(1, 2) - 1;
+    return idx;
+}
+
+Card Game::getChosenCard(Player player, int idx) {
+    if (idx == 0) {
+        return player.getFirstCard();
+    } else {
+        return player.getSecondCard();
+    }
+}
+
 void Game::setPlayer(int i, const Player& player){
     playerList[i] = player;
 }
@@ -216,27 +238,5 @@ void Game::giveAbilityToAll(){
 void Game::printPlayerList(std::vector<Player> playerList) {
     for (int i = 0; i < playerList.size(); i++) {
         cout << i+1 << ". " << playerList[i].getNamePlayer() << endl;
-    }
-}
-
-Player Game::getChosenPlayer(std::vector<Player> playerList) {
-    int idx = consoleIO.getNumberInRange(1, 6) - 1;
-    Player player = playerList[idx];
-    playerList.erase(playerList.begin()+idx);
-    return player;
-}
-
-int Game::getChosenCardID() {
-    cout << "1. Kanan" << endl;
-    cout << "2. Kiri" << endl;
-    int idx = consoleIO.getNumberInRange(1,2) - 1;
-    return idx;
-}
-
-Card Game::getChosenCard(Player player, int idx) {
-    if (idx == 0) {
-        return player.getFirstCard();
-    } else {
-        return player.getSecondCard();
     }
 }

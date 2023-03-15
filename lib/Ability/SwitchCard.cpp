@@ -25,6 +25,6 @@ void SwitchCard::action(Player& p,Game& g) const {
     // kondisi akhir
     cout << "Kedua kartu " << p.getNamePlayer() << " telah ditukar dengan " << target.getNamePlayer() << endl;
     cout << "Kartumu sekarang adalah:" << endl;
-    cout << p.getFirstCard() << "&&" << p.getSecondCard() << endl;
+    cout << p.getFirstCard() << " && " << p.getSecondCard() << endl;
 
 }
