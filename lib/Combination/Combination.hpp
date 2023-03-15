@@ -18,7 +18,7 @@ const double FULLHOUSE = FLUSH + THREE_OF_A_KIND + TWO_PAIR;
 const double FOUR_OF_A_KIND = FULLHOUSE + 40;
 const double STRAIGHT_FLUSH = FOUR_OF_A_KIND + STRAIGHT + FLUSH;
 
-class Combination : public Player, public TableCard{
+class Combination{
     public:
         Combination(Player , TableCard );
         Combination(const Combination&);
