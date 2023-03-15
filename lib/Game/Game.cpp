@@ -137,13 +137,13 @@ ConsoleIO Game::getConsoleIO() {
 }
 
 std::vector<Player> Game::makePlayerList(Player& p,Game& g) const {
-    std::vector<Player> playerList;
+    std::vector<Player> newPlayerList;
     for (int i = 0; i < g.getMaxPlayer(); i++) {
-        if (g.getPlayerByID(i).getIDPlayer() != p.getIDPlayer()) {
-            playerList.push_back(g.getPlayerByID(i));
+        if (g.getPlayerByIDX(i).getIDPlayer() != p.getIDPlayer()) {
+            newPlayerList.push_back(g.getPlayerByIDX(i));
         }
     }
-    return playerList;
+    return newPlayerList;
 }
 
 void Game::setPlayer(int i, const Player& player){
