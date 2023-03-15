@@ -6,7 +6,11 @@
 class Quarter : public Ability
 {
     public:
-        Quarter() : Ability("Quarter", 5){}
+        Quarter() : Ability("Quarter", 5){};
+        static void doAction(Player& _player,Game& _game){
+            Quarter a;
+            a.action(_player, _game);
+        }
         void action(Player&,Game&);
 };
 

@@ -11,6 +11,8 @@ using namespace std;
 class ConsoleIO : public Command {
     private :
         string command; // command yang akan dijalankan
+        Player _player;
+        Game _game;
     public:
         // tidak memerlukan default ctor (tidak ada list of exception), assignment operator (tidak ada assignment), dan dtor (perlunya perhitungan jumlah object ConsoleIO setelah dihapus)
         ConsoleIO(); // user-defined ctor
@@ -19,7 +21,9 @@ class ConsoleIO : public Command {
         string getCommand(); // command getter
         void setCommand(string); // command setter  
         void setCommand(); // command setter (override function for CLI-based command)
-        void start(); // main logic
+        void start(Player& _player, Game& _game); // main logic
+        int getIntInput(); // input number
+        int getNumberInRange(int _lower, int _upper); // input range number
 };
 
 #endif

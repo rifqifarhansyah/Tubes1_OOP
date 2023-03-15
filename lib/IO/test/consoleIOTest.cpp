@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(){
-    ConsoleIO CIO;
-    CIO.start();
+    // ConsoleIO CIO;
+    // CIO.start();
     return 0;
 }

@@ -26,100 +26,111 @@ void ConsoleIO::setCommand(){
     command = _command;
 }
 
-void ConsoleIO::start(){
-    /* Read command from user */
-    setCommand();
-    
+// input number
+int ConsoleIO::getIntInput(){
+    int input;
+    string line;
+    while(true){
+        getline(cin, line);
+        try{
+            input = stoi(line);
+            break;
+        }
+        catch(invalid_argument& e){
+            cout << "Input tidak valid. Silahkan masukkan input bertipe integer" << endl;
+        }
+    }
+}
 
-    cout << endl;
-    cout << "\t\t\t\t  .----------------.  .----------------.  .----------------.  .----------------.  .----------------." << endl;
-    cout << "\t\t\t\t| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |" << endl;
-    cout << "\t\t\t\t| |  ___  ____   | || |      __      | || |  _______     | || |  _________   | || | _____  _____ | |" << endl;
-    cout << "\t\t\t\t| | |_  ||_  _|  | || |     /  \\     | || | |_   __ \\    | || | |  _   _  |  | || ||_   _||_   _|| |" << endl;
-    cout << "\t\t\t\t| |   | |_/ /    | || |    / /\\ \\    | || |   | |__) |   | || | |_/ | | \\_|  | || |  | |    | |  | |" << endl;
-    cout << "\t\t\t\t| |   |  __'.    | || |   / ____ \\   | || |   |  __ /    | || |     | |      | || |  | '    ' |  | |" << endl;
-    cout << "\t\t\t\t| |  _| |  \\ \\_  | || | _/ /    \\ \\_ | || |  _| |  \\ \\_  | || |    _| |_     | || |   \\ `--' /   | |" << endl;
-    cout << "\t\t\t\t| | |____||____| | || ||____|  |____|| || | |____| |___| | || |   |_____|    | || |    `.__.'    | |" << endl;
-    cout << "\t\t\t\t| |              | || |              | || |              | || |              | || |              | |" << endl;
-    cout << "\t\t\t\t| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |" << endl;
-    cout << "\t\t\t\t '----------------'  '----------------'  '----------------'  '----------------'  '----------------' " << endl;
-    cout << endl;
+// input range number
+int ConsoleIO::getNumberInRange(int _lower, int _upper){
+    int input;
+    while(true){
+        input = getIntInput();
+        if(input >= _lower && input <= _upper){
+            break;
+        }
+        else{
+            cout << "Input tidak valid. Silahkan masukkan input antara " << _lower << " dan " << _upper << endl;
+        }
+    }
+    return input;
+}
+
+void ConsoleIO::start(Player& _player, Game& _game){
+
+    // cout << endl;
+    // cout << "\t\t\t\t  .----------------.  .----------------.  .----------------.  .----------------.  .----------------." << endl;
+    // cout << "\t\t\t\t| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |" << endl;
+    // cout << "\t\t\t\t| |  ___  ____   | || |      __      | || |  _______     | || |  _________   | || | _____  _____ | |" << endl;
+    // cout << "\t\t\t\t| | |_  ||_  _|  | || |     /  \\     | || | |_   __ \\    | || | |  _   _  |  | || ||_   _||_   _|| |" << endl;
+    // cout << "\t\t\t\t| |   | |_/ /    | || |    / /\\ \\    | || |   | |__) |   | || | |_/ | | \\_|  | || |  | |    | |  | |" << endl;
+    // cout << "\t\t\t\t| |   |  __'.    | || |   / ____ \\   | || |   |  __ /    | || |     | |      | || |  | '    ' |  | |" << endl;
+    // cout << "\t\t\t\t| |  _| |  \\ \\_  | || | _/ /    \\ \\_ | || |  _| |  \\ \\_  | || |    _| |_     | || |   \\ `--' /   | |" << endl;
+    // cout << "\t\t\t\t| | |____||____| | || ||____|  |____|| || | |____| |___| | || |   |_____|    | || |    `.__.'    | |" << endl;
+    // cout << "\t\t\t\t| |              | || |              | || |              | || |              | || |              | |" << endl;
+    // cout << "\t\t\t\t| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |" << endl;
+    // cout << "\t\t\t\t '----------------'  '----------------'  '----------------'  '----------------'  '----------------' " << endl;
+    // cout << endl;
 
     /* loop until the round reach 6 */
     // i adalah variabel checking
-    int i =0;
-    while( i <= 6)
+    while(true)
     {
+        setCommand();
         try
         {
             /* tidak melakukan apa-apa dan giliran diteruskan ke pemain selanjutnya */
             if(this->command  == "NEXT")
             {
                 this->NEXT();
-                i++;
             }
             else if(this->command == "REROLL")
             {
-                this->REROLL();
-                i++;
+                ReRoll::doAction(_player, _game);
             }
             else if(this->command == "DOUBLE")
             {
                 this->DOUBLE();
-                i++;
             }
             else if(this->command == "QUADRUPLE")
             {
-                this->QUADRUPLE();
-                i++;
+                Quadruple::doAction(_player, _game);
             }
             else if(this->command == "HALF")
             {
                 this->HALF();
-                i++;
             }
             else if(this->command == "QUARTER")
             {
-                this->QUARTER();
-                i++;
+                Quarter::doAction(_player, _game);
             }
             else if(this->command == "REVERSE")
             {
-                this->REVERSE();
-                i++;
+                ReverseDirection::doAction(_player, _game);
             }
             else if(this->command == "SWAP")
             {
-                this->SWAP();
-                i++;
+                SwapCard::doAction(_player, _game);
             }
             else if(this->command == "SWITCH")
             {
-                this->SWITCH();
-                i++;
+                SwitchCard::doAction(_player, _game);
             }
             else if(this->command == "ABILITYLESS")
             {
-                this->ABILITYLESS();
-                i++;
+                Abilityless::doAction(_player, _game);
             }
             else
             {
                 this->INVALIDCOMMAND(this->command);
             }
+            break;
         }
         /* catch for any invalid command */
         catch(Exception& Err)
         {
             Err.displayMessage();
         }
-        /* catch for any invalid argument */
-        catch(invalid_argument& Err)
-        {
-            cout << "Can't be parsed to a number." << endl;
-        }
-
-        /* Read command from user */
-        setCommand();
     }
 }

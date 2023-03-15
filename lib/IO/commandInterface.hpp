@@ -4,6 +4,18 @@
 #include <iostream>
 #include <string>
 #include "../Exception/commandExceptionInterface.hpp"
+#include "../Ability/Ability.hpp"
+#include "../Ability/Abilityless.hpp"
+#include "../Ability/Quadruple.hpp"
+#include "../Ability/Quarter.hpp"
+#include "../Ability/ReRoll.hpp"
+#include "../Ability/ReverseDirection.hpp"
+#include "../Ability/SwapCard.hpp"
+#include "../Ability/SwitchCard.hpp"
+#include "../Player/Player.hpp"
+#include "../Game/Game.hpp"
+
+
 // #include "../Exception/commandException.cpp"
 
 using namespace std;
@@ -16,15 +28,8 @@ class Command{
         Command(); // Default Constructor
         int getNumofCommands(); // Returns the number of commands
         void NEXT(); // Next Command
-        void REROLL(); // Reroll Command
         void DOUBLE(); // Double Command
-        void QUADRUPLE(); // Quadruple Command
         void HALF(); // Half Command
-        void QUARTER(); // Quarter Command
-        void REVERSE(); // Reverse Command
-        void SWAP(); // Swap Command
-        void SWITCH(); // Add Command
-        void ABILITYLESS(); // Abilityless Command
         void INVALIDCOMMAND(string command); // Invalid Command
 };
 

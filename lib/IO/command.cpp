@@ -18,47 +18,12 @@ void Command::NEXT()
     numOfCommands++;
 }
 
-void Command::REROLL()
-{
-    numOfCommands++;
-}
-
 void Command::DOUBLE()
 {
     numOfCommands++;
 }
 
-void Command::QUADRUPLE()
-{
-    numOfCommands++;
-}
-
 void Command::HALF()
-{
-    numOfCommands++;
-}
-
-void Command::QUARTER()
-{
-    numOfCommands++;
-}
-
-void Command::REVERSE()
-{
-    numOfCommands++;
-}
-
-void Command::SWAP()
-{
-    numOfCommands++;
-}
-
-void Command::SWITCH()
-{
-    numOfCommands++;
-}
-
-void Command::ABILITYLESS()
 {
     numOfCommands++;
 }
