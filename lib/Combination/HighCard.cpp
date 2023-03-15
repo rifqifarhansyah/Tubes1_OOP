@@ -2,9 +2,8 @@
 
 // ctor by input
 HighCard::HighCard(Player c1, TableCard c2) : Combination(c1,c2){
-    this->highestColor = "hijau";
+    this->highestColor = "Hijau";
     this->highestNumber = 0;
-    this->maxHighCard = 1.39;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor

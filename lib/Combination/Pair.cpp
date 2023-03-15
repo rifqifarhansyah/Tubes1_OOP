@@ -2,7 +2,7 @@
 
 // ctor by input
 Pair::Pair(Player c1, TableCard c2) : HighCard(c1,c2){
-    this->maxPair = 2.78;
+    // this->maxPair = 2.78;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -24,7 +24,7 @@ void Pair::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxHighCard);
+        this->setValue(num + color + HIGH_CARD);
     }
 }
 vector<Card> Pair::findMaxCombination(Player c1, TableCard c2){

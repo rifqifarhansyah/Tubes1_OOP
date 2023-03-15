@@ -2,7 +2,7 @@
 
 // ctor by input
 ThreeOfAKind::ThreeOfAKind(Player c1, TableCard c2) : TwoPair(c1,c2){
-    this->maxThreeOfAKind = 5.56;
+    // this->maxThreeOfAKind = 5.56;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -23,7 +23,7 @@ void ThreeOfAKind::calculateMaxCombination(Player c1, TableCard c2){
         double color = findHighestColor(vec);
         this->setHighestNumber(vec[0].getNumber());
         this->setHighestColor(getColorFromValue(color));
-        this->setValue(num + color + this->maxTwoPair);
+        this->setValue(num + color + TWO_PAIR);
     }
 }
 vector<Card> ThreeOfAKind::findMaxCombination(Player c1, TableCard c2){
