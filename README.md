@@ -21,7 +21,7 @@
 <a name="general-information"></a>
 
 ## General Information
-**Permainan Kartu ala Kerajaan Permen** merupakan permainan yang terdiri atas 7 pemain. Pemain mula-mula akan diberikan 2 kartu dan secara bergantian akan mencoba untuk membentuk kombinasi agar dapat memenangkan permainan. Poin awal tiap pemain adalah 64 dan akan bertambah atau berkurang seiring permainan. Pemain yang terlebih dahulu mendapatkan 2^32 poin akan memenangkan pertandingan. Projek ini digunakan untuk memenuhi `tugas dari mata kuliah IF2210 - Pemrograman Berorientasi Objek` yang ditulis dalam bahasa pemrograman C++.
+**Permainan Kartu ala Kerajaan Permen** merupakan permainan yang terdiri atas 7 pemain. Pemain mula-mula akan diberikan 2 kartu dan secara bergantian mencoba untuk membentuk kombinasi agar dapat memenangkan permainan. Poin awal tiap pemain adalah 64 dan akan bertambah atau berkurang seiring permainan. Pemain yang terlebih dahulu mendapatkan 2^32 poin akan memenangkan pertandingan. Projek ini digunakan untuk memenuhi tugas dari mata kuliah `IF2210 - Pemrograman Berorientasi Objek` yang ditulis dalam bahasa pemrograman C++.
 
 <a name="creator-information"></a>
 
@@ -55,15 +55,25 @@
 <a name="setup"></a>
 
 ## Setup
-1. 
+1. Install `make` dan `g++` di dalam sistem Anda dengan cara:
+```bash
+sudo apt-get install make
+sudo apt-get install g++
+```
+2. Apabila anda menggunakan `WSL` di dalam sistem Windows, maka anda dapat mengunduhnya melalui `Microsoft Store`.
+3. Anda tetap harus menginstall `make` dan `g++` di dalam `WSL` sistem Anda dengan cara:
+```bash
+sudo apt-get install make
+sudo apt-get install g++
+```
 
 <a name="usage"></a>
 
 ## Usage
 
-### LINUX
+#### LINUX
 > Note: Untuk menjalankan program ini, Anda harus memiliki `make` dan `g++` yang sudah terinstall di dalam sistem Anda.
-1. Clone repository ini[https://github.com/rifqifarhansyah/Tubes1_OOP.git] ke dalam direktori lokal Anda, dengan cara:
+1. Clone repository [ini](https://github.com/rifqifarhansyah/Tubes1_OOP.git) ke dalam direktori lokal Anda, dengan cara:
 ```bash
 git clone https://github.com/rifqifarhansyah/Tubes1_OOP.git
 ```
@@ -78,9 +88,9 @@ make
 4. Apabila muncul pesan : `Enter folder:`, maka masukkan folder bernama `Game`.
 5. Program akan berjalan.
 
-### WINDOWS (VS Code)
+#### WINDOWS (VS Code)
 > Note: Untuk menjalankan program ini, pastikan anda memiliki `WSL` yang sudah terinstall di dalam sistem Anda.
-1. Clone repository ini[https://github.com/rifqifarhansyah/Tubes1_OOP.git] ke dalam direktori lokal Anda, dengan cara:
+1. Clone repository [ini](https://github.com/rifqifarhansyah/Tubes1_OOP.git) ke dalam direktori lokal Anda, dengan cara:
 ```bash
 git clone https://github.com/rifqifarhansyah/Tubes1_OOP.git
 ```
