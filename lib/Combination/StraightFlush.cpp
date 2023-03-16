@@ -64,7 +64,7 @@ vector<Card> StraightFlush::findMaxCombinationAll(){
     {
         tableCard.push_back(table.getItem(i));
     }
-    
+    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
     combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
 
     sort(combinations.begin(), combinations.end());
@@ -106,7 +106,6 @@ vector<Card> StraightFlush::findMaxCombinationTable(){
         tableCard.push_back(table.getItem(i));
     }
     
-    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
     combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
 
     sort(combinations.begin(), combinations.end());
