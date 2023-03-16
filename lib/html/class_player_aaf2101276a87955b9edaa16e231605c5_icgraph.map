@@ -1,8 +1,0 @@
-<map id="Player::addCard" name="Player::addCard">
-<area shape="rect" id="node1" title=" " alt="" coords="192,104,307,129"/>
-<area shape="rect" id="node2" href="$_combination_test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="49,5,100,31"/>
-<area shape="rect" id="node3" href="$class_player.html#a1c6ebe3509be7c48f8a6272d99c873ef" title=" " alt="" coords="13,55,136,80"/>
-<area shape="rect" id="node4" href="$class_main_deck.html#a41b0730b373f26b8978526f90bb80d6c" title=" " alt="" coords="5,104,144,129"/>
-<area shape="rect" id="node5" href="$class_player.html#a9da632f369724380ecaeb717421638ff" title=" " alt="" coords="13,153,136,179"/>
-<area shape="rect" id="node6" href="$class_player.html#a8826850c4f8a2871819713ef61148836" title=" " alt="" coords="23,203,127,228"/>
-</map>

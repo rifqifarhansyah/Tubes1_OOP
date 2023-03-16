@@ -1,9 +1,0 @@
-<map id="ReRoll::action" name="ReRoll::action">
-<area shape="rect" id="node1" title=" " alt="" coords="5,109,108,134"/>
-<area shape="rect" id="node2" href="$class_main_deck.html#a7ec9e4016246714998eaa38a31e15331" title=" " alt="" coords="157,59,269,85"/>
-<area shape="rect" id="node5" href="$class_game.html#a088aec1e70ccae9c913d8bfaa76cb914" title=" " alt="" coords="156,109,269,134"/>
-<area shape="rect" id="node6" href="$class_player.html#a05850ea3250db4eb507fbf22244e2869" title=" " alt="" coords="157,158,269,183"/>
-<area shape="rect" id="node3" href="$class_inventory_holder.html#a2b0b9f8b9d8ac85fad0da7dedb6c19af" title=" " alt="" coords="317,5,467,45"/>
-<area shape="rect" id="node4" href="$class_inventory_holder.html#a1341cd0df16087c894bc814ce257c4cf" title=" " alt="" coords="317,69,467,109"/>
-<area shape="rect" id="node7" href="$class_inventory_holder.html#ad4fa89d12de4909eabd2610d20797510" title=" " alt="" coords="317,151,467,191"/>
-</map>

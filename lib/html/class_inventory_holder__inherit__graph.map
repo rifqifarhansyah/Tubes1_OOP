@@ -1,9 +1,0 @@
-<map id="InventoryHolder&lt; T &gt;" name="InventoryHolder&lt; T &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="123,5,264,244"/>
-<area shape="rect" id="node2" href="$class_inventory_holder.html" title=" " alt="" coords="31,307,179,545"/>
-<area shape="rect" id="node4" href="$class_inventory_holder.html" title=" " alt="" coords="257,307,418,545"/>
-<area shape="rect" id="node3" href="$class_inventory_holder_int.html" title=" " alt="" coords="5,683,149,819"/>
-<area shape="rect" id="node5" href="$class_main_deck.html" title=" " alt="" coords="174,631,274,870"/>
-<area shape="rect" id="node6" href="$class_player.html" title=" " alt="" coords="299,595,429,907"/>
-<area shape="rect" id="node7" href="$class_table_card.html" title=" " alt="" coords="454,646,562,855"/>
-</map>

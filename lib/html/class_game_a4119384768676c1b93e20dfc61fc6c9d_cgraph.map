@@ -1,6 +1,0 @@
-<map id="Game::giveAbilityToAll" name="Game::giveAbilityToAll">
-<area shape="rect" id="node1" title=" " alt="" coords="5,55,157,80"/>
-<area shape="rect" id="node2" href="$class_player.html#a4eee97a4eef208754686b25d99a80fa1" title=" " alt="" coords="205,5,349,31"/>
-<area shape="rect" id="node3" href="$class_player.html#a41dbbec6f157eac2eb72dedcf2f84b0e" title=" " alt="" coords="217,55,338,80"/>
-<area shape="rect" id="node4" href="$_template_function_8cpp.html#a4ea1a1efd30b982ad0df2920d0075fb8" title=" " alt="" coords="235,104,319,129"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="Straight" name="Straight">
-<area shape="rect" id="node1" title=" " alt="" coords="5,1043,196,1179"/>
-<area shape="rect" id="node2" href="$class_three_of_a_kind.html" title=" " alt="" coords="5,859,196,995"/>
-<area shape="rect" id="node3" href="$class_two_pair.html" title=" " alt="" coords="5,675,196,811"/>
-<area shape="rect" id="node4" href="$class_pair.html" title=" " alt="" coords="5,491,196,627"/>
-<area shape="rect" id="node5" href="$class_high_card.html" title=" " alt="" coords="5,175,196,443"/>
-<area shape="rect" id="node6" href="$class_combination.html" title=" " alt="" coords="39,5,162,127"/>
-</map>

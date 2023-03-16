@@ -1,9 +1,0 @@
-<map id="Abilityless::action" name="Abilityless::action">
-<area shape="rect" id="node1" title=" " alt="" coords="5,104,131,129"/>
-<area shape="rect" id="node2" href="$class_player.html#aa67f9a0be88f2675ff38a0af2f3b245b" title=" " alt="" coords="197,5,332,31"/>
-<area shape="rect" id="node3" href="$class_player.html#ac38f2de530489b4b0377012b6b039726" title=" " alt="" coords="187,55,342,80"/>
-<area shape="rect" id="node5" href="$class_player.html#a0c773cd7f4b7ef0bf9d7176fd5d5c3f1" title=" " alt="" coords="187,104,343,129"/>
-<area shape="rect" id="node6" href="$class_game.html#aec44e0de1b8ad365446112c68a390c68" title=" " alt="" coords="187,153,342,179"/>
-<area shape="rect" id="node7" href="$class_player.html#a2b2d5f920c5507e970fd04c7abd732e4" title=" " alt="" coords="179,203,351,228"/>
-<area shape="rect" id="node4" href="$class_ability.html#a3c65e9bf0ba77a4f97efe871821802be" title=" " alt="" coords="399,55,517,80"/>
-</map>

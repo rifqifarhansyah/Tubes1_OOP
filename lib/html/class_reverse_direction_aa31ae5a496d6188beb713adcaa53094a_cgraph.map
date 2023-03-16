@@ -1,8 +1,0 @@
-<map id="ReverseDirection::action" name="ReverseDirection::action">
-<area shape="rect" id="node1" title=" " alt="" coords="5,55,168,81"/>
-<area shape="rect" id="node2" href="$class_player.html#a0c773cd7f4b7ef0bf9d7176fd5d5c3f1" title=" " alt="" coords="663,55,819,81"/>
-<area shape="rect" id="node3" href="$class_game.html#a7212a51ee1f945339a28eab923b6d9e5" title=" " alt="" coords="428,30,615,55"/>
-<area shape="rect" id="node4" href="$class_game.html#a99efd8ed27c3bb691213b8d4011d75fa" title=" " alt="" coords="223,81,373,106"/>
-<area shape="rect" id="node5" href="$class_game.html#aa063dbbd58892a4cc69d51599c0b9f4a" title=" " alt="" coords="216,130,380,155"/>
-<area shape="rect" id="node6" href="$class_game.html#af5c6c9ed5537c3beaae8c28fc8028577" title=" " alt="" coords="460,131,583,157"/>
-</map>

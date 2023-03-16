@@ -1,6 +1,0 @@
-<map id="CardException" name="CardException">
-<area shape="rect" id="node1" title=" " alt="" coords="125,204,310,311"/>
-<area shape="rect" id="node3" href="$class_player_exception.html" title=" " alt="" coords="5,359,200,480"/>
-<area shape="rect" id="node4" href="$class_table_card_exception.html" title=" " alt="" coords="224,359,440,480"/>
-<area shape="rect" id="node2" href="$class_exception.html" title=" " alt="" coords="138,5,297,156"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,78,56,103"/>
-<area shape="rect" id="node2" href="$class_main_deck.html#afc4d3a4796e6a29e4ca7fca2d7b848e3" title=" " alt="" coords="104,53,217,78"/>
-<area shape="rect" id="node5" href="$class_table_card.html#a05da57ebfba5e6e9fef5f1f4f184f91a" title=" " alt="" coords="104,102,217,127"/>
-<area shape="rect" id="node3" href="$class_inventory_holder.html#a74cefa1b0598b714455ffdf58d08bd26" title=" " alt="" coords="265,5,415,45"/>
-<area shape="rect" id="node4" href="$class_inventory_holder.html#ad4fa89d12de4909eabd2610d20797510" title=" " alt="" coords="265,69,415,109"/>
-<area shape="rect" id="node6" href="$class_inventory_holder.html#aa0754546191ef45e862d4577443a76a9" title=" " alt="" coords="265,133,415,173"/>
-</map>

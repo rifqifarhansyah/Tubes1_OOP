@@ -1,7 +1,0 @@
-<map id="InventoryHolder::getSize" name="InventoryHolder::getSize">
-<area shape="rect" id="node1" title=" " alt="" coords="200,80,363,105"/>
-<area shape="rect" id="node2" href="$class_main_deck.html#a9001fddd6f511acfbb1c4a620593e5f7" title=" " alt="" coords="5,5,152,31"/>
-<area shape="rect" id="node3" href="$class_main_deck.html#a3462456d59195e433c0696ff8032a385" title=" " alt="" coords="7,55,150,80"/>
-<area shape="rect" id="node4" href="$class_player.html#a9da632f369724380ecaeb717421638ff" title=" " alt="" coords="17,104,140,129"/>
-<area shape="rect" id="node5" href="$class_player.html#a8826850c4f8a2871819713ef61148836" title=" " alt="" coords="27,153,131,179"/>
-</map>
