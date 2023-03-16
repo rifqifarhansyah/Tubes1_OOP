@@ -9,7 +9,13 @@
 #include "../TemplateFunction/TemplateFunction.hpp"
 #include <iostream>
 
-
+#define RED "\033[1m\033[31m"
+#define GREEN "\033[1m\033[32m"
+#define YELLOW "\033[1m\033[33m"
+#define BLUE "\033[1m\033[34m"
+#define MAGENTA "\033[1m\033[35m"
+#define CYAN "\033[1m\033[36m"
+#define RESET "\033[0m"
 
 Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winner(NULL), consoleIO(){
     point = 64;
@@ -19,6 +25,7 @@ Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winn
     playOrder.resize(maxPlayer);
     playerList = new Player[maxPlayer];
     consoleIO.startPage();
+    cout << "                                              " << GREEN << "--- INPUT NAMA PEMAIN ---" << RESET << "                                             " << endl;
     for (int i = 0;i < maxPlayer;i++){
         string name;
         cout << "Masukkan nama pemain ke-" << i+1 << " : ";
@@ -64,7 +71,7 @@ void Game::play(){
 
 void Game::startGame(){
     gameCount++;
-    cout << "Permainan ke-" << gameCount << endl << endl;
+    cout << RED << "                                                --- PERMAINAN KE " << gameCount << " ---" << RESET << endl << endl;
     deck.shuffle();
     for (int i = 0;i < maxPlayer;i++){
         deck - playerList[i];
@@ -88,7 +95,7 @@ void Game::startGame(){
 }
 
 void Game::startRound(){
-    cout << "Ronde ke-" << round << endl << endl;;
+    cout << BLUE << "                                                  --- RONDE KE " << round << " ---" << RESET << endl << endl;;
     if (round == 2){
         giveAbilityToAll();
         cout << "Kartu ability sudah dibagikan!" << endl;
@@ -177,9 +184,6 @@ int Game::getChosenCardIDInput() {
 }
 
 Card Game::getChosenCard(Player player, int idCard) {
-    cout << idCard << endl;
-    cout << "Kiri (First)" << player.getFirstCard() << endl;
-    cout << "Kanan (Second)" << player.getSecondCard() << endl;
     if (idCard == 0) {
         return player.getFirstCard();
     } else {
@@ -227,13 +231,7 @@ void Game::swapCard(int IDXp1,int IDXp2,int idCardp1,int idCardp2){
     Player& p1 = playerList[IDXp1];
     Player& p2 = playerList[IDXp2];
     Card cardP1 = getChosenCard(p1, idCardp1);
-    cout << "ID CARD P1: " << idCardp1 << endl;
-    cout << "KARTU P1: " << cardP1 << endl;
-    cout << "ID CARD P1: " << idCardp1 << endl;
-    cout << "KARTU P1: " << p1.getFirstCard() << endl;
     Card cardP2 = getChosenCard(p2, idCardp2);
-    cout << "ID CARD P2: " << idCardp2 << endl;
-    cout << "KARTU P2: " << cardP2 << endl;
     p1.setCard(cardP2, idCardp1);
     p2.setCard(cardP1, idCardp2); 
 }
