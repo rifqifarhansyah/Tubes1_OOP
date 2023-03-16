@@ -13,6 +13,18 @@ T& getMaxArr(T arr[], int n){
     }
     return min;
 }
+
+template <class T, class P>
+T& getMaxMapKey(map<T,P>& map){
+    T& max = map.begin()->first;
+    for (auto it = map.begin()+1;it != map.end();it++){
+        if (it->second > max){
+            max = it->first;
+        }
+    }
+    return max;
+}
+
 template <class T>
 void ShuffleArr(T arr[], int n){
     for (int i = 0;i < n-1;i++){
@@ -20,6 +32,8 @@ void ShuffleArr(T arr[], int n){
         swap(arr[i],arr[randIdx]);
     }
 }
+
+
 template <class T>
 void ShuffleVec(vector<T>& vec){
     for (int i = 0;i < vec.size()-1;i++){
