@@ -10,6 +10,7 @@
 #include "../Ability/SwitchCard.hpp"
 #include "../Player/Player.hpp"
 #include "../Exception/playerCardExceptionInterface.hpp"
+#include <algorithm>
 
 #define RED "\033[1m\033[31m"
 #define GREEN "\033[1m\033[32m"
@@ -212,6 +213,7 @@ MainDeck ConsoleIO::readMainDeck() {
                 cardVal.push_back(card);
             }
 
+            reverse(cardVal.begin(), cardVal.end());
             MainDeck salinDeck(cardVal);
             mainDeck = salinDeck;
 
