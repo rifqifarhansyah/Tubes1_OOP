@@ -1,5 +1,7 @@
 #include "ThreeOfAKind.hpp"
 
+ThreeOfAKind::ThreeOfAKind() : TwoPair(){}
+
 // ctor by input
 ThreeOfAKind::ThreeOfAKind(Player c1, TableCard c2) : TwoPair(c1,c2){
     // this->maxThreeOfAKind = 5.56;

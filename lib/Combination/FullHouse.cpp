@@ -1,5 +1,7 @@
 #include "FullHouse.hpp"
 
+FullHouse::FullHouse() : Flush() {}
+
 // ctor by input
 FullHouse::FullHouse(Player c1, TableCard c2) : Flush(c1,c2){
     // this->maxFullHouse = 1.39 * 7;

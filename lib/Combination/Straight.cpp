@@ -1,5 +1,7 @@
 #include "Straight.hpp"
 
+Straight::Straight() : ThreeOfAKind(){}
+
 // ctor by input
 Straight::Straight(Player c1, TableCard c2) : ThreeOfAKind(c1,c2){
     // this->maxStraight = 6.95;

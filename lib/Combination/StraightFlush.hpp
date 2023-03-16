@@ -5,7 +5,7 @@
 
 class StraightFlush : public FourOfAKind {
     public :
-        public :
+        StraightFlush();
         // ctor by input
         StraightFlush(Player c1, TableCard c2);
         // cctor

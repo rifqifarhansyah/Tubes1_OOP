@@ -5,6 +5,7 @@
 
 class ThreeOfAKind : public TwoPair {
     public :
+        ThreeOfAKind();
         // ctor by input
         ThreeOfAKind(Player c1, TableCard c2);
         // cctor

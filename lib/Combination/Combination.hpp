@@ -19,6 +19,7 @@ const double FOUR_OF_A_KIND = FULLHOUSE + 40;
 
 class Combination{
     public:
+        Combination();
         Combination(Player , TableCard );
         Combination(const Combination&);
         ~Combination();

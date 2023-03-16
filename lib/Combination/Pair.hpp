@@ -5,6 +5,7 @@
 
 class Pair : public HighCard {
     public :
+        Pair();
         // ctor by input
         Pair(Player c1, TableCard c2);
         // cctor

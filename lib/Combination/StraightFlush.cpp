@@ -1,5 +1,7 @@
 #include "StraightFlush.hpp"
 
+StraightFlush::StraightFlush() : FourOfAKind(){}
+
 // ctor by input
 StraightFlush::StraightFlush(Player c1, TableCard c2) : FourOfAKind(c1,c2){
     this->calculateMaxCombination(c1,c2);

@@ -1,5 +1,7 @@
 #include "FourOfAKind.hpp"
 
+FourOfAKind::FourOfAKind() : FullHouse() {}
+
 // ctor by input
 FourOfAKind::FourOfAKind(Player c1, TableCard c2) : FullHouse(c1,c2){
     // this->maxFourOfAKind = 1.39 * 8;

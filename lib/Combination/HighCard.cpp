@@ -1,5 +1,6 @@
 #include "HighCard.hpp"
 
+HighCard::HighCard() : Combination(){}
 // ctor by input
 HighCard::HighCard(Player c1, TableCard c2) : Combination(c1,c2){
     this->highestColor = "hijau";

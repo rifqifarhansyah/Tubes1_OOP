@@ -1,5 +1,7 @@
 #include "Flush.hpp"
 
+Flush::Flush() : Straight(){}
+
 // ctor by input
 Flush::Flush(Player c1, TableCard c2) : Straight(c1,c2){
     // this->maxFlush = 1.39 * 6;

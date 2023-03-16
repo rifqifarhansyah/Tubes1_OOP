@@ -5,6 +5,7 @@
 
 class HighCard : public Combination {
     public:
+        HighCard();
         // ctor by input
         HighCard(Player c1, TableCard c2);
         // cctor
