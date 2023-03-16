@@ -63,7 +63,6 @@ vector<Card> StraightFlush::findMaxCombinationAll(){
         tableCard.push_back(table.getItem(i));
     }
     
-    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
     combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
 
     sort(combinations.begin(), combinations.end());
@@ -74,7 +73,7 @@ vector<Card> StraightFlush::findMaxCombinationAll(){
             combinations[i - 1].getColor() == combinations[i - 2].getColor() &&
             combinations[i - 2].getColor() == combinations[i - 3].getColor() &&
             combinations[i - 3].getColor() == combinations[i - 4].getColor()) {
-            // Found a possible straight flush starting with card i
+                
             bool isStraightFlush = true;
             int currentNumber = combinations[i].getNumber();
             for (int j = i - 1; j >= i - 4; j--) {

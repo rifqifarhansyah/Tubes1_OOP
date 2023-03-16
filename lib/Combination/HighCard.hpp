@@ -28,6 +28,5 @@ class HighCard : public Combination {
     protected:
         double highestNumber;
         string highestColor;
-        // double maxHighCard;
 };
 #endif

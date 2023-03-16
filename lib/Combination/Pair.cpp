@@ -18,12 +18,6 @@ void Pair::calculateMaxCombination(){
     double constant;
     
     if(!findMaxCombinationAll().empty()){
-        // vec = this->HighCard::findMaxCombinationAll();
-        // double num = findHighestNumber(vec) * 0.1;
-        // double color = findHighestColor(vec);
-        // this->setHighestNumber(num);
-        // this->setHighestColor(Card::getColorFromValue(color));
-        // this->setValue(num + color + HIGH_CARD);
         constant = HIGH_CARD;
         vec = findMaxCombinationAll();
 
