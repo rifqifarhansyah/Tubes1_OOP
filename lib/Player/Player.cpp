@@ -18,13 +18,9 @@ Player::Player() : id(totalPlayer+1),InventoryHolder<Card>(0,2)
     this->abilityIsBlocked = false;
     totalPlayer++;
 }
-Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(0,p.maxSize)
+Player::Player(const Player& p) : id(totalPlayer+1),InventoryHolder(p)
 {
     int banyak = p.getSize();
-    for(int i=0;i<banyak;i++)
-    {
-        addCard(p.inventory[i]);
-    }
     this->poin = p.poin;
     this->playerName = p.playerName;
     this->ability = p.ability;
