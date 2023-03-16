@@ -7,6 +7,7 @@
 #include "../Ability/SwapCard.hpp"
 #include "../Ability/SwitchCard.hpp"
 #include "../TemplateFunction/TemplateFunction.hpp"
+#include "../Combination/StraightFlush.hpp"
 #include <iostream>
 
 #define RED "\033[1m\033[31m"
@@ -83,9 +84,32 @@ void Game::startGame(){
         playOrder.erase(playOrder.begin());
 
     }
-
-    Player& roundWinner = playerList[0]; // nanti diganti dengan pemenag
-    cout << "Pemenang di permainan ini adalah\t\t: \n";
+    int idxWinner;
+    map<int,StraightFlush> comboList;
+    for (int i = 0;i < maxPlayer;i++){
+        StraightFlush combo(playerList[i],table);
+        comboList.insert(pair<int,StraightFlush>(i,combo));
+    }
+    idxWinner = getMaxMapKey(comboList);
+    if (!(comboList[0].findMaxCombinationTable().empty()) && comboList[0].getHighestNumber() == 13){
+        bool isAllNoStraigthFlush = true;
+        for (int i = 0;i < maxPlayer;i++){
+            if (!comboList[i].findMaxCombinationAll().empty()){
+                isAllNoStraigthFlush = false;
+                break;
+            }
+        }
+        if (isAllNoStraigthFlush){
+            map<int,ThreeOfAKind> comboListTAK;
+            for (int i = 0;i < maxPlayer;i++){
+                ThreeOfAKind comboTAK(playerList[i],table);
+                comboListTAK.insert(pair<int,ThreeOfAKind>(i,comboTAK));
+            }
+            idxWinner = getMaxMapKey(comboListTAK);
+        }
+    }
+    Player& roundWinner = playerList[idxWinner]; // nanti diganti dengan pemenang
+    cout << "Pemenang di permainan ini adalah\t\t\t: \n";
     cout << roundWinner.getNamePlayer() << endl << endl;
     cout << "Poin hadiah sebesar " << point << " poin diberikan ke " << roundWinner.getNamePlayer() << endl;
     int oldPoin = roundWinner.getPointPlayer();
