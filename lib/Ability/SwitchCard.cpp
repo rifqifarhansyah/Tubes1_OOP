@@ -3,7 +3,7 @@
 #include "../Game/Game.hpp"
 #include "../IO/consoleIOInterface.hpp"
 
-SwitchCard::SwitchCard() : Ability("Switch", 8){};
+SwitchCard::SwitchCard() : Ability("SWITCH", 8){};
 
 void SwitchCard::action(Player& p,Game& g) const {
     ConsoleIO input;

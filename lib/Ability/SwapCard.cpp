@@ -2,7 +2,7 @@
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
 
-SwapCard::SwapCard() : Ability("Swap", 7){};
+SwapCard::SwapCard() : Ability("SWAP", 7){};
 
 void SwapCard::action(Player& p,Game& g) const
 {   

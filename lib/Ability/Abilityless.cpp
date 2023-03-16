@@ -4,7 +4,7 @@
 #include "../IO/consoleIOInterface.hpp"
 
 
-Abilityless::Abilityless() : Ability("Abilityless",9){}
+Abilityless::Abilityless() : Ability("ABILITYLESS",9){}
 
 void Abilityless::action(Player& p,Game& g) const
 {

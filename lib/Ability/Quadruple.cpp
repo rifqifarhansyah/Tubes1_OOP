@@ -2,7 +2,7 @@
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
 
-Quadruple::Quadruple() : Ability("Quadruple", 4){}
+Quadruple::Quadruple() : Ability("QUADRUPLE", 4){}
 
 void Quadruple::action(Player& p,Game& g) const
 {
