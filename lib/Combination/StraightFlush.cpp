@@ -97,16 +97,9 @@ vector<Card> StraightFlush::findMaxCombination(Player c1, TableCard c2){
     }
     return straightFlush;
 }
-bool operator< (Player& p1, Player&p2){
-    TableCard T;
-    StraightFlush P1(p1,T);
-    StraightFlush P2(p2,T);
-    bool val = true;
-    return (P1.getValue() < P2.getValue());
+bool operator< (StraightFlush& p1, StraightFlush&p2){
+    return (p1.getValue() < p2.getValue());
 }
-bool operator> (Player& p1, Player&p2){
-    TableCard T;
-    StraightFlush P1(p1,T);
-    StraightFlush P2(p2,T);
-    return (P1.getValue() > P2.getValue());
+bool operator> (StraightFlush& p1, StraightFlush&p2){
+    return (p1.getValue() > p2.getValue());
 }
