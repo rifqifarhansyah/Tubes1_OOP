@@ -21,7 +21,7 @@
 <a name="general-information"></a>
 
 ## General Information
-*Permainan Kartu ala Kerajaan Permen* merupakan permainan yang terdiri atas 7 pemain. Pemain mula-mula akan diberikan 2 kartu dan secara bergantian mencoba untuk membentuk kombinasi agar dapat memenangkan permainan. Poin awal tiap pemain adalah 64 dan akan bertambah atau berkurang seiring permainan. Pemain yang terlebih dahulu mendapatkan 2^32 poin akan memenangkan pertandingan. Projek ini digunakan untuk memenuhi tugas dari mata kuliah `IF2210 - Pemrograman Berorientasi Objek` yang ditulis dalam bahasa pemrograman C++.
+**Permainan Kartu ala Kerajaan Permen** merupakan permainan yang terdiri atas 7 pemain. Pemain mula-mula akan diberikan 2 kartu dan secara bergantian mencoba untuk membentuk kombinasi agar dapat memenangkan permainan. Poin awal tiap pemain adalah 64 dan akan bertambah atau berkurang seiring permainan. Pemain yang terlebih dahulu mendapatkan 2^32 poin akan memenangkan pertandingan. Projek ini digunakan untuk memenuhi tugas dari mata kuliah `IF2210 - Pemrograman Berorientasi Objek` yang ditulis dalam bahasa pemrograman C++.
 
 <a name="creator-information"></a>
 
