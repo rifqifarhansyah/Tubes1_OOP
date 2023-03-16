@@ -27,13 +27,13 @@ string Card::getColor() const {
 double Card::getValueFromColor(string s){
     double constant = 0.03;
     double val;
-    if(s == "Merah"){
+    if(s == "merah"){
         val = 3;
-    } else if(s == "Kuning"){
+    } else if(s == "kuning"){
         val = 2;
-    } else if(s == "Biru"){
+    } else if(s == "biru"){
         val = 1;
-    } else if(s == "Hijau"){
+    } else if(s == "hijau"){
         val = 0;
     }
     return val * constant;
@@ -41,25 +41,25 @@ double Card::getValueFromColor(string s){
 string Card::getColorFromValue(double result){
     string color;
     if(result == 0.09){
-        color == "Merah";
+        color == "merah";
     } else if(result == 0.06){
-        color == "Kuning";
+        color == "kuning";
     } else if(result == 0.03){
-        color == "Biru";
+        color == "biru";
     } else if(result == 0){
-        color == "Hijau";
+        color == "hijau";
     }
     return color;
 }
 double Card::getValue() { 
     double value = this->number / 10 ;   
-    if (this->color == "Hijau") {
+    if (this->color == "hijau") {
         return value  ;
     }
-    else if (this->color == "Biru") {
+    else if (this->color == "biru") {
         return value + 0.03 ;
     }
-    else if (this->color == "Kuning") {
+    else if (this->color == "kuning") {
         return value + 0.06 ;
     }
     else { // Merah

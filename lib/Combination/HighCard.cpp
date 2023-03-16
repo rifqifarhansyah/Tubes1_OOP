@@ -2,7 +2,7 @@
 
 // ctor by input
 HighCard::HighCard(Player c1, TableCard c2) : Combination(c1,c2){
-    this->highestColor = "Hijau";
+    this->highestColor = "hijau";
     this->highestNumber = 0;
     this->calculateMaxCombination(c1,c2);
 }
@@ -18,7 +18,7 @@ void HighCard::calculateMaxCombination(Player c1, TableCard c2){
     vector<Card> vec;
     vec = findMaxCombination(c1, c2);
     
-    double num = findHighestNumber(vec);
+    double num = findHighestNumber(vec) * 0.1;
     double color = findHighestColor(vec);
     this->setHighestNumber(num);
     this->setHighestColor(Card::getColorFromValue(color));
@@ -26,8 +26,8 @@ void HighCard::calculateMaxCombination(Player c1, TableCard c2){
     
 }
 vector<Card> HighCard::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> kartu1(2);
-    for (int i = kartu1.size() - 1; i >= 0; i--)
+    vector<Card> kartu1;
+    for (int i = 1; i >= 0; i--)
     {
         kartu1.push_back(c1.getItem(i));
     }
@@ -47,7 +47,7 @@ void HighCard::setValue(double val){
     this->totalValue = val;
 }
 // get value of a combo
-double HighCard::getValue(Player c1, TableCard c2) const{
+double HighCard::getValue() const{
     return this->totalValue;
 }
 void HighCard::setHighestNumber(double val){

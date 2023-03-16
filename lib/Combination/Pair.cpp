@@ -15,27 +15,38 @@ Pair::~Pair(){}
 // calculate max value of a combo
 void Pair::calculateMaxCombination(Player c1, TableCard c2){
     vector<Card> vec;
-    vec = findMaxCombination(c1, c2);
+    double constant;
     
-    if(vec.empty()){
-        this->HighCard::calculateMaxCombination(c1,c2);
-    }else{
-        double num = findHighestNumber(vec);
-        double color = findHighestColor(vec);
-        this->setHighestNumber(num);
-        this->setHighestColor(Card::getColorFromValue(color));
-        this->setValue(num + color + HIGH_CARD);
+    if(!findMaxCombination(c1, c2).empty()){
+        // vec = this->HighCard::findMaxCombination(c1,c2);
+        // double num = findHighestNumber(vec) * 0.1;
+        // double color = findHighestColor(vec);
+        // this->setHighestNumber(num);
+        // this->setHighestColor(Card::getColorFromValue(color));
+        // this->setValue(num + color + HIGH_CARD);
+        constant = HIGH_CARD;
+        vec = findMaxCombination(c1, c2);
+
+    }else if(!HighCard::findMaxCombination(c1, c2).empty()){
+        constant = 0;
+        vec = HighCard::findMaxCombination(c1, c2);
     }
+    double num = findHighestNumber(vec) * 0.1;
+    double color = findHighestColor(vec);
+    this->setHighestNumber(num);
+    this->setHighestColor(Card::getColorFromValue(color));
+    this->setValue(num + color + constant);
+    
 }
 vector<Card> Pair::findMaxCombination(Player c1, TableCard c2){
     vector<Card> allCards;
-    vector<Card> playerCards(2);
-    vector<Card> tableCards(5);
-    for (int i = playerCards.size() - 1; i >= 0; i--)
+    vector<Card> playerCards;
+    vector<Card> tableCards;
+    for (int i = 1; i >= 0; i--)
     {
         playerCards.push_back(c1.getItem(i));
     }
-    for (int i = tableCards.size() - 1; i >= 0; i--)
+    for (int i = 4; i >= 0; i--)
     {
         tableCards.push_back(c2.getItem(i));
     }
@@ -55,6 +66,7 @@ vector<Card> Pair::findMaxCombination(Player c1, TableCard c2){
     }
     if(pair.size() != 2){
         pair.clear();
+        
     }
 
     return pair;

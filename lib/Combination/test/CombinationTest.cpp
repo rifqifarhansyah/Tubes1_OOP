@@ -29,29 +29,43 @@ int main(){
             break;
         }
         case 2:
-        {
-            cout << "format input kartu : <angka> <Warna>" << endl;
-            cout << "Masukkan 2 kartu player :" << endl;
-            for (int i = 0;i < 2;i++){
-                int a; string w;
-                cout << i+1 << ". ";
-                cin >> a >> w;
-                Card tmp(a,w);
-                P.addCard(tmp);
-            }
-            cout << "Masukkan 5 kartu table : " << endl;
-            for (int i = 0;i < 5;i++){
-                int a; string w;
-                cout << i+1 << ". ";
-                cin >> a >> w;
-                Card tmp(a,w);
-                T.draw(tmp);
-            }
+        {   
+            Card c1(5,"biru");
+            Card c2(1,"hijau");
+            P.addCard(c1);
+            P.addCard(c2);
+            // cout << "format input kartu : <angka> <Warna>" << endl;
+            // cout << "Masukkan 2 kartu player :" << endl;
+            // for (int i = 0;i < 2;i++){
+            //     int a; string w;
+            //     cout << i+1 << ". ";
+            //     cin >> a >> w;
+            //     Card tmp(a,w);
+            //     P.addCard(tmp);
+            // }
+            Card T1(1,"merah");
+            Card T2(5,"merah");
+            Card T3(5,"kuning");
+            Card T4(7,"biru");
+            Card T5(8,"biru");
+            T.draw(T1);
+            T.draw(T2);
+            T.draw(T3);
+            T.draw(T4);
+            T.draw(T5);
+            // cout << "Masukkan 5 kartu table : " << endl;
+            // for (int i = 0;i < 5;i++){
+            //     int a; string w;
+            //     cout << i+1 << ". ";
+            //     cin >> a >> w;
+            //     Card tmp(a,w);
+            //     T.draw(tmp);
+            // }
             break;
         }
     }
     P.print();
     T.print();
     StraightFlush S(P,T);
-    // diapain lagi?
+    cout << "Hasil : " << S.getValue() << endl;
 }

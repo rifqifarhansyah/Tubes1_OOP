@@ -14,8 +14,5 @@ class Pair : public HighCard {
         // Find and calculate combination
         virtual void calculateMaxCombination(Player, TableCard);
         virtual vector<Card> findMaxCombination(Player, TableCard);
-
-    // protected:
-    //     double maxPair;
 };
 #endif

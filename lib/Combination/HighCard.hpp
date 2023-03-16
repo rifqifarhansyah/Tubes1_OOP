@@ -16,7 +16,7 @@ class HighCard : public Combination {
         virtual vector<Card> findMaxCombination(Player, TableCard);
         // set and get totalValue
         void setValue(double);
-        double getValue(Player, TableCard) const;
+        double getValue() const;
         // set and get highestNumber
         virtual void setHighestNumber(double);
         virtual double getHighestNumber() const;
