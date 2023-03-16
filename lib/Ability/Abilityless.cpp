@@ -1,6 +1,7 @@
 #include "Abilityless.hpp"
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
+#include "../IO/consoleIOInterface.hpp"
 
 
 Abilityless::Abilityless() : Ability("Abilityless",9){}
@@ -16,7 +17,8 @@ void Abilityless::action(Player& p,Game& g) const
     bool allUsed = true;
     for(int i = 0;i<maxplayer;i++)
     {
-        if(!cek[i].isAbilityUsed())
+        if(p.getNamePlayer()==cek[i].getNamePlayer()) continue;
+        else if(!cek[i].isAbilityUsed())
         {
             allUsed = false;
         }
@@ -37,6 +39,7 @@ void Abilityless::action(Player& p,Game& g) const
         int count=0;
         for(int i=0;i<maxplayer;i++)
         {
+            
             if(cek[i].getNamePlayer()==p.getNamePlayer()) 
             {
                 index = i;
@@ -46,7 +49,8 @@ void Abilityless::action(Player& p,Game& g) const
             count+=1;
         }
         int pilihplayer;
-        cin>>pilihplayer;
+        pilihplayer = g.getConsoleIO().getNumberInRange(1,6);
+
         if(pilihplayer-1>=index)
         {
             if(cek[pilihplayer].isAbilityUsed())
