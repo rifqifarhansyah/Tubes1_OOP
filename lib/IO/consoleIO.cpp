@@ -161,3 +161,74 @@ void ConsoleIO::askForCommand(Player& _player, Game& _game){
         }
     }
 }
+
+ostream& operator<<(ostream& os, const vector<int>& vector) {
+    for (auto element : vector) {
+        os << element << endl;
+    }
+    return os;
+}
+
+ostream& operator<<(ostream& os, const vector<string>& vector) {
+    for (auto element : vector) {
+        os << element << endl;
+    }
+    return os;
+}
+
+MainDeck ConsoleIO::readMainDeck() {
+    string name;
+    fstream file;
+    file.exceptions (fstream::failbit | fstream::badbit);
+    string input;
+    int num;
+    vector<int> numVal;
+    string col;
+    vector<string> colVal;
+    vector<Card> cardVal;
+    MainDeck mainDeck;
+
+    while (true) {
+        try {
+            // meminta masukan nama file
+            cout << "Masukkan nama file MainDeck: ";
+            cin >> name;
+            file.open(name);
+            
+            // parsing isi file
+            file >> input;
+            int nLines = stoi(input);
+            for (int i = 0; i < nLines; i++) {
+                file >> input;
+                num = stoi(input);
+                numVal.push_back(num);
+
+                file >> input;
+                col = input;
+                colVal.push_back(col);
+            }
+
+            // tes output
+            cout << numVal << endl;
+            cout << colVal << endl;
+
+            for (int i = 0; i < nLines; i++) {
+                Card card(numVal[i], colVal[i]);
+                cardVal.push_back(card);
+            }
+
+            MainDeck salinDeck(cardVal);
+            mainDeck = salinDeck;
+
+            break;
+        } catch (const fstream::failure& error) {
+            cout << "Error: File tidak ditemukan" << endl;
+        } catch (invalid_argument& error) {
+            cout << "Input tidak valid. Silahkan masukkan input bertipe integer" << endl;
+        }
+        
+    }
+
+    file.close();
+    return mainDeck;
+}
