@@ -8,7 +8,9 @@
 #include "../Ability/SwitchCard.hpp"
 #include "../TemplateFunction/TemplateFunction.hpp"
 #include "../Combination/StraightFlush.hpp"
+#include "../Exception/inventoryExceptionInterface.hpp"
 #include <iostream>
+#include <map>
 
 #define RED "\033[1m\033[31m"
 #define GREEN "\033[1m\033[32m"
@@ -66,9 +68,10 @@ Game::~Game(){
 }
 
 void Game::play(){
+    try {
     while(winner == NULL){
         startGame();
-        Player* maxPlayer = &getMaxArr(playerList,7);
+        Player* maxPlayer = &playerList[getMaxArr(playerList,7)];
         if (maxPlayer->getPointPlayer() > pow(2,32)){
             winner = maxPlayer;
         } else {
@@ -76,6 +79,9 @@ void Game::play(){
         }
         consoleIO.waitEnterInput();
         resetGame();
+    }
+    } catch (InventoryException& e){
+        cout << "Deck sudah habis, permainan dihentikan" << endl;
     }
     cout << "Permainan selesai." << endl;
     cout << "Pemenangnya adalah : " << endl;
@@ -98,6 +104,7 @@ void Game::startGame(){
 
     }
     int idxWinner;
+    cout << endl;
     map<int,StraightFlush> comboList;
     for (int i = 0;i < maxPlayer;i++){
         StraightFlush combo(playerList[i],table);
@@ -175,7 +182,7 @@ void Game::resetGame(){
     table.clear();
     MainDeck newDeck;
     deck = newDeck;
-    point = 0;
+    point = 64;
 }
 
 Player& Game::getPlayerByIDX(int i) {

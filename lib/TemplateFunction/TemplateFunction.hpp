@@ -5,14 +5,14 @@
 using namespace std;
 
 template <class T>
-T& getMaxArr(T arr[], int n){
-    T& min = arr[0];
+int getMaxArr(T arr[], int n){
+    int minIDX = 0;
     for (int i = 1;i < n;i++){
-        if (arr[i] > min){
-            min = arr[i];
+        if (arr[i] > arr[minIDX]){
+            minIDX = i;
         }
     }
-    return min;
+    return minIDX;
 }
 
 template <class T, class P>

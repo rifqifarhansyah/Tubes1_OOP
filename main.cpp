@@ -1,11 +1,8 @@
-// #include "./lib/IO/consoleIOInterface.hpp"
-// #include "./lib/IO/commandInterface.hpp"
-#include "lib/IO/consoleIO.cpp"
-#include "lib/IO/command.cpp"
-#include "lib/Game/Game.cpp"
-
-using namespace std;
-
-int main() {
-    return 0;
+#include "lib/Game/Game.hpp"
+#include <random>
+#include <time.h>
+int main(){
+    srand(time(0));
+    Game game;
+    game.play();
 }

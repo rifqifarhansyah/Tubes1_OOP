@@ -23,6 +23,12 @@ test:
 	@$(CPP) -o lib/$$folder/test/$$folder\Test lib/$$folder/test/$$folder\Test.cpp $(CFLAGS)
 	./lib/$$folder/test/$$folder\Test
 	rm -rf lib/$$folder/test/$$folder\Test
+
+main:
+	@clear
+	@echo Compiling main
+	@$(CPP) -o bin/main main.cpp $(CFLAGS)
+	./bin/main
 tablecard:
 	$(CPP) -o lib/TableCard/test/TableCardTest lib/TableCard/test/TableCardTest.cpp $(CFLAGS)
 	cd lib/TableCard/test/
