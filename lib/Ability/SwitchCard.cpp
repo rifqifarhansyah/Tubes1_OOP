@@ -25,6 +25,7 @@ void SwitchCard::action(Player& p,Game& g) const {
     g.printPlayerList(choosenPlayer);
     int targetIdx = choosenPlayer[input.getNumberInRange(1,choosenPlayer.size())-1];
     Player& target = g.getPlayerByIDX(targetIdx);
+    
     // menukar kartu pemain dengan target
     g.switchCard(g.getPlayerIDX(p), targetIdx);
 

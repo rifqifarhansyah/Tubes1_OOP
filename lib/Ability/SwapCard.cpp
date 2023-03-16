@@ -27,15 +27,13 @@ void SwapCard::action(Player& p,Game& g) const
     int idxP2 = choosenPlayer[input.getNumberInRange(1,choosenPlayer.size())-1];
 
     // memilih kartu p1
-    cout << "Silakan pilih kartu kanan/kiri " << g.getPlayerByIDX(idxP1).getNamePlayer() << endl;
-    int cardidP1 = g.getChosenCardIDInput();
-    Card card1 = g.getChosenCard(idxP1, cardidP1);
+    cout << "Silakan pilih kartu kiri/kanan " << g.getPlayerByIDX(idxP1).getNamePlayer() << endl;
+    int cardIdP1 = g.getChosenCardIDInput();
 
     // memilih kartu p2
-    cout << "Silakan pilih kartu kanan/kiri " << g.getPlayerByIDX(idxP2).getNamePlayer() << endl;
+    cout << "Silakan pilih kartu kiri/kanan " << g.getPlayerByIDX(idxP2).getNamePlayer() << endl;
     int cardIdP2 = g.getChosenCardIDInput();
-    Card card2 = g.getChosenCard(idxP2, cardIdP2);
 
     // menukar kedua kartu
-    g.swapCard(idxP1,idxP2,cardidP1,cardIdP2);
+    g.swapCard(idxP1,idxP2,cardIdP1,cardIdP2);
 }

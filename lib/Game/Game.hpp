@@ -49,7 +49,7 @@ class Game{
         ConsoleIO getConsoleIO(); // new
 
         int getChosenCardIDInput(); // new
-        Card getChosenCard(int playerIDX, int cardIdx); // new
+        Card getChosenCard(Player, int); // new
 
         void setPlayer(int,const Player&);
         void setTable(const TableCard&);
