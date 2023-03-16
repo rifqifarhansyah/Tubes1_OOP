@@ -229,9 +229,9 @@ void Game::swapCard(int IDXp1,int IDXp2,int idCardp1,int idCardp2){
         cardP1 = p1.getSecondCard();
     }
     if (idCardp2 == 0){
-        cardP1 = p1.getFirstCard();
+        cardP2 = p2.getFirstCard();
     } else {
-        cardP1 = p1.getSecondCard();
+        cardP2 = p2.getSecondCard();
     }
     p1.setCard(cardP2, idCardp1);
     p2.setCard(cardP1, idCardp2); 
