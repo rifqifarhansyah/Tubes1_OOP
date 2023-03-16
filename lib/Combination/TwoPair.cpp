@@ -34,29 +34,29 @@ void TwoPair::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color + constant);
 }
 vector<Card> TwoPair::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> allCards;
-    vector<Card> playerCards;
-    vector<Card> tableCards;
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCards.push_back(c1.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCards.push_back(c2.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
-    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(combinations.begin(), combinations.end());
 
     vector<Card> twoPair;
     int count = 0;
-    for (int i = allCards.size() - 1; i >= 1; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber()) {
-            twoPair.push_back(allCards[i]);
-            twoPair.push_back(allCards[i-1]);
+    for (int i = combinations.size() - 1; i >= 1; i--) {
+        if (combinations[i].getNumber() == combinations[i - 1].getNumber()) {
+            twoPair.push_back(combinations[i]);
+            twoPair.push_back(combinations[i-1]);
             count += 2;
             if(count == 2){
                 break;
@@ -68,10 +68,10 @@ vector<Card> TwoPair::findMaxCombination(Player c1, TableCard c2){
         return twoPair;
     }
 
-    for (int i = allCards.size() - 1; i >= 1; i--) {
-        if (allCards[i].getNumber() != twoPair[0].getNumber() && allCards[i].getNumber() != twoPair[1].getNumber() && allCards[i].getNumber() == allCards[i - 1].getNumber()) {
-            twoPair.push_back(allCards[i]);
-            twoPair.push_back(allCards[i - 1]);
+    for (int i = combinations.size() - 1; i >= 1; i--) {
+        if (combinations[i].getNumber() != twoPair[0].getNumber() && combinations[i].getNumber() != twoPair[1].getNumber() && combinations[i].getNumber() == combinations[i - 1].getNumber()) {
+            twoPair.push_back(combinations[i]);
+            twoPair.push_back(combinations[i - 1]);
             break;
         }
     }

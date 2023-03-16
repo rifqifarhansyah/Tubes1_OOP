@@ -49,32 +49,32 @@ void FourOfAKind::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color + constant);
 }
 vector<Card> FourOfAKind::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> allCards;
-    vector<Card> playerCards;
-    vector<Card> tableCards;
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCards.push_back(c1.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCards.push_back(c2.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
-    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(combinations.begin(), combinations.end());
 
     vector<Card> fourOfAKind;
     int count = 0;
-    for (int i = allCards.size() - 1; i >= 3; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber() && allCards[i-1].getNumber() == allCards[i-2].getNumber()
-        && allCards[i-2].getNumber() == allCards[i-3].getNumber()) {
-            fourOfAKind.push_back(allCards[i]);
-            fourOfAKind.push_back(allCards[i-1]);
-            fourOfAKind.push_back(allCards[i-2]);
-            fourOfAKind.push_back(allCards[i-3]);
+    for (int i = combinations.size() - 1; i >= 3; i--) {
+        if (combinations[i].getNumber() == combinations[i - 1].getNumber() && combinations[i-1].getNumber() == combinations[i-2].getNumber()
+        && combinations[i-2].getNumber() == combinations[i-3].getNumber()) {
+            fourOfAKind.push_back(combinations[i]);
+            fourOfAKind.push_back(combinations[i-1]);
+            fourOfAKind.push_back(combinations[i-2]);
+            fourOfAKind.push_back(combinations[i-3]);
             break;
         }
     }

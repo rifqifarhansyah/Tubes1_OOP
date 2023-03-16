@@ -46,32 +46,32 @@ void FullHouse::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color + constant);
 }
 vector<Card> FullHouse::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> allCards;
-    vector<Card> playerCards;
-    vector<Card> tableCards;
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCards.push_back(c1.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCards.push_back(c2.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
-    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(combinations.begin(), combinations.end());
     
 
     vector<Card> fullHouse;
     // Find three-of-a-kind
-    for (int i = allCards.size() - 1; i >= 2; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber() &&
-            allCards[i - 1].getNumber() == allCards[i - 2].getNumber()) {
-            fullHouse.push_back(allCards[i]);
-            fullHouse.push_back(allCards[i - 1]);
-            fullHouse.push_back(allCards[i - 2]);
+    for (int i = combinations.size() - 1; i >= 2; i--) {
+        if (combinations[i].getNumber() == combinations[i - 1].getNumber() &&
+            combinations[i - 1].getNumber() == combinations[i - 2].getNumber()) {
+            fullHouse.push_back(combinations[i]);
+            fullHouse.push_back(combinations[i - 1]);
+            fullHouse.push_back(combinations[i - 2]);
             break;
         }
     }
@@ -82,13 +82,13 @@ vector<Card> FullHouse::findMaxCombination(Player c1, TableCard c2){
     }
 
     // Find pair
-    for (int i = allCards.size() - 1; i >= 1; i--) {
-        if (allCards[i].getNumber() == fullHouse[0].getNumber()) {
+    for (int i = combinations.size() - 1; i >= 1; i--) {
+        if (combinations[i].getNumber() == fullHouse[0].getNumber()) {
             continue;
         }
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber()) {
-            fullHouse.push_back(allCards[i]);
-            fullHouse.push_back(allCards[i - 1]);
+        if (combinations[i].getNumber() == combinations[i - 1].getNumber()) {
+            fullHouse.push_back(combinations[i]);
+            fullHouse.push_back(combinations[i - 1]);
             return fullHouse;
         }
     }

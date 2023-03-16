@@ -40,36 +40,36 @@ void Straight::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color + constant);
 }
 vector<Card> Straight::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> allCards;
-    vector<Card> playerCards;
-    vector<Card> tableCards;
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCards.push_back(c1.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCards.push_back(c2.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
-    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(combinations.begin(), combinations.end());
 
     vector<Card> straight;
-    int i = allCards.size() - 1;
+    int i = combinations.size() - 1;
 
     while (i >= 4) {
-        if (allCards[i].getNumber() - 1 == allCards[i - 1].getNumber() &&
-            allCards[i - 1].getNumber() - 1 == allCards[i - 2].getNumber() &&
-            allCards[i - 2].getNumber()- 1 == allCards[i - 3].getNumber()&&
-            allCards[i - 3].getNumber() - 1 == allCards[i - 4].getNumber()) {
-            straight.push_back(allCards[i]);
-            straight.push_back(allCards[i - 1]);
-            straight.push_back(allCards[i - 2]);
-            straight.push_back(allCards[i - 3]);
-            straight.push_back(allCards[i - 4]);
+        if (combinations[i].getNumber() - 1 == combinations[i - 1].getNumber() &&
+            combinations[i - 1].getNumber() - 1 == combinations[i - 2].getNumber() &&
+            combinations[i - 2].getNumber()- 1 == combinations[i - 3].getNumber()&&
+            combinations[i - 3].getNumber() - 1 == combinations[i - 4].getNumber()) {
+            straight.push_back(combinations[i]);
+            straight.push_back(combinations[i - 1]);
+            straight.push_back(combinations[i - 2]);
+            straight.push_back(combinations[i - 3]);
+            straight.push_back(combinations[i - 4]);
             break;
         }
         i--;
