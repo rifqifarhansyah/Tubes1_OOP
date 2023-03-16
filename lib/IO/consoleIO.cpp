@@ -17,7 +17,6 @@
 #define BLUE "\033[1m\033[34m"
 #define MAGENTA "\033[1m\033[35m"
 #define CYAN "\033[1m\033[36m"
-
 #define RESET "\033[0m"
 
 ConsoleIO::ConsoleIO() : Command(){
@@ -109,6 +108,7 @@ void ConsoleIO::askForCommand(Player& _player, Game& _game){
     while(true)
     {
         cout << "Masukkan perintah yang ingin anda lakukan\t: " << endl;
+        cout << GREEN << ">> " << RESET;
         setCommand();
         try
         {
