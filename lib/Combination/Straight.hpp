@@ -5,6 +5,7 @@
 
 class Straight : public ThreeOfAKind {
     public :
+        Straight();
         // ctor by input
         Straight(Player player, TableCard table);
         // cctor

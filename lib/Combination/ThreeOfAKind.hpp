@@ -5,6 +5,7 @@
 
 class ThreeOfAKind : public TwoPair {
     public :
+        ThreeOfAKind();
         // ctor by input
         ThreeOfAKind(Player player, TableCard table);
         // cctor
@@ -14,5 +15,7 @@ class ThreeOfAKind : public TwoPair {
         // Find and calculate combination
         virtual void calculateMaxCombination();
         virtual vector<Card> findMaxCombinationAll();
+        friend bool operator< (ThreeOfAKind& p1, ThreeOfAKind&p2);
+        friend bool operator> (ThreeOfAKind& p1, ThreeOfAKind&p2);
 };
 #endif

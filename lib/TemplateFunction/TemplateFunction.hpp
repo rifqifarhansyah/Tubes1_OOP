@@ -1,6 +1,7 @@
 #ifndef TEMPLATEFUNCTION_HPP
 #define TEMPLATEFUNCTION_HPP
 #include <vector>
+#include <map>
 using namespace std;
 
 template <class T>
@@ -15,14 +16,14 @@ T& getMaxArr(T arr[], int n){
 }
 
 template <class T, class P>
-T& getMaxMapKey(map<T,P>& map){
-    T& max = map.begin()->first;
-    for (auto it = map.begin()+1;it != map.end();it++){
-        if (it->second > max){
-            max = it->first;
+T getMaxMapKey(map<T,P>& map){
+    T maxID = map.begin()->first;
+    for (auto it = map.begin();it != map.end();it++){
+        if (it->second > map[maxID]){
+            maxID = it->first;
         }
     }
-    return max;
+    return maxID;
 }
 
 template <class T>

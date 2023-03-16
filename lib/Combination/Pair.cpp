@@ -1,5 +1,7 @@
 #include "Pair.hpp"
 
+Pair::Pair() : HighCard(){}
+
 // ctor by input
 Pair::Pair(Player player, TableCard table) : HighCard(player,table){
     // this->maxPair = 2.78;

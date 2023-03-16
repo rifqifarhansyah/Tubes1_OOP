@@ -1,5 +1,7 @@
 #include "ThreeOfAKind.hpp"
 
+ThreeOfAKind::ThreeOfAKind() : TwoPair(){}
+
 // ctor by input
 ThreeOfAKind::ThreeOfAKind(Player player, TableCard table) : TwoPair(player,table){
     // this->maxThreeOfAKind = 5.56;
@@ -68,4 +70,10 @@ vector<Card> ThreeOfAKind::findMaxCombinationAll(){
         ThreeOfAKind.clear();
     }
     return ThreeOfAKind;
+}
+bool operator< (ThreeOfAKind& p1, ThreeOfAKind&p2){
+    return (p1.getValue() < p2.getValue());
+}
+bool operator> (ThreeOfAKind& p1, ThreeOfAKind&p2){
+    return (p1.getValue() > p2.getValue());
 }

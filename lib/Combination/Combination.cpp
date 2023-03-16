@@ -1,5 +1,9 @@
 #include "Combination.hpp"
 
+Combination::Combination() : player(), table(){
+    totalValue = 0;
+}
+
 Combination::Combination(Player player, TableCard table){
     this->player = player;
     this->table = table;

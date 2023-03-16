@@ -1,5 +1,7 @@
 #include "TwoPair.hpp"
 
+TwoPair::TwoPair() : Pair(){}
+
 // ctor by input
 TwoPair::TwoPair(Player player, TableCard table) : Pair(player,table){
     // this->maxTwoPair = 4.17;

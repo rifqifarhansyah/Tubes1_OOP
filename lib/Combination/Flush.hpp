@@ -6,6 +6,7 @@
 class Flush : public Straight {
     public :
         // ctor by input
+        Flush();
         Flush(Player player, TableCard table);
         // cctor
         Flush(const Flush& C);
