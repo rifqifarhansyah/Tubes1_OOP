@@ -6,14 +6,14 @@
 class FullHouse : public Flush {
     public :
         // ctor by input
-        FullHouse(Player c1, TableCard c2);
+        FullHouse(Player player, TableCard table);
         // cctor
         FullHouse(const FullHouse& C);
         //dtor
         ~FullHouse();
         // Find and calculate combination
-        virtual void calculateMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual void calculateMaxCombination();
+        virtual vector<Card> findMaxCombinationAll();
         double findMaxThreeOfAKind(const vector<Card>& cards);
     
 };
