@@ -36,9 +36,10 @@ void Flush::calculateMaxCombination(){
         constant = 0;
         vec = HighCard::findMaxCombinationAll();
     }
-    double num = findHighestNumber(vec) * 0.1;
+    double maxFlush = findHighestNumber(vec);
+    double num = findFlushNumbers(vec);
     double color = findHighestColor(vec);
-    this->setHighestNumber(num);
+    this->setHighestNumber(maxFlush);
     this->setHighestColor(Card::getColorFromValue(color));
     this->setValue(num + color + constant);
 }
@@ -60,21 +61,21 @@ vector<Card> Flush::findMaxCombinationAll(){
 
     vector<Card> flush;
     for (const string& suit : {"merah", "kuning", "biru", "hijau"}) {
-        vector<Card> suitCards;
+        vector<Card> colors;
         for (const Card& card : combinations) {
             if (card.getColor() == suit) {
-                suitCards.push_back(card);
+                colors.push_back(card);
             }
         }
-        if (suitCards.size() >= 5) {
-            sort(suitCards.begin(), suitCards.end());
-            for (int i = 0; i <= suitCards.size() - 5; i++) {
-                if (suitCards[i].getNumber() - suitCards[i + 4].getNumber() == 4) {
-                    flush.insert(flush.end(), suitCards.begin() + i, suitCards.begin() + i + 5);
+        if (colors.size() >= 5) {
+            sort(colors.begin(), colors.end());
+            for (int i = 0; i <= colors.size() - 5; i++) {
+                if (colors[i].getNumber() - colors[i + 4].getNumber() == 4) {
+                    flush.insert(flush.end(), colors.begin() + i, colors.begin() + i + 5);
                     return flush;
                 }
             }
-            flush.insert(flush.end(), suitCards.begin(), suitCards.begin() + 5);
+            flush.insert(flush.end(), colors.begin(), colors.begin() + 5);
             return flush;
         }
     }
@@ -88,32 +89,37 @@ vector<Card> Flush::findMaxCombinationTable(){
     {
         tableCard.push_back(table.getItem(i));
     }
-    
-    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
     combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
 
     vector<Card> flush;
     for (const string& suit : {"merah", "kuning", "biru", "hijau"}) {
-        vector<Card> suitCards;
+        vector<Card> colors;
         for (const Card& card : combinations) {
             if (card.getColor() == suit) {
-                suitCards.push_back(card);
+                colors.push_back(card);
             }
         }
-        if (suitCards.size() >= 5) {
-            sort(suitCards.begin(), suitCards.end());
-            for (int i = 0; i <= suitCards.size() - 5; i++) {
-                if (suitCards[i].getNumber() - suitCards[i + 4].getNumber() == 4) {
-                    flush.insert(flush.end(), suitCards.begin() + i, suitCards.begin() + i + 5);
+        if (colors.size() >= 5) {
+            sort(colors.begin(), colors.end());
+            for (int i = 0; i <= colors.size() - 5; i++) {
+                if (colors[i].getNumber() - colors[i + 4].getNumber() == 4) {
+                    flush.insert(flush.end(), colors.begin() + i, colors.begin() + i + 5);
                     return flush;
                 }
             }
-            flush.insert(flush.end(), suitCards.begin(), suitCards.begin() + 5);
+            flush.insert(flush.end(), colors.begin(), colors.begin() + 5);
             return flush;
         }
     }
     return flush;
 }
-vector<Card> Flush::findFlushNumbers(vector<Card> c){
-    
+double Flush::findFlushNumbers(vector<Card> c){
+    double val = 0;
+    double constant = 0.1;
+    for (int i = 0; i < c.size(); i++)
+    {
+        val += c[i].getNumber() * constant;
+        constant = constant * 0.1;
+    }
+    return val;
 }

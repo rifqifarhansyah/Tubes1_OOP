@@ -65,7 +65,7 @@ vector<Card> FullHouse::findMaxCombinationAll(){
     
 
     vector<Card> fullHouse;
-    // Find three-of-a-kind
+    // Find a three-of-a-kind
     for (int i = combinations.size() - 1; i >= 2; i--) {
         if (combinations[i].getNumber() == combinations[i - 1].getNumber() &&
             combinations[i - 1].getNumber() == combinations[i - 2].getNumber()) {
@@ -81,7 +81,7 @@ vector<Card> FullHouse::findMaxCombinationAll(){
         return fullHouse;
     }
 
-    // Find pair
+    // Find a pair
     for (int i = combinations.size() - 1; i >= 1; i--) {
         if (combinations[i].getNumber() == fullHouse[0].getNumber()) {
             continue;
