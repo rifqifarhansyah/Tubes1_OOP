@@ -6,13 +6,13 @@
 class TwoPair : public Pair {
     public :
         // ctor by input
-        TwoPair(Player c1, TableCard c2);
+        TwoPair(Player player, TableCard table);
         // cctor
         TwoPair(const TwoPair& C);
         //dtor
         ~TwoPair();
         // Find and calculate combination
-        virtual void calculateMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual void calculateMaxCombination();
+        virtual vector<Card> findMaxCombinationAll();
 };
 #endif

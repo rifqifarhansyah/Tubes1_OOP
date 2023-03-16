@@ -1,9 +1,9 @@
 #include "Pair.hpp"
 
 // ctor by input
-Pair::Pair(Player c1, TableCard c2) : HighCard(c1,c2){
+Pair::Pair(Player player, TableCard table) : HighCard(player,table){
     // this->maxPair = 2.78;
-    this->calculateMaxCombination(c1,c2);
+    this->calculateMaxCombination();
 }
 // cctor
 Pair::Pair(const Pair& C) : HighCard(C){
@@ -13,23 +13,23 @@ Pair::Pair(const Pair& C) : HighCard(C){
 Pair::~Pair(){}
 
 // calculate max value of a combo
-void Pair::calculateMaxCombination(Player c1, TableCard c2){
+void Pair::calculateMaxCombination(){
     vector<Card> vec;
     double constant;
     
-    if(!findMaxCombination(c1, c2).empty()){
-        // vec = this->HighCard::findMaxCombination(c1,c2);
+    if(!findMaxCombinationAll().empty()){
+        // vec = this->HighCard::findMaxCombinationAll();
         // double num = findHighestNumber(vec) * 0.1;
         // double color = findHighestColor(vec);
         // this->setHighestNumber(num);
         // this->setHighestColor(Card::getColorFromValue(color));
         // this->setValue(num + color + HIGH_CARD);
         constant = HIGH_CARD;
-        vec = findMaxCombination(c1, c2);
+        vec = findMaxCombinationAll();
 
-    }else if(!HighCard::findMaxCombination(c1, c2).empty()){
+    }else if(!HighCard::findMaxCombinationAll().empty()){
         constant = 0;
-        vec = HighCard::findMaxCombination(c1, c2);
+        vec = HighCard::findMaxCombinationAll();
     }
     double num = findHighestNumber(vec) * 0.1;
     double color = findHighestColor(vec);
@@ -38,21 +38,21 @@ void Pair::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color + constant);
     
 }
-vector<Card> Pair::findMaxCombination(Player c1, TableCard c2){
+vector<Card> Pair::findMaxCombinationAll(){
     vector<Card> combinations;
-    vector<Card> player;
-    vector<Card> table;
+    vector<Card> playerCard;
+    vector<Card> tableCard;
     for (int i = 1; i >= 0; i--)
     {
-        player.push_back(c1.getItem(i));
+        playerCard.push_back(player.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        table.push_back(c2.getItem(i));
+        tableCard.push_back(table.getItem(i));
     }
     
-    combinations.insert(combinations.end(), player.begin(), player.end());
-    combinations.insert(combinations.end(), table.begin(), table.end());
+    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
+    combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
 
     sort(combinations.begin(), combinations.end());
 

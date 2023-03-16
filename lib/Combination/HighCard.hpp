@@ -6,14 +6,14 @@
 class HighCard : public Combination {
     public:
         // ctor by input
-        HighCard(Player c1, TableCard c2);
+        HighCard(Player player, TableCard table);
         // cctor
         HighCard(const HighCard& C);
         //dtor
         ~HighCard();
         // Find and calculate combination
-        virtual void calculateMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual void calculateMaxCombination();
+        virtual vector<Card> findMaxCombinationAll();
         // set and get totalValue
         void setValue(double);
         double getValue() const;

@@ -6,13 +6,13 @@
 class FourOfAKind : public FullHouse {
     public :
         // ctor by input
-        FourOfAKind(Player c1, TableCard c2);
+        FourOfAKind(Player player, TableCard table);
         // cctor
         FourOfAKind(const FourOfAKind& C);
         //dtor
         ~FourOfAKind();
         // Find and calculate combination
-        virtual void calculateMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual void calculateMaxCombination();
+        virtual vector<Card> findMaxCombinationAll();
 };
 #endif

@@ -6,13 +6,13 @@
 class Straight : public ThreeOfAKind {
     public :
         // ctor by input
-        Straight(Player c1, TableCard c2);
+        Straight(Player player, TableCard table);
         // cctor
         Straight(const Straight& C);
         //dtor
         ~Straight();
         // Find and calculate combination
-        virtual void calculateMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual void calculateMaxCombination();
+        virtual vector<Card> findMaxCombinationAll();
 };
 #endif
