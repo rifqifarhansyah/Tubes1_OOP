@@ -18,7 +18,7 @@
 #define CYAN "\033[1m\033[36m"
 #define RESET "\033[0m"
 
-Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winner(NULL), consoleIO(){
+Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7),deck(), table(), winner(NULL), consoleIO(){
     point = 64;
     round = 1;
     gameCount = 0;
@@ -43,6 +43,20 @@ Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winn
     abilityList.push_back(new ReverseDirection());
     abilityList.push_back(new SwapCard());
     abilityList.push_back(new SwitchCard());
+    cout<<"Apakah anda ingin menginput file untuk Main Deck?"<<endl;
+    cout<<"1. Ya"<<endl;
+    cout<<"2. Tidak"<<endl;
+    cout<<">> ";
+    int pilihplayer = consoleIO.getNumberInRange(1,2);
+    if(pilihplayer==1)
+    {
+        this->deck = consoleIO.readMainDeck();
+        deck.print();
+    }
+    else
+    {
+        this->deck.shuffle();
+    }
 }
 
 Game::~Game(){
