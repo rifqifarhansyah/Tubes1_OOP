@@ -5,6 +5,7 @@
 
 class FullHouse : public Flush {
     public :
+        FullHouse();
         // ctor by input
         FullHouse(Player player, TableCard table);
         // cctor

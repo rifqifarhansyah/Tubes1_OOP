@@ -6,6 +6,7 @@
 class FourOfAKind : public FullHouse {
     public :
         // ctor by input
+        FourOfAKind();
         FourOfAKind(Player player, TableCard table);
         // cctor
         FourOfAKind(const FourOfAKind& C);

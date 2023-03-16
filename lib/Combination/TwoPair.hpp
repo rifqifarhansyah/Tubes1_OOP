@@ -5,6 +5,7 @@
 
 class TwoPair : public Pair {
     public :
+        TwoPair();
         // ctor by input
         TwoPair(Player player, TableCard table);
         // cctor
