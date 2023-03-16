@@ -2,10 +2,10 @@
 
 HighCard::HighCard() : Combination(){}
 // ctor by input
-HighCard::HighCard(Player c1, TableCard c2) : Combination(c1,c2){
+HighCard::HighCard(Player player, TableCard table) : Combination(player,table){
     this->highestColor = "hijau";
     this->highestNumber = 0;
-    this->calculateMaxCombination(c1,c2);
+    this->calculateMaxCombination();
 }
 // cctor
 HighCard::HighCard(const HighCard& C) : Combination(C){
@@ -15,9 +15,9 @@ HighCard::HighCard(const HighCard& C) : Combination(C){
 HighCard::~HighCard(){}
 
 // calculate max value of a combo
-void HighCard::calculateMaxCombination(Player c1, TableCard c2){
+void HighCard::calculateMaxCombination(){
     vector<Card> vec;
-    vec = findMaxCombination(c1, c2);
+    vec = findMaxCombinationAll();
     
     double num = findHighestNumber(vec) * 0.1;
     double color = findHighestColor(vec);
@@ -26,11 +26,11 @@ void HighCard::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color);
     
 }
-vector<Card> HighCard::findMaxCombination(Player c1, TableCard c2){
+vector<Card> HighCard::findMaxCombinationAll(){
     vector<Card> kartu1;
     for (int i = 1; i >= 0; i--)
     {
-        kartu1.push_back(c1.getItem(i));
+        kartu1.push_back(player.getItem(i));
     }
     if(kartu1[0].getNumber() > kartu1[1].getNumber())
     {
@@ -57,12 +57,12 @@ void HighCard::setHighestNumber(double val){
 double HighCard::getHighestNumber() const{
     return this->highestNumber;
 }
-double HighCard::findHighestNumber(vector<Card> c1){
-    double max = c1[0].getNumber();
-    for (int i = 0; i < c1.size(); i++)
+double HighCard::findHighestNumber(vector<Card> c){
+    double max = c[0].getNumber();
+    for (int i = 0; i < c.size(); i++)
     {
-        if (c1[i].getNumber() > max){
-            max = c1[i].getNumber();
+        if (c[i].getNumber() > max){
+            max = c[i].getNumber();
         }
     }
 
@@ -75,18 +75,18 @@ string HighCard::getHighestColor() const{
     return this->highestColor;
 }
 
-double HighCard::findHighestColor(vector<Card> c1){
+double HighCard::findHighestColor(vector<Card> c){
     double max = 0;
-    for (int i = 0; i < c1.size(); i++)
+    for (int i = 0; i < c.size(); i++)
     {
-        if (c1[i].getColor() == "merah" && max <= 0.09){
-            max = Card::getValueFromColor(c1[i].getColor());
-        } else if (c1[i].getColor() == "kuning" && max <= 0.06){
-            max = Card::getValueFromColor(c1[i].getColor());
-        } else if (c1[i].getColor() == "biru" && max <= 0.03){
-            max = Card::getValueFromColor(c1[i].getColor());
-        } else if (c1[i].getColor() == "hijau" && max == 0){
-            max = Card::getValueFromColor(c1[i].getColor());
+        if (c[i].getColor() == "merah" && max <= 0.09){
+            max = Card::getValueFromColor(c[i].getColor());
+        } else if (c[i].getColor() == "kuning" && max <= 0.06){
+            max = Card::getValueFromColor(c[i].getColor());
+        } else if (c[i].getColor() == "biru" && max <= 0.03){
+            max = Card::getValueFromColor(c[i].getColor());
+        } else if (c[i].getColor() == "hijau" && max == 0){
+            max = Card::getValueFromColor(c[i].getColor());
         }
     }
 

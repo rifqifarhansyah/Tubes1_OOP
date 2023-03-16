@@ -3,9 +3,9 @@
 FourOfAKind::FourOfAKind() : FullHouse() {}
 
 // ctor by input
-FourOfAKind::FourOfAKind(Player c1, TableCard c2) : FullHouse(c1,c2){
+FourOfAKind::FourOfAKind(Player player, TableCard table) : FullHouse(player,table){
     // this->maxFourOfAKind = 1.39 * 8;
-    this->calculateMaxCombination(c1,c2);
+    this->calculateMaxCombination();
 }
 // cctor
 FourOfAKind::FourOfAKind(const FourOfAKind& C) : FullHouse(C){
@@ -15,34 +15,34 @@ FourOfAKind::FourOfAKind(const FourOfAKind& C) : FullHouse(C){
 FourOfAKind::~FourOfAKind(){}
 
 // calculate max value of a combo
-void FourOfAKind::calculateMaxCombination(Player c1, TableCard c2){
+void FourOfAKind::calculateMaxCombination(){
     vector<Card> vec;
     double constant;
     
-    if(!findMaxCombination(c1, c2).empty()){
+    if(!findMaxCombinationAll().empty()){
         constant = FULLHOUSE;
-        vec = findMaxCombination(c1, c2);
-    }else if(!FullHouse::findMaxCombination(c1, c2).empty()){
+        vec = findMaxCombinationAll();
+    }else if(!FullHouse::findMaxCombinationAll().empty()){
         constant = FLUSH;
-        vec = FullHouse::findMaxCombination(c1, c2);
-    }else if(!Flush::findMaxCombination(c1, c2).empty()){
+        vec = FullHouse::findMaxCombinationAll();
+    }else if(!Flush::findMaxCombinationAll().empty()){
         constant = STRAIGHT;
-        vec = Flush::findMaxCombination(c1, c2);
-    }else if(!Straight::findMaxCombination(c1, c2).empty()){
+        vec = Flush::findMaxCombinationAll();
+    }else if(!Straight::findMaxCombinationAll().empty()){
         constant = THREE_OF_A_KIND;
-        vec = Straight::findMaxCombination(c1, c2);
-    }else if(!ThreeOfAKind::findMaxCombination(c1, c2).empty()){
+        vec = Straight::findMaxCombinationAll();
+    }else if(!ThreeOfAKind::findMaxCombinationAll().empty()){
         constant = TWO_PAIR;
-        vec = ThreeOfAKind::findMaxCombination(c1, c2);
-    }else if(!TwoPair::findMaxCombination(c1, c2).empty()){
+        vec = ThreeOfAKind::findMaxCombinationAll();
+    }else if(!TwoPair::findMaxCombinationAll().empty()){
         constant = PAIR;
-        vec = TwoPair::findMaxCombination(c1, c2);
-    }else if(!Pair::findMaxCombination(c1, c2).empty()){
+        vec = TwoPair::findMaxCombinationAll();
+    }else if(!Pair::findMaxCombinationAll().empty()){
         constant = HIGH_CARD;
-        vec = Pair::findMaxCombination(c1, c2);
-    }else if(!HighCard::findMaxCombination(c1, c2).empty()){
+        vec = Pair::findMaxCombinationAll();
+    }else if(!HighCard::findMaxCombinationAll().empty()){
         constant = 0;
-        vec = HighCard::findMaxCombination(c1, c2);
+        vec = HighCard::findMaxCombinationAll();
     }
     double num = findHighestNumber(vec) * 0.1;
     double color = findHighestColor(vec);
@@ -50,21 +50,21 @@ void FourOfAKind::calculateMaxCombination(Player c1, TableCard c2){
     this->setHighestColor(Card::getColorFromValue(color));
     this->setValue(num + color + constant);
 }
-vector<Card> FourOfAKind::findMaxCombination(Player c1, TableCard c2){
+vector<Card> FourOfAKind::findMaxCombinationAll(){
     vector<Card> combinations;
-    vector<Card> player;
-    vector<Card> table;
+    vector<Card> playerCard;
+    vector<Card> tableCard;
     for (int i = 1; i >= 0; i--)
     {
-        player.push_back(c1.getItem(i));
+        playerCard.push_back(player.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        table.push_back(c2.getItem(i));
+        tableCard.push_back(table.getItem(i));
     }
     
-    combinations.insert(combinations.end(), player.begin(), player.end());
-    combinations.insert(combinations.end(), table.begin(), table.end());
+    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
+    combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
 
     sort(combinations.begin(), combinations.end());
 

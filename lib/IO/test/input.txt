@@ -1,6 +1,0 @@
-5
-1 Hijau
-2 Merah
-3 Kuning
-4 Biru
-5 Hijau

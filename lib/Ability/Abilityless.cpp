@@ -3,8 +3,15 @@
 #include "../Game/Game.hpp"
 #include "../IO/consoleIOInterface.hpp"
 
+#define RED "\033[1m\033[31m"
+#define GREEN "\033[1m\033[32m"
+#define YELLOW "\033[1m\033[33m"
+#define BLUE "\033[1m\033[34m"
+#define MAGENTA "\033[1m\033[35m"
+#define CYAN "\033[1m\033[36m"
+#define RESET "\033[0m"
 
-Abilityless::Abilityless() : Ability("Abilityless",9){}
+Abilityless::Abilityless() : Ability("ABILITYLESS",9){}
 
 void Abilityless::action(Player& p,Game& g) const
 {
@@ -25,11 +32,11 @@ void Abilityless::action(Player& p,Game& g) const
     }
     if(allUsed)
     {
-        cout<<"Eitsss, ternyata semua pemain sudah memakai kartu kemampuan. Yah kamu kena sendiri deh, kemampuan kamu menjadi abilityless. Yah, penggunaan kartu ini sia-sia :D"<<endl;
+        cout << RED <<"Eitsss, ternyata semua pemain sudah memakai kartu kemampuan. Yah kamu kena sendiri deh, kemampuan kamu menjadi abilityless. Yah, penggunaan kartu ini sia-sia :D" <<RESET<<endl;
     }
-    else if(p.getNameAbility() != "Abilityless")
+    else if(p.getNameAbility() != "ABILITYLESS")
     {
-        cout<<"Eits kamu tidak punya kartu :D"<<endl;
+        cout << RED << "Eits kamu tidak punya kartu :D"<<RESET<<endl;
     }
     else
     {
@@ -49,6 +56,7 @@ void Abilityless::action(Player& p,Game& g) const
             count+=1;
         }
         int pilihplayer;
+        cout << GREEN << ">> " << RESET;
         pilihplayer = g.getConsoleIO().getNumberInRange(1,6);
 
         if(pilihplayer-1>=index)

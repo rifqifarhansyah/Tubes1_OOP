@@ -7,13 +7,13 @@ class Pair : public HighCard {
     public :
         Pair();
         // ctor by input
-        Pair(Player c1, TableCard c2);
+        Pair(Player player, TableCard table);
         // cctor
         Pair(const Pair& C);
         //dtor
         ~Pair();
         // Find and calculate combination
-        virtual void calculateMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual void calculateMaxCombination();
+        virtual vector<Card> findMaxCombinationAll();
 };
 #endif

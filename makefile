@@ -33,8 +33,3 @@ game:
 	cd lib/Game/test/
 	GameTest.exe
 	del GameTest.exe
-read:
-	$(CPP) -o lib/IO/test/consoleIOTest lib/IO/test/consoleIOTest.cpp $(CFLAGS)
-	cd lib/IO/test/
-	consoleIOTest.exe
-	del consoleIOTest.exe

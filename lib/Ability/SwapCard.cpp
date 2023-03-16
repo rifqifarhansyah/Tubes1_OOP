@@ -2,7 +2,15 @@
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
 
-SwapCard::SwapCard() : Ability("Swap", 7){};
+#define RED "\033[1m\033[31m"
+#define GREEN "\033[1m\033[32m"
+#define YELLOW "\033[1m\033[33m"
+#define BLUE "\033[1m\033[34m"
+#define MAGENTA "\033[1m\033[35m"
+#define CYAN "\033[1m\033[36m"
+#define RESET "\033[0m"
+
+SwapCard::SwapCard() : Ability("SWAP", 7){};
 
 void SwapCard::action(Player& p,Game& g) const
 {   
@@ -17,6 +25,7 @@ void SwapCard::action(Player& p,Game& g) const
     // memilih p1
     cout << "Silakan pilih pemain 1 yang kartunya ingin anda tukar:" << endl;
     g.printPlayerList(choosenPlayer);
+    cout << GREEN << ">> " << RESET;
     int idxP1 = choosenPlayer[input.getNumberInRange(1,choosenPlayer.size())-1];
 
     choosenPlayer.erase(find(choosenPlayer.begin(),choosenPlayer.end(),idxP1));
@@ -24,6 +33,7 @@ void SwapCard::action(Player& p,Game& g) const
     // memilih p2
     cout << "Silakan pilih pemain 2 yang kartunya ingin anda tukar:" << endl;
     g.printPlayerList(choosenPlayer);
+    cout << GREEN << ">> " << RESET;
     int idxP2 = choosenPlayer[input.getNumberInRange(1,choosenPlayer.size())-1];
 
     // memilih kartu p1

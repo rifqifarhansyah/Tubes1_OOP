@@ -8,6 +8,7 @@ using namespace std;
 
 
 int main(){
+    srand(time(0));
     int inp;
     cout << "1. random card\n";
     cout << "2. input manual\n";
@@ -67,5 +68,17 @@ int main(){
     P.print();
     T.print();
     StraightFlush S(P,T);
+    HighCard H(P,T);
+    Pair PA(P,T);
     cout << "Hasil : " << S.getValue() << endl;
+    cout << "Hasil : " << H.getValue() << endl;
+    cout << "Hasil : " << PA.getValue() << endl;
 }
+
+
+Hasil : 12.28
+Hasil : 0.83
+Hasil : 2.28
+
+
+*/

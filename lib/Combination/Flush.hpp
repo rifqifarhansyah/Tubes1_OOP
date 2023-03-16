@@ -13,9 +13,10 @@ class Flush : public Straight {
         //dtor
         ~Flush();
         // Find and calculate combination
-        virtual void calculateMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(Player, TableCard);
-        virtual vector<Card> findMaxCombination(TableCard);
+        virtual void calculateMaxCombination();
+        virtual vector<Card> findMaxCombinationAll();
+        virtual vector<Card> findMaxCombinationTable();
+        double findFlushNumbers(vector<Card> c);
     
 };
 #endif

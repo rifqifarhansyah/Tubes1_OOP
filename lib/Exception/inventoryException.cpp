@@ -1,5 +1,13 @@
 #include "inventoryExceptionInterface.hpp"
 
+#define RED "\033[1m\033[31m"
+#define GREEN "\033[1m\033[32m"
+#define YELLOW "\033[1m\033[33m"
+#define BLUE "\033[1m\033[34m"
+#define MAGENTA "\033[1m\033[35m"
+#define CYAN "\033[1m\033[36m"
+#define RESET "\033[0m"
+
 int InventoryException::numOfInventoryException = 0;
 
 string InventoryException::errorMessage[] = {
@@ -22,7 +30,7 @@ int InventoryException::getNumOfInventoryException() { // numOfInventoryExceptio
 }
 
 void InventoryException::displayMessage() const { // message display
-    cout << errorMessage[this->Exception::ID] << endl;
+    cout << RED << errorMessage[this->Exception::ID] << RESET << endl;
 }
 
 // Path: Tubes1_OOP\lib\Exception\inventoryException.cpp
