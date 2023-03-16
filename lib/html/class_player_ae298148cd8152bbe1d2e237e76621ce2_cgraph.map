@@ -1,0 +1,10 @@
+<map id="Player::print" name="Player::print">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,97,129"/>
+<area shape="rect" id="node2" href="$class_player.html#abbe76e8a56b584053c7a67f5b43eb595" title=" " alt="" coords="154,5,293,31"/>
+<area shape="rect" id="node4" href="$class_player.html#a0c773cd7f4b7ef0bf9d7176fd5d5c3f1" title=" " alt="" coords="145,55,301,80"/>
+<area shape="rect" id="node5" href="$class_player.html#a813510a87cb41ea0adee9d304be91c6d" title=" " alt="" coords="147,104,299,129"/>
+<area shape="rect" id="node6" href="$class_player.html#a23a475e89e7db2efa7f048fc236238d7" title=" " alt="" coords="145,153,301,179"/>
+<area shape="rect" id="node7" href="$class_player.html#a65d397f766a3155e6da02f5c9788de33" title=" " alt="" coords="153,203,293,228"/>
+<area shape="rect" id="node3" href="$class_inventory_holder.html#a74cefa1b0598b714455ffdf58d08bd26" title=" " alt="" coords="349,65,499,105"/>
+<area shape="rect" id="node8" href="$class_inventory_holder.html#ad4fa89d12de4909eabd2610d20797510" title=" " alt="" coords="349,195,499,235"/>
+</map>

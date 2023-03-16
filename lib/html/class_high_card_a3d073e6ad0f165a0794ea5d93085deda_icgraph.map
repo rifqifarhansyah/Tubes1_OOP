@@ -1,0 +1,10 @@
+<map id="HighCard::getHighestColor" name="HighCard::getHighestColor">
+<area shape="rect" id="node1" title=" " alt="" coords="244,153,419,179"/>
+<area shape="rect" id="node2" href="$class_flush.html#ac0f59350aeb0e91c9a6bfad913804403" title=" " alt="" coords="53,5,148,31"/>
+<area shape="rect" id="node3" href="$class_four_of_a_kind.html#a4d29c0f609e0511c4958fc107d91e484" title=" " alt="" coords="11,55,190,80"/>
+<area shape="rect" id="node4" href="$class_full_house.html#a71026b3acfd9963982f7bcf917bcdef0" title=" " alt="" coords="27,104,174,129"/>
+<area shape="rect" id="node5" href="$class_straight.html#a6aeefd2653354c492953532614ca495b" title=" " alt="" coords="41,153,161,179"/>
+<area shape="rect" id="node6" href="$class_straight_flush.html#afd07e4431858d1a3d1f7a63bd8cfc5fd" title=" " alt="" coords="9,203,193,228"/>
+<area shape="rect" id="node7" href="$class_three_of_a_kind.html#a29c1a1279c438268f35b862d8f6d9b0e" title=" " alt="" coords="5,252,196,277"/>
+<area shape="rect" id="node8" href="$class_two_pair.html#a0fa33d1d8ca66a0cae38aeda88e953e7" title=" " alt="" coords="39,301,162,327"/>
+</map>

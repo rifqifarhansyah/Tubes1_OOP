@@ -11,6 +11,15 @@
 #include "../Player/Player.hpp"
 #include "../Exception/playerCardExceptionInterface.hpp"
 
+#define RED "\033[1m\033[31m"
+#define GREEN "\033[1m\033[32m"
+#define YELLOW "\033[1m\033[33m"
+#define BLUE "\033[1m\033[34m"
+#define MAGENTA "\033[1m\033[35m"
+#define CYAN "\033[1m\033[36m"
+
+#define RESET "\033[0m"
+
 ConsoleIO::ConsoleIO() : Command(){
     command = "";
 }
@@ -49,7 +58,7 @@ int ConsoleIO::getIntInput(){
             break;
         }
         catch(invalid_argument& e){
-            cout << "Input tidak valid. Silahkan masukkan input bertipe integer" << endl;
+            cout << RED << "Input tidak valid. Silahkan masukkan input bertipe integer" << RESET << endl;
         }
     }
     return input;
@@ -70,7 +79,7 @@ int ConsoleIO::getNumberInRange(int _lower, int _upper){
             break;
         }
         else{
-            cout << "Input tidak valid. Silahkan masukkan input antara " << _lower << " dan " << _upper << endl;
+            cout << RED << "Input tidak valid. Silahkan masukkan input antara " << _lower << " dan " << _upper << RESET << endl;
         }
     }
     return input;
@@ -78,24 +87,24 @@ int ConsoleIO::getNumberInRange(int _lower, int _upper){
 
 void ConsoleIO::startPage(){
     cout << endl;
-    cout << "\t  .----------------.  .----------------.  .----------------.  .----------------.  .----------------." << endl;
-    cout << "\t| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |" << endl;
-    cout << "\t| |  ___  ____   | || |      __      | || |  _______     | || |  _________   | || | _____  _____ | |" << endl;
-    cout << "\t| | |_  ||_  _|  | || |     /  \\     | || | |_   __ \\    | || | |  _   _  |  | || ||_   _||_   _|| |" << endl;
-    cout << "\t| |   | |_/ /    | || |    / /\\ \\    | || |   | |__) |   | || | |_/ | | \\_|  | || |  | |    | |  | |" << endl;
-    cout << "\t| |   |  __'.    | || |   / ____ \\   | || |   |  __ /    | || |     | |      | || |  | '    ' |  | |" << endl;
-    cout << "\t| |  _| |  \\ \\_  | || | _/ /    \\ \\_ | || |  _| |  \\ \\_  | || |    _| |_     | || |   \\ `--' /   | |" << endl;
-    cout << "\t| | |____||____| | || ||____|  |____|| || | |____| |___| | || |   |_____|    | || |    `.__.'    | |" << endl;
-    cout << "\t| |              | || |              | || |              | || |              | || |              | |" << endl;
-    cout << "\t| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |" << endl;
-    cout << "\t '----------------'  '----------------'  '----------------'  '----------------'  '----------------' " << endl;
+    cout << RED << "\t .----------------." << RESET << GREEN << "  .----------------. " << RESET << YELLOW << " .----------------. " << RESET << BLUE << " .----------------. " << RESET << MAGENTA << " .----------------. " << RESET << endl;
+    cout << RED << "\t| .--------------. |" << RESET << GREEN << "| .--------------. |" << RESET << YELLOW << "| .--------------. |" << RESET << BLUE << "| .--------------. |" << RESET << MAGENTA << "| .--------------. |" << RESET << endl;
+    cout << RED << "\t| |  ___  ____   | |" << RESET << GREEN << "| |      __      | |" << RESET << YELLOW << "| |  _______     | |" << RESET << BLUE << "| |  _________   | |" << RESET << MAGENTA << "| | _____  _____ | |" << RESET << endl;
+    cout << RED << "\t| | |_  ||_  _|  | |" << RESET << GREEN << "| |     /  \\     | |" << RESET << YELLOW << "| | |_   __ \\    | |" << RESET << BLUE << "| | |  _   _  |  | |" << RESET << MAGENTA << "| ||_   _||_   _|| |" << RESET << endl;
+    cout << RED << "\t| |   | |_/ /    | |" << RESET << GREEN << "| |    / /\\ \\    | |" << RESET << YELLOW << "| |   | |__) |   | |" << RESET << BLUE << "| | |_/ | | \\_|  | |" << RESET << MAGENTA << "| |  | |    | |  | |" << RESET << endl;
+    cout << RED << "\t| |   |  __'.    | |" << RESET << GREEN << "| |   / ____ \\   | |" << RESET << YELLOW << "| |   |  __ /    | |" << RESET << BLUE << "| |     | |      | |" << RESET << MAGENTA << "| |  | '    ' |  | |" << RESET << endl;
+    cout << RED << "\t| |  _| |  \\ \\_  | |" << RESET << GREEN << "| | _/ /    \\ \\_ | |" << RESET << YELLOW << "| |  _| |  \\ \\_  | |" << RESET << BLUE << "| |    _| |_     | |" << RESET << MAGENTA << "| |   \\ `--' /   | |" << RESET << endl;
+    cout << RED << "\t| | |____||____| | |" << RESET << GREEN << "| ||____|  |____|| |" << RESET << YELLOW << "| | |____| |___| | |" << RESET << BLUE << "| |   |_____|    | |" << RESET << MAGENTA << "| |    `.__.'    | |" << RESET << endl;
+    cout << RED << "\t| |              | |" << RESET << GREEN << "| |              | |" << RESET << YELLOW << "| |              | |" << RESET << BLUE << "| |              | |" << RESET << MAGENTA << "| |              | |" << RESET << endl;
+    cout << RED << "\t| '--------------' |" << RESET << GREEN << "| '--------------' |" << RESET << YELLOW << "| '--------------' |" << RESET << BLUE << "| '--------------' |" << RESET << MAGENTA << "| '--------------' |" << RESET << endl;
+    cout << RED << "\t '----------------' " << RESET << GREEN << " '----------------' " << RESET << YELLOW << " '----------------' " << RESET << BLUE << " '----------------' " << RESET << MAGENTA << " '----------------' " << RESET << endl;
     cout << endl;
 }
 
 void ConsoleIO::askForCommand(Player& _player, Game& _game){
     while(true)
     {
-        cout << "Masukkan perintah yang ingin anda lakukan : " << endl;
+        cout << "Masukkan perintah yang ingin anda lakukan\t: " << endl;
         setCommand();
         try
         {

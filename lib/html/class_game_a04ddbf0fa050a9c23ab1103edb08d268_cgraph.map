@@ -1,0 +1,6 @@
+<map id="Game::getChosenCard" name="Game::getChosenCard">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,160,56"/>
+<area shape="rect" id="node2" href="$class_player.html#abbe76e8a56b584053c7a67f5b43eb595" title=" " alt="" coords="217,5,355,31"/>
+<area shape="rect" id="node4" href="$class_player.html#a23a475e89e7db2efa7f048fc236238d7" title=" " alt="" coords="208,55,364,80"/>
+<area shape="rect" id="node3" href="$class_inventory_holder.html#a74cefa1b0598b714455ffdf58d08bd26" title=" " alt="" coords="412,23,561,63"/>
+</map>

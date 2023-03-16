@@ -1,0 +1,7 @@
+<map id="Game::switchCard" name="Game::switchCard">
+<area shape="rect" id="node1" title=" " alt="" coords="5,46,135,71"/>
+<area shape="rect" id="node2" href="$class_player.html#abbe76e8a56b584053c7a67f5b43eb595" title=" " alt="" coords="183,17,321,42"/>
+<area shape="rect" id="node4" href="$class_player.html#a05850ea3250db4eb507fbf22244e2869" title=" " alt="" coords="196,70,308,95"/>
+<area shape="rect" id="node3" href="$class_inventory_holder.html#a74cefa1b0598b714455ffdf58d08bd26" title=" " alt="" coords="369,5,519,45"/>
+<area shape="rect" id="node5" href="$class_inventory_holder.html#ad4fa89d12de4909eabd2610d20797510" title=" " alt="" coords="369,69,519,109"/>
+</map>

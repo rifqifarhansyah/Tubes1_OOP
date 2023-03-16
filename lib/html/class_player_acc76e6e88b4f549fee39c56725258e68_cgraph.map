@@ -1,0 +1,7 @@
+<map id="Player::useAbility" name="Player::useAbility">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,129,105"/>
+<area shape="rect" id="node2" href="$class_ability.html#a4d710a6242e2bd9f8d43e70a4c43f3cf" title=" " alt="" coords="209,5,305,31"/>
+<area shape="rect" id="node3" href="$class_player.html#a8c8519074279c1563a608c4d7d6a7531" title=" " alt="" coords="195,55,319,80"/>
+<area shape="rect" id="node4" href="$class_player.html#ad616669e8baf8e477e7de408d0d77c56" title=" " alt="" coords="177,104,337,129"/>
+<area shape="rect" id="node5" href="$class_player.html#ae6aaca5be2aa187d70f402b187c57549" title=" " alt="" coords="186,153,329,179"/>
+</map>
