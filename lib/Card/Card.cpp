@@ -66,7 +66,6 @@ double Card::getValue() {
         return value + 0.09 ;
     }
 }
-
 ostream& operator<<(ostream& out, const Card& card){
     out << card.number << " (" << card.color << ")";
     return out;

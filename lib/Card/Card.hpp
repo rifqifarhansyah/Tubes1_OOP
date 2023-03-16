@@ -24,8 +24,7 @@ class Card{
         friend ostream& operator<<(ostream& out, const Card&);
         friend bool operator< (Card& c1, Card&c2);
         friend bool operator> (Card& c1, Card&c2);
-
-        
+        static map<pair<int, string>, double> cardValues;        
 };
 
 #endif
