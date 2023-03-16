@@ -7,14 +7,14 @@ class HighCard : public Combination {
     public:
         HighCard();
         // ctor by input
-        HighCard(Player player, TableCard table);
+        HighCard(Player c1, TableCard c2);
         // cctor
         HighCard(const HighCard& C);
         //dtor
         ~HighCard();
         // Find and calculate combination
-        virtual void calculateMaxCombination();
-        virtual vector<Card> findMaxCombinationAll();
+        virtual void calculateMaxCombination(Player, TableCard);
+        virtual vector<Card> findMaxCombination(Player, TableCard);
         // set and get totalValue
         void setValue(double);
         double getValue() const;
@@ -29,5 +29,6 @@ class HighCard : public Combination {
     protected:
         double highestNumber;
         string highestColor;
+        // double maxHighCard;
 };
 #endif

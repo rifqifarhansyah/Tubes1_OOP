@@ -2,7 +2,7 @@
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
 
-ReverseDirection::ReverseDirection() : Ability("REVERSE DIRECTION", 6){}
+ReverseDirection::ReverseDirection() : Ability("Reverse Direction", 6){}
 
 void ReverseDirection::action(Player& p,Game& g) const
 {

@@ -7,16 +7,9 @@
 #include "../Ability/SwapCard.hpp"
 #include "../Ability/SwitchCard.hpp"
 #include "../TemplateFunction/TemplateFunction.hpp"
-#include "../Combination/StraightFlush.hpp"
 #include <iostream>
 
-#define RED "\033[1m\033[31m"
-#define GREEN "\033[1m\033[32m"
-#define YELLOW "\033[1m\033[33m"
-#define BLUE "\033[1m\033[34m"
-#define MAGENTA "\033[1m\033[35m"
-#define CYAN "\033[1m\033[36m"
-#define RESET "\033[0m"
+
 
 Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winner(NULL), consoleIO(){
     point = 64;
@@ -26,7 +19,6 @@ Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7), deck(), table(), winn
     playOrder.resize(maxPlayer);
     playerList = new Player[maxPlayer];
     consoleIO.startPage();
-    cout << "                                              " << GREEN << "--- INPUT NAMA PEMAIN ---" << RESET << "                                             " << endl;
     for (int i = 0;i < maxPlayer;i++){
         string name;
         cout << "Masukkan nama pemain ke-" << i+1 << " : ";
@@ -72,7 +64,7 @@ void Game::play(){
 
 void Game::startGame(){
     gameCount++;
-    cout << RED << "                                                --- PERMAINAN KE " << gameCount << " ---" << RESET << endl << endl;
+    cout << "Permainan ke-" << gameCount << endl << endl;
     deck.shuffle();
     for (int i = 0;i < maxPlayer;i++){
         deck - playerList[i];
@@ -84,33 +76,10 @@ void Game::startGame(){
         playOrder.erase(playOrder.begin());
 
     }
-    int idxWinner;
-    map<int,StraightFlush> comboList;
-    for (int i = 0;i < maxPlayer;i++){
-        StraightFlush combo(playerList[i],table);
-        comboList.insert(pair<int,StraightFlush>(i,combo));
-    }
-    idxWinner = getMaxMapKey(comboList);
-    if (!(comboList[0].findMaxCombinationTable().empty()) && comboList[0].getHighestNumber() == 13){
-        bool isAllNoStraigthFlush = true;
-        for (int i = 0;i < maxPlayer;i++){
-            if (!comboList[i].findMaxCombinationAll().empty()){
-                isAllNoStraigthFlush = false;
-                break;
-            }
-        }
-        if (isAllNoStraigthFlush){
-            map<int,ThreeOfAKind> comboListTAK;
-            for (int i = 0;i < maxPlayer;i++){
-                ThreeOfAKind comboTAK(playerList[i],table);
-                comboListTAK.insert(pair<int,ThreeOfAKind>(i,comboTAK));
-            }
-            idxWinner = getMaxMapKey(comboListTAK);
-        }
-    }
-    Player& roundWinner = playerList[idxWinner]; // nanti diganti dengan pemenang
-    cout << "Pemenang di permainan ini adalah\t\t\t: \n";
-    cout << roundWinner.getNamePlayer() << endl << endl;
+
+    Player& roundWinner = playerList[0]; // nanti diganti dengan pemenag
+    cout << "Pemenang di permainan ini adalah : \n";
+    cout << roundWinner.getNamePlayer() << endl;
     cout << "Poin hadiah sebesar " << point << " poin diberikan ke " << roundWinner.getNamePlayer() << endl;
     int oldPoin = roundWinner.getPointPlayer();
     int newPoin = oldPoin+point;
@@ -119,7 +88,7 @@ void Game::startGame(){
 }
 
 void Game::startRound(){
-    cout << BLUE << "                                                  --- RONDE KE " << round << " ---" << RESET << endl << endl;;
+    cout << "Ronde ke-" << round << endl << endl;;
     if (round == 2){
         giveAbilityToAll();
         cout << "Kartu ability sudah dibagikan!" << endl;
@@ -132,13 +101,11 @@ void Game::startRound(){
             table.print();
             cout << endl;
         }
-        cout << "Poin hadiah saat ini\t\t\t\t: " << point << endl;
-        cout << "Kartu Anda\t\t\t\t\t: " << endl;
-        cout << MAGENTA << "-- " << RESET;
+        cout << "Poin hadiah saat ini : " << point << endl;
+        cout << "Kartu Anda : " << endl;
         cout << curPlayer.getFirstCard() << " && " <<  curPlayer.getSecondCard() << endl;
         if (round >= 2) {
-            cout << "Ability yang Anda punya\t\t\t\t:" << endl;
-            cout << MAGENTA << "-- " << RESET;
+            cout << "Ability yang Anda punya :" << endl;
             cout << curPlayer.getAbility()->getName();
             if (curPlayer.isAbilityBlocked()){
                 cout << " (dimatikan)";

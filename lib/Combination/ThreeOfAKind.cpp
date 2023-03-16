@@ -3,9 +3,9 @@
 ThreeOfAKind::ThreeOfAKind() : TwoPair(){}
 
 // ctor by input
-ThreeOfAKind::ThreeOfAKind(Player player, TableCard table) : TwoPair(player,table){
+ThreeOfAKind::ThreeOfAKind(Player c1, TableCard c2) : TwoPair(c1,c2){
     // this->maxThreeOfAKind = 5.56;
-    this->calculateMaxCombination();
+    this->calculateMaxCombination(c1,c2);
 }
 // cctor
 ThreeOfAKind::ThreeOfAKind(const ThreeOfAKind& C) : TwoPair(C){
@@ -15,22 +15,22 @@ ThreeOfAKind::ThreeOfAKind(const ThreeOfAKind& C) : TwoPair(C){
 ThreeOfAKind::~ThreeOfAKind(){}
 
 // calculate max value of a combo
-void ThreeOfAKind::calculateMaxCombination(){
+void ThreeOfAKind::calculateMaxCombination(Player c1, TableCard c2){
     vector<Card> vec;
     double constant;
     
-    if(!findMaxCombinationAll().empty()){
+    if(!findMaxCombination(c1, c2).empty()){
         constant = TWO_PAIR;
-        vec = findMaxCombinationAll();
-    }else if(!TwoPair::findMaxCombinationAll().empty()){
+        vec = findMaxCombination(c1, c2);
+    }else if(!TwoPair::findMaxCombination(c1, c2).empty()){
         constant = PAIR;
-        vec = TwoPair::findMaxCombinationAll();
-    }else if(!Pair::findMaxCombinationAll().empty()){
+        vec = TwoPair::findMaxCombination(c1, c2);
+    }else if(!Pair::findMaxCombination(c1, c2).empty()){
         constant = HIGH_CARD;
-        vec = Pair::findMaxCombinationAll();
-    }else if(!HighCard::findMaxCombinationAll().empty()){
+        vec = Pair::findMaxCombination(c1, c2);
+    }else if(!HighCard::findMaxCombination(c1, c2).empty()){
         constant = 0;
-        vec = HighCard::findMaxCombinationAll();
+        vec = HighCard::findMaxCombination(c1, c2);
     }
     double num = findHighestNumber(vec) * 0.1;
     double color = findHighestColor(vec);
@@ -38,21 +38,21 @@ void ThreeOfAKind::calculateMaxCombination(){
     this->setHighestColor(Card::getColorFromValue(color));
     this->setValue(num + color + constant);
 }
-vector<Card> ThreeOfAKind::findMaxCombinationAll(){
+vector<Card> ThreeOfAKind::findMaxCombination(Player c1, TableCard c2){
     vector<Card> combinations;
-    vector<Card> playerCard;
-    vector<Card> tableCard;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCard.push_back(player.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCard.push_back(table.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
-    combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
     sort(combinations.begin(), combinations.end());
 
@@ -70,10 +70,4 @@ vector<Card> ThreeOfAKind::findMaxCombinationAll(){
         ThreeOfAKind.clear();
     }
     return ThreeOfAKind;
-}
-bool operator< (ThreeOfAKind& p1, ThreeOfAKind&p2){
-    return (p1.getValue() < p2.getValue());
-}
-bool operator> (ThreeOfAKind& p1, ThreeOfAKind&p2){
-    return (p1.getValue() > p2.getValue());
 }

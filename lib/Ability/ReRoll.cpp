@@ -2,7 +2,7 @@
 #include "../Player/Player.hpp"
 #include "../Game/Game.hpp"
 
-ReRoll::ReRoll() : Ability("RE-ROLL", 3){}
+ReRoll::ReRoll() : Ability("Re-Roll", 3){}
 
 void ReRoll::action(Player& p,Game& g) const
 {

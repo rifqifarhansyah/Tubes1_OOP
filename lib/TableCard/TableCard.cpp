@@ -69,7 +69,7 @@ void TableCard::clear() {
 void TableCard::print() {
     try {
         if (!isEmpty()) {
-            cout << "Kartu TableCard\t\t\t\t\t:" << endl;
+            cout << "Kartu TableCard:" << endl;
             for (int i = 0; i < getSize(); i++) {
                 cout << i+1 << ". Kartu " << inventory[i] << endl;
             }

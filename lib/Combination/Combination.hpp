@@ -25,8 +25,6 @@ class Combination{
         ~Combination();
         virtual double getValue() const = 0;
     protected:
-        Player player;
-        TableCard table;
         double totalValue;
 };
 #endif

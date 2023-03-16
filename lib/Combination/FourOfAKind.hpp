@@ -13,7 +13,7 @@ class FourOfAKind : public FullHouse {
         //dtor
         ~FourOfAKind();
         // Find and calculate combination
-        virtual void calculateMaxCombination();
-        virtual vector<Card> findMaxCombinationAll();
+        virtual void calculateMaxCombination(Player, TableCard);
+        virtual vector<Card> findMaxCombination(Player, TableCard);
 };
 #endif

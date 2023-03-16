@@ -3,7 +3,7 @@
 #include "../Game/Game.hpp"
 #include "../Card/Card.hpp"
 
-Quarter::Quarter() : Ability("QUARTER", 5){}
+Quarter::Quarter() : Ability("Quarter", 5){}
 
 void Quarter::action(Player& p,Game& g) const
 {

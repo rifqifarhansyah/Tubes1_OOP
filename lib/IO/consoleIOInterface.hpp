@@ -3,7 +3,9 @@
 
 #include "commandInterface.hpp"
 #include <iostream>
+#include <fstream>
 #include <string>
+#include "../MainDeck/MainDeck.hpp"
 class Player;
 class Game;
 using namespace std;
@@ -24,6 +26,9 @@ class ConsoleIO : public Command {
         int getNumberInRange(int _lower, int _upper); // input range number
         void waitEnterInput();
         void startPage();
+        friend ostream& operator<<(ostream&, const vector<int>&);
+        friend ostream& operator<<(ostream&, const vector<string>&);
+        MainDeck readMainDeck();
 };
 
 #endif

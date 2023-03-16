@@ -3,9 +3,9 @@
 Straight::Straight() : ThreeOfAKind(){}
 
 // ctor by input
-Straight::Straight(Player player, TableCard table) : ThreeOfAKind(player,table){
+Straight::Straight(Player c1, TableCard c2) : ThreeOfAKind(c1,c2){
     // this->maxStraight = 6.95;
-    this->calculateMaxCombination();
+    this->calculateMaxCombination(c1,c2);
 }
 // cctor
 Straight::Straight(const Straight& C) : ThreeOfAKind(C){
@@ -15,25 +15,25 @@ Straight::Straight(const Straight& C) : ThreeOfAKind(C){
 Straight::~Straight(){}
 
 // calculate max value of a combo
-void Straight::calculateMaxCombination(){
+void Straight::calculateMaxCombination(Player c1, TableCard c2){
     vector<Card> vec;
     double constant;
     
-    if(!findMaxCombinationAll().empty()){
+    if(!findMaxCombination(c1, c2).empty()){
         constant = THREE_OF_A_KIND;
-        vec = findMaxCombinationAll();
-    }else if(!ThreeOfAKind::findMaxCombinationAll().empty()){
+        vec = findMaxCombination(c1, c2);
+    }else if(!ThreeOfAKind::findMaxCombination(c1, c2).empty()){
         constant = TWO_PAIR;
-        vec = ThreeOfAKind::findMaxCombinationAll();
-    }else if(!TwoPair::findMaxCombinationAll().empty()){
+        vec = ThreeOfAKind::findMaxCombination(c1, c2);
+    }else if(!TwoPair::findMaxCombination(c1, c2).empty()){
         constant = PAIR;
-        vec = TwoPair::findMaxCombinationAll();
-    }else if(!Pair::findMaxCombinationAll().empty()){
+        vec = TwoPair::findMaxCombination(c1, c2);
+    }else if(!Pair::findMaxCombination(c1, c2).empty()){
         constant = HIGH_CARD;
-        vec = Pair::findMaxCombinationAll();
-    }else if(!HighCard::findMaxCombinationAll().empty()){
+        vec = Pair::findMaxCombination(c1, c2);
+    }else if(!HighCard::findMaxCombination(c1, c2).empty()){
         constant = 0;
-        vec = HighCard::findMaxCombinationAll();
+        vec = HighCard::findMaxCombination(c1, c2);
     }
     double num = findHighestNumber(vec) * 0.1;
     double color = findHighestColor(vec);
@@ -41,21 +41,21 @@ void Straight::calculateMaxCombination(){
     this->setHighestColor(Card::getColorFromValue(color));
     this->setValue(num + color + constant);
 }
-vector<Card> Straight::findMaxCombinationAll(){
+vector<Card> Straight::findMaxCombination(Player c1, TableCard c2){
     vector<Card> combinations;
-    vector<Card> playerCard;
-    vector<Card> tableCard;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCard.push_back(player.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCard.push_back(table.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    combinations.insert(combinations.end(), playerCard.begin(), playerCard.end());
-    combinations.insert(combinations.end(), tableCard.begin(), tableCard.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
     sort(combinations.begin(), combinations.end());
 

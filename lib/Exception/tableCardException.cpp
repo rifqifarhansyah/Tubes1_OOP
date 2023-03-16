@@ -1,13 +1,5 @@
 #include "tableCardExceptionInterface.hpp"
 
-#define RED "\033[1m\033[31m"
-#define GREEN "\033[1m\033[32m"
-#define YELLOW "\033[1m\033[33m"
-#define BLUE "\033[1m\033[34m"
-#define MAGENTA "\033[1m\033[35m"
-#define CYAN "\033[1m\033[36m"
-#define RESET "\033[0m"
-
 int TableCardException::numOfTableCardException = 0;
 
 string TableCardException::errorMessage[] = {
@@ -28,7 +20,7 @@ int TableCardException::getNumOfTableCardException() { // numOfTableCardExceptio
 }
 
 void TableCardException::displayMessage() const { // message display
-    cout << RED << errorMessage[this->Exception::ID] << RESET << endl;
+    cout << errorMessage[this->Exception::ID] << endl;
 }
 
 // Path: Tubes1_OOP\lib\Exception\tableCardException.cpp
