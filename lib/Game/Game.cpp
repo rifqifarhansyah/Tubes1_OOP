@@ -51,7 +51,6 @@ Game::Game() : maxPlayer(7), maxRound(6), abilityCount(7),deck(), table(), winne
     if(pilihplayer==1)
     {
         this->deck = consoleIO.readMainDeck();
-        deck.print();
     }
     else
     {

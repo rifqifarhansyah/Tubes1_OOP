@@ -193,7 +193,7 @@ MainDeck ConsoleIO::readMainDeck() {
             // meminta masukan nama file
             cout << "Masukkan nama file MainDeck: ";
             cin >> name;
-            file.open(name);
+            file.open("config/"+name);
 
             // parsing isi file
             file >> input;
