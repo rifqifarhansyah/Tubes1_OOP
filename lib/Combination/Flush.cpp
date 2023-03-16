@@ -43,25 +43,59 @@ void Flush::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color + constant);
 }
 vector<Card> Flush::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> allCards;
-    vector<Card> playerCards;
-    vector<Card> tableCards;
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCards.push_back(c1.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCards.push_back(c2.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
-    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
     vector<Card> flush;
-    for (const std::string& suit : {"merah", "kuning", "biru", "hijau"}) {
+    for (const string& suit : {"merah", "kuning", "biru", "hijau"}) {
         vector<Card> suitCards;
-        for (const Card& card : allCards) {
+        for (const Card& card : combinations) {
+            if (card.getColor() == suit) {
+                suitCards.push_back(card);
+            }
+        }
+        if (suitCards.size() >= 5) {
+            sort(suitCards.begin(), suitCards.end());
+            for (int i = 0; i <= suitCards.size() - 5; i++) {
+                if (suitCards[i].getNumber() - suitCards[i + 4].getNumber() == 4) {
+                    flush.insert(flush.end(), suitCards.begin() + i, suitCards.begin() + i + 5);
+                    return flush;
+                }
+            }
+            flush.insert(flush.end(), suitCards.begin(), suitCards.begin() + 5);
+            return flush;
+        }
+    }
+    return flush;
+}
+vector<Card> Flush::findMaxCombination(TableCard c2){
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
+    for (int i = 4; i >= 0; i--)
+    {
+        table.push_back(c2.getItem(i));
+    }
+    
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
+
+    vector<Card> flush;
+    for (const string& suit : {"merah", "kuning", "biru", "hijau"}) {
+        vector<Card> suitCards;
+        for (const Card& card : combinations) {
             if (card.getColor() == suit) {
                 suitCards.push_back(card);
             }

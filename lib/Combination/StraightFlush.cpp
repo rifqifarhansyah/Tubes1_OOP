@@ -2,7 +2,6 @@
 
 // ctor by input
 StraightFlush::StraightFlush(Player c1, TableCard c2) : FourOfAKind(c1,c2){
-    // this->maxStraightFlush = 1.39 * 9;
     this->calculateMaxCombination(c1,c2);
 }
 // cctor
@@ -52,61 +51,97 @@ void StraightFlush::calculateMaxCombination(Player c1, TableCard c2){
     this->setValue(num + color + constant);
 }
 vector<Card> StraightFlush::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> allCards;
-    vector<Card> playerCards;
-    vector<Card> tableCards;
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCards.push_back(c1.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCards.push_back(c2.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
-    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(combinations.begin(), combinations.end());
 
     vector<Card> straightFlush;
-    for (int i = allCards.size() - 1; i >= 4; i--) {
-        if (allCards[i].getColor() == allCards[i - 1].getColor() &&
-            allCards[i - 1].getColor() == allCards[i - 2].getColor() &&
-            allCards[i - 2].getColor() == allCards[i - 3].getColor() &&
-            allCards[i - 3].getColor() == allCards[i - 4].getColor()) {
+    for (int i = combinations.size() - 1; i >= 4; i--) {
+        if (combinations[i].getColor() == combinations[i - 1].getColor() &&
+            combinations[i - 1].getColor() == combinations[i - 2].getColor() &&
+            combinations[i - 2].getColor() == combinations[i - 3].getColor() &&
+            combinations[i - 3].getColor() == combinations[i - 4].getColor()) {
             // Found a possible straight flush starting with card i
             bool isStraightFlush = true;
-            int currentNumber = allCards[i].getNumber();
+            int currentNumber = combinations[i].getNumber();
             for (int j = i - 1; j >= i - 4; j--) {
-                if (allCards[j].getNumber() != currentNumber - 1) {
+                if (combinations[j].getNumber() != currentNumber - 1) {
                     isStraightFlush = false;
                     break;
                 }
                 currentNumber--;
             }
             if (isStraightFlush) {
-                straightFlush.push_back(allCards[i]);
-                straightFlush.push_back(allCards[i - 1]);
-                straightFlush.push_back(allCards[i - 2]);
-                straightFlush.push_back(allCards[i - 3]);
-                straightFlush.push_back(allCards[i - 4]);
+                straightFlush.push_back(combinations[i]);
+                straightFlush.push_back(combinations[i - 1]);
+                straightFlush.push_back(combinations[i - 2]);
+                straightFlush.push_back(combinations[i - 3]);
+                straightFlush.push_back(combinations[i - 4]);
                 break;
             }
         }
     }
     return straightFlush;
 }
-bool operator< (Player& p1, Player&p2){
-    TableCard T;
-    StraightFlush P1(p1,T);
-    StraightFlush P2(p2,T);
-    bool val = true;
-    return (P1.getValue() < P2.getValue());
+vector<Card> StraightFlush::findMaxCombination(TableCard c2){
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
+    for (int i = 4; i >= 0; i--)
+    {
+        table.push_back(c2.getItem(i));
+    }
+    
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
+
+    sort(combinations.begin(), combinations.end());
+
+    vector<Card> straightFlush;
+    for (int i = combinations.size() - 1; i >= 4; i--) {
+        if (combinations[i].getColor() == combinations[i - 1].getColor() &&
+            combinations[i - 1].getColor() == combinations[i - 2].getColor() &&
+            combinations[i - 2].getColor() == combinations[i - 3].getColor() &&
+            combinations[i - 3].getColor() == combinations[i - 4].getColor()) {
+            // Found a possible straight flush starting with card i
+            bool isStraightFlush = true;
+            int currentNumber = combinations[i].getNumber();
+            for (int j = i - 1; j >= i - 4; j--) {
+                if (combinations[j].getNumber() != currentNumber - 1) {
+                    isStraightFlush = false;
+                    break;
+                }
+                currentNumber--;
+            }
+            if (isStraightFlush) {
+                straightFlush.push_back(combinations[i]);
+                straightFlush.push_back(combinations[i - 1]);
+                straightFlush.push_back(combinations[i - 2]);
+                straightFlush.push_back(combinations[i - 3]);
+                straightFlush.push_back(combinations[i - 4]);
+                break;
+            }
+        }
+    }
+    return straightFlush;
 }
-bool operator> (Player& p1, Player&p2){
-    TableCard T;
-    StraightFlush P1(p1,T);
-    StraightFlush P2(p2,T);
-    return (P1.getValue() > P2.getValue());
+bool operator< (StraightFlush& p1, StraightFlush&p2){
+    return (p1.getValue() < p2.getValue());
 }
+bool operator> (StraightFlush& p1, StraightFlush&p2){
+    return (p1.getValue() > p2.getValue());
+}
+

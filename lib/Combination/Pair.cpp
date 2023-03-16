@@ -39,28 +39,28 @@ void Pair::calculateMaxCombination(Player c1, TableCard c2){
     
 }
 vector<Card> Pair::findMaxCombination(Player c1, TableCard c2){
-    vector<Card> allCards;
-    vector<Card> playerCards;
-    vector<Card> tableCards;
+    vector<Card> combinations;
+    vector<Card> player;
+    vector<Card> table;
     for (int i = 1; i >= 0; i--)
     {
-        playerCards.push_back(c1.getItem(i));
+        player.push_back(c1.getItem(i));
     }
     for (int i = 4; i >= 0; i--)
     {
-        tableCards.push_back(c2.getItem(i));
+        table.push_back(c2.getItem(i));
     }
     
-    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
-    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+    combinations.insert(combinations.end(), player.begin(), player.end());
+    combinations.insert(combinations.end(), table.begin(), table.end());
 
-    sort(allCards.begin(), allCards.end());
+    sort(combinations.begin(), combinations.end());
 
     vector<Card> pair;
-    for (int i = allCards.size() - 1; i >= 1; i--) {
-        if (allCards[i].getNumber() == allCards[i - 1].getNumber()) {
-            pair.push_back(allCards[i]);
-            pair.push_back(allCards[i - 1]);
+    for (int i = combinations.size() - 1; i >= 1; i--) {
+        if (combinations[i].getNumber() == combinations[i - 1].getNumber()) {
+            pair.push_back(combinations[i]);
+            pair.push_back(combinations[i - 1]);
             break;
         }
     }

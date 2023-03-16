@@ -14,6 +14,7 @@ class Flush : public Straight {
         // Find and calculate combination
         virtual void calculateMaxCombination(Player, TableCard);
         virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual vector<Card> findMaxCombination(TableCard);
     
 };
 #endif
