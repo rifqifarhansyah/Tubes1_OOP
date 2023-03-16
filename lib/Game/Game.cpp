@@ -85,7 +85,7 @@ void Game::startGame(){
     }
 
     Player& roundWinner = playerList[0]; // nanti diganti dengan pemenag
-    cout << "Pemenang di permainan ini adalah\t\t\t: \n";
+    cout << "Pemenang di permainan ini adalah\t\t: \n";
     cout << roundWinner.getNamePlayer() << endl << endl;
     cout << "Poin hadiah sebesar " << point << " poin diberikan ke " << roundWinner.getNamePlayer() << endl;
     int oldPoin = roundWinner.getPointPlayer();

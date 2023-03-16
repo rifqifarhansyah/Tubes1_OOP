@@ -3,6 +3,14 @@
 #include "../Game/Game.hpp"
 #include "../IO/consoleIOInterface.hpp"
 
+#define RED "\033[1m\033[31m"
+#define GREEN "\033[1m\033[32m"
+#define YELLOW "\033[1m\033[33m"
+#define BLUE "\033[1m\033[34m"
+#define MAGENTA "\033[1m\033[35m"
+#define CYAN "\033[1m\033[36m"
+#define RESET "\033[0m"
+
 SwitchCard::SwitchCard() : Ability("SWITCH", 8){};
 
 void SwitchCard::action(Player& p,Game& g) const {
@@ -10,7 +18,7 @@ void SwitchCard::action(Player& p,Game& g) const {
     cout << p.getNamePlayer() << " melakukan switch!" << endl;
 
     // kodisi awal
-    cout << "Kartumu sekarang adalah:" << endl;
+    cout << "Kartumu sekarang adalah\t\t\t\t:" << endl;
     cout << p.getFirstCard() << endl;
     cout << p.getSecondCard() << endl;
 
@@ -23,6 +31,7 @@ void SwitchCard::action(Player& p,Game& g) const {
         }
     }
     g.printPlayerList(choosenPlayer);
+    cout << GREEN << ">> " << RESET;
     int targetIdx = choosenPlayer[input.getNumberInRange(1,choosenPlayer.size())-1];
     Player& target = g.getPlayerByIDX(targetIdx);
     
@@ -31,7 +40,7 @@ void SwitchCard::action(Player& p,Game& g) const {
 
     // kondisi akhir
     cout << "Kedua kartu " << p.getNamePlayer() << " telah ditukar dengan " << target.getNamePlayer() << endl;
-    cout << "Kartumu sekarang adalah:" << endl;
+    cout << "Kartumu sekarang adalah\t\t\t\t:" << endl;
     cout << p.getFirstCard() << " && " << p.getSecondCard() << endl;
 
 }

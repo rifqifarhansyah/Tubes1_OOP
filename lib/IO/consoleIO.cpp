@@ -65,7 +65,7 @@ int ConsoleIO::getIntInput(){
 
 void ConsoleIO::waitEnterInput(){
     cin.ignore(1,'\n');
-    cout << "press ENTER to continue...";
+    cout << CYAN << "                                               press ENTER to continue" << RESET;
     cin.get();
 }
 
