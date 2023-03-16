@@ -87,6 +87,8 @@ int ConsoleIO::getNumberInRange(int _lower, int _upper){
 
 void ConsoleIO::startPage(){
     cout << endl;
+    cout << CYAN << "========================================================================================================================" << RESET << endl;
+    cout << "          P           E           R           M           A           I           N           A           N           " << endl;
     cout << RED << "\t .----------------." << RESET << GREEN << "  .----------------. " << RESET << YELLOW << " .----------------. " << RESET << BLUE << " .----------------. " << RESET << MAGENTA << " .----------------. " << RESET << endl;
     cout << RED << "\t| .--------------. |" << RESET << GREEN << "| .--------------. |" << RESET << YELLOW << "| .--------------. |" << RESET << BLUE << "| .--------------. |" << RESET << MAGENTA << "| .--------------. |" << RESET << endl;
     cout << RED << "\t| |  ___  ____   | |" << RESET << GREEN << "| |      __      | |" << RESET << YELLOW << "| |  _______     | |" << RESET << BLUE << "| |  _________   | |" << RESET << MAGENTA << "| | _____  _____ | |" << RESET << endl;
@@ -98,6 +100,8 @@ void ConsoleIO::startPage(){
     cout << RED << "\t| |              | |" << RESET << GREEN << "| |              | |" << RESET << YELLOW << "| |              | |" << RESET << BLUE << "| |              | |" << RESET << MAGENTA << "| |              | |" << RESET << endl;
     cout << RED << "\t| '--------------' |" << RESET << GREEN << "| '--------------' |" << RESET << YELLOW << "| '--------------' |" << RESET << BLUE << "| '--------------' |" << RESET << MAGENTA << "| '--------------' |" << RESET << endl;
     cout << RED << "\t '----------------' " << RESET << GREEN << " '----------------' " << RESET << YELLOW << " '----------------' " << RESET << BLUE << " '----------------' " << RESET << MAGENTA << " '----------------' " << RESET << endl;
+    cout << "                                                 ALA KERAJAAN PERMEN                                                 " << endl;
+    cout << CYAN << "========================================================================================================================" << RESET << endl;
     cout << endl;
 }
 
