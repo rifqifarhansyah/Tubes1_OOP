@@ -114,3 +114,6 @@ vector<Card> Flush::findMaxCombinationTable(){
     }
     return flush;
 }
+vector<Card> Flush::findFlushNumbers(vector<Card> c){
+    
+}

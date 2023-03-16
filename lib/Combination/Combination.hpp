@@ -27,6 +27,5 @@ class Combination{
         Player player;
         TableCard table;
         double totalValue;
-        string 
 };
 #endif
