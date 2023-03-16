@@ -14,5 +14,7 @@ class ThreeOfAKind : public TwoPair {
         // Find and calculate combination
         virtual void calculateMaxCombination();
         virtual vector<Card> findMaxCombinationAll();
+        friend bool operator< (ThreeOfAKind& p1, ThreeOfAKind&p2);
+        friend bool operator> (ThreeOfAKind& p1, ThreeOfAKind&p2);
 };
 #endif

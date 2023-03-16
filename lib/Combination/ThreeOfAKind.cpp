@@ -69,3 +69,9 @@ vector<Card> ThreeOfAKind::findMaxCombinationAll(){
     }
     return ThreeOfAKind;
 }
+bool operator< (ThreeOfAKind& p1, ThreeOfAKind&p2){
+    return (p1.getValue() < p2.getValue());
+}
+bool operator> (ThreeOfAKind& p1, ThreeOfAKind&p2){
+    return (p1.getValue() > p2.getValue());
+}
