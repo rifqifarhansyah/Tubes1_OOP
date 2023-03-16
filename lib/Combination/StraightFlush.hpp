@@ -15,6 +15,7 @@ class StraightFlush : public FourOfAKind {
         // Find and calculate combination
         virtual void calculateMaxCombination(Player, TableCard);
         virtual vector<Card> findMaxCombination(Player, TableCard);
+        virtual vector<Card> findMaxCombination(TableCard);
         friend bool operator< (Player& p1, Player&p2);
         friend bool operator> (Player& p1, Player&p2);
 };

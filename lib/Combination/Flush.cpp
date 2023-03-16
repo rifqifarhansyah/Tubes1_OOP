@@ -80,3 +80,37 @@ vector<Card> Flush::findMaxCombination(Player c1, TableCard c2){
     }
     return flush;
 }
+vector<Card> Flush::findMaxCombination(TableCard c2){
+    vector<Card> allCards;
+    vector<Card> playerCards;
+    vector<Card> tableCards;
+    for (int i = 4; i >= 0; i--)
+    {
+        tableCards.push_back(c2.getItem(i));
+    }
+    
+    allCards.insert(allCards.end(), playerCards.begin(), playerCards.end());
+    allCards.insert(allCards.end(), tableCards.begin(), tableCards.end());
+
+    vector<Card> flush;
+    for (const std::string& suit : {"merah", "kuning", "biru", "hijau"}) {
+        vector<Card> suitCards;
+        for (const Card& card : allCards) {
+            if (card.getColor() == suit) {
+                suitCards.push_back(card);
+            }
+        }
+        if (suitCards.size() >= 5) {
+            sort(suitCards.begin(), suitCards.end());
+            for (int i = 0; i <= suitCards.size() - 5; i++) {
+                if (suitCards[i].getNumber() - suitCards[i + 4].getNumber() == 4) {
+                    flush.insert(flush.end(), suitCards.begin() + i, suitCards.begin() + i + 5);
+                    return flush;
+                }
+            }
+            flush.insert(flush.end(), suitCards.begin(), suitCards.begin() + 5);
+            return flush;
+        }
+    }
+    return flush;
+}
